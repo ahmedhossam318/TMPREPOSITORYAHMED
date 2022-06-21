@@ -48,8 +48,10 @@ public class AuthServiceImpl implements AuthService{
 				.map(item -> item.getAuthority())
 				.collect(Collectors.toList());
 		
-		List<String> scopes =userScopeRepo.getUserDataScopeByUSER_NAME(user.getUsername()).stream().map(item -> item.getVALUE())
-		.collect(Collectors.toList());
+//		List<String> scopes =userScopeRepo.getUserDataScopeByUSER_NAME(user.getUsername()).stream().map(item -> item.getVALUE())
+//		.collect(Collectors.toList());
+		
+		List<String> scopes =userScopeRepo.getUserDataScopeByUSER_NAME(user.getUsername());
 		
 		logger.info("Successful login for user: {}", loginRequest.getUsername());
 		return new JwtResponse(jwt, null, user.getUsername(), authorities,scopes);
