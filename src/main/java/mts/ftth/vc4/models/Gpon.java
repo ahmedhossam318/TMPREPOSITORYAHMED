@@ -12,12 +12,21 @@ public class Gpon {
 	private String gponmodel;
 	private String installationlocation;
 	private String popname;
+	private String popid;
 	private String exchangename;
 	private String exchange;
 	private String gponname;
 	private String rowVersion;
 	private String hasErrors;
 	private String errors;
+	
+	
+	public String getPopid() {
+		return popid;
+	}
+	public void setPopid(String popid) {
+		this.popid = popid;
+	}
 	
 	public String getGponid() {
 		return gponid;

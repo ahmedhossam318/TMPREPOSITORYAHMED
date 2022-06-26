@@ -32,7 +32,7 @@ public class GponServiceImpl implements GponService{
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Gpon>GetAllGpon(String vc4Tocken,int PaginatorStartElement , int PaginatorNumberOfElements){
+	public List<Gpon>GetAllGpon(String vc4Tocken,int PaginatorStartElement , int PaginatorNumberOfElements,String exchCode){
 		List<Gpon> gponList = new ArrayList<Gpon>();
 		String passToken ="";
 		SSLTool sl = new SSLTool();
@@ -41,11 +41,12 @@ public class GponServiceImpl implements GponService{
 		OkHttpClient client = new OkHttpClient().newBuilder().build();
 		MediaType mediaType = MediaType.parse("text/plain");
 		Request request = new Request.Builder()
-				  .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_GPON_LIST/filtered/id>0?PaginatorStartElement="+PaginatorStartElement+"&PaginatorNumberOfElements="+PaginatorNumberOfElements)
+				  .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_GPON_LIST/filtered/exchcode== \""+exchCode+"\"?PaginatorStartElement="+PaginatorStartElement+"&PaginatorNumberOfElements="+PaginatorNumberOfElements)
 				  .method("GET",null)
 				  .addHeader("Authorization", passToken)
 				  .build();
-		try {
+		
+        try {
 			client = sl.getUnsafeOkHttpClient();
 			Response response = client.newCall(request).execute();
 			
