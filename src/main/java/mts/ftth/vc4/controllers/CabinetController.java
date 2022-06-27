@@ -82,4 +82,22 @@ private static final Logger logger = LogManager.getLogger(GponController.class);
 		ResponseEntity<APIResponse> res = cabinetService.GetCabTBoxList(token, cabId);
 		return res;
 	}
+	
+	@GetMapping("/getSpliierPortList")
+	public ResponseEntity<APIResponse> getSpliierPortList(@RequestParam(value = "SplitterId") String splitterId){
+		String token ="";
+		APIResponse response=new APIResponse();
+		logger.info("##############################################");
+		logger.info("Client request to fetch getCabTBoxList...");
+		logger.info("##############################################");
+		token = vc4Token.getVc4Token();
+		System.out.println("tt :" +token);
+		if(token.equals("Fail")) {
+			response.setStatus(HttpStatus.REQUEST_TIMEOUT);
+			response.setStatusCode(HttpStatus.REQUEST_TIMEOUT.value());
+			return new ResponseEntity<APIResponse>(response, HttpStatus.REQUEST_TIMEOUT);
+		}
+		ResponseEntity<APIResponse> res = cabinetService.GetSplitterPortList(token, splitterId);
+		return res;
+	}
 }

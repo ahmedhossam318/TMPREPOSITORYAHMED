@@ -85,7 +85,7 @@ public class GponController {
 	
 	@GetMapping("/getGponList")
 	public ResponseEntity<APIResponse> getAllGpon(@RequestParam(value = "PaginatorStartElement") int paginatorStartElement,
-			@RequestParam(value = "PaginatorNumberOfElements") int paginatorNumberOfElements){
+			@RequestParam(value = "PaginatorNumberOfElements") int paginatorNumberOfElements ,@RequestParam(value = "ExchCode") String exchCode){
 		String token ="";
 		
 		logger.info("##############################################");
@@ -103,7 +103,7 @@ public class GponController {
 				response.setStatusCode(HttpStatus.REQUEST_TIMEOUT.value());
 				return new ResponseEntity<APIResponse>(response, HttpStatus.REQUEST_TIMEOUT);
 			}
-			gpons=gponService.GetAllGpon(token, paginatorStartElement, paginatorNumberOfElements);
+			gpons=gponService.GetAllGpon(token, paginatorStartElement, paginatorNumberOfElements,exchCode);
 			
 		response.setStatus(HttpStatus.OK);
 		response.setStatusCode(HttpStatus.OK.value());
