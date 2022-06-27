@@ -2,9 +2,11 @@ package mts.ftth.vc4.services;
 
 
 import mts.ftth.vc4.models.Element;
+import mts.ftth.vc4.models.FTTHNeOutage;
+
+import java.util.List;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import mts.ftth.vc4.payload.response.APIResponse;
 
@@ -19,4 +21,6 @@ public interface NeAlarmJobService {
 	
 	public String finishJob(String neType,Long vc4Id,String faultyReason, String finishUser
 			,String actualClosureDate, String notes,String faultCode);
+	
+	public List<FTTHNeOutage> getElementJobs(String type);
 }

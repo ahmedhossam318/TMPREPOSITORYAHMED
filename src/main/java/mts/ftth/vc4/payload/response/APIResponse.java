@@ -1,6 +1,7 @@
 package mts.ftth.vc4.payload.response;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.http.HttpStatus;
@@ -11,6 +12,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import mts.ftth.vc4.models.FTTHNeOutage;
 
 @Data
 @SuperBuilder
@@ -29,5 +31,5 @@ public class APIResponse {
 	protected Map<?, ?> data;
 	protected Long jobStatus;
 	protected String finishStatus;
-	
+	protected List<FTTHNeOutage> elementJobs; 
 }

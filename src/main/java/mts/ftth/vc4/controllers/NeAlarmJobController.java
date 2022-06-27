@@ -1,5 +1,7 @@
 package mts.ftth.vc4.controllers;
 
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
+import mts.ftth.vc4.models.FTTHNeOutage;
 import mts.ftth.vc4.payload.response.APIResponse;
 import mts.ftth.vc4.services.NeAlarmJobServiceImpl;
 
@@ -59,6 +62,19 @@ public class NeAlarmJobController {
 		
 			response.setStatus(HttpStatus.OK);
 			response.setFinishStatus(jobService.finishJob(neType,vc4Id,faultReason,finishUser,actualClosureDate,notes,faultCode));
+			return new ResponseEntity<APIResponse>(response, HttpStatus.OK);
+	}
+	@GetMapping("/getElementJobs")
+	public ResponseEntity<APIResponse> getElementJobs(@RequestParam(value = "elementType") String neType){
+		
+		APIResponse response=new APIResponse();
+		logger.info("##############################################");
+		logger.info("Client request to fetch job status...");
+		logger.info("##############################################");
+		
+		List<FTTHNeOutage> elementJobs =jobService.getElementJobs(neType);
+			response.setStatus(HttpStatus.OK);
+			response.setElementJobs(elementJobs);
 			return new ResponseEntity<APIResponse>(response, HttpStatus.OK);
 	}
 

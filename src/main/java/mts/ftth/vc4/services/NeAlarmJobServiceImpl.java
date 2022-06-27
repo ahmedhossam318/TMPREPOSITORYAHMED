@@ -2,27 +2,17 @@ package mts.ftth.vc4.services;
 
 import mts.ftth.vc4.models.Element;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import mts.ftth.vc4.models.FTTHNeOutage;
-import mts.ftth.vc4.models.NeBoxAlarmJob;
-import mts.ftth.vc4.models.NeCabinetAlarmJob;
-import mts.ftth.vc4.models.NeGponAlarmJob;
-import mts.ftth.vc4.models.NeGponCardAlarmJob;
-import mts.ftth.vc4.models.NeGponPortAlarmJob;
 import mts.ftth.vc4.payload.response.APIResponse;
 import mts.ftth.vc4.repos.AlarmFactoryRepo;
 import mts.ftth.vc4.repos.AlarmJobRepository;
 import mts.ftth.vc4.repos.FTTHNeOutageRepositry;
-import mts.ftth.vc4.repos.NeBoxAlarmJobRepository;
-import mts.ftth.vc4.repos.NeCabinetAlarmJobRepository;
-import mts.ftth.vc4.repos.NeGponAlarmJobRepository;
-import mts.ftth.vc4.repos.NeGponCardAlarmJobRepository;
-import mts.ftth.vc4.repos.NeGponPortAlarmJobRepository;
-import mts.ftth.vc4.repos.NeTypeFactory;
 
 @Service
 public class NeAlarmJobServiceImpl implements NeAlarmJobService {
@@ -34,12 +24,7 @@ public class NeAlarmJobServiceImpl implements NeAlarmJobService {
 	@Autowired
 	AlarmFactoryRepo aFactory;
 
-//	@Override
-//	public List<NeAlarmJob> getAllJob(String neType, String vc4Id) {
-//		// TODO Auto-generated method stub
-//		
-//		return null;
-//	}
+
 
 	@Override
 	public long queryJob(long vc4Id) {
@@ -97,6 +82,16 @@ public class NeAlarmJobServiceImpl implements NeAlarmJobService {
 	public ResponseEntity<APIResponse> createJob(String neType, Element element) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+
+
+	@Override
+	public List<FTTHNeOutage> getElementJobs(String type) {
+		// TODO Auto-generated method stub
+		List<FTTHNeOutage> elementJobs = neRepository.findAllByNeType(type);
+		return elementJobs;
 	}
 
 }
