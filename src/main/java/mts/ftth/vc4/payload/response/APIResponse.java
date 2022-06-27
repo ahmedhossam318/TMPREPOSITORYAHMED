@@ -27,5 +27,7 @@ public class APIResponse {
 	protected String developerMessage;
 	protected Object body;
 	protected Map<?, ?> data;
+	protected Long jobStatus;
+	protected String finishStatus;
 	
 }

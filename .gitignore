@@ -3,6 +3,7 @@
 
 # Log file
 *.log
+*.log.gz
 
 # BlueJ files
 *.ctxt
@@ -21,3 +22,6 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+target/scheduled_report_builder-0.0.1-SNAPSHOT/WEB-INF/classes/META-INF/maven/com.example/scheduled_report_builder/pom.properties
+*.gz
+target/
