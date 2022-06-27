@@ -25,3 +25,7 @@ hs_err_pid*
 target/scheduled_report_builder-0.0.1-SNAPSHOT/WEB-INF/classes/META-INF/maven/com.example/scheduled_report_builder/pom.properties
 *.gz
 target/
+target/classes/META-INF/MANIFEST.MF
+target/classes/META-INF/maven/com.example/scheduled_report_builder/pom.properties
+target/classes/META-INF/maven/com.example/scheduled_report_builder/pom.properties
+target/classes/META-INF/MANIFEST.MF
