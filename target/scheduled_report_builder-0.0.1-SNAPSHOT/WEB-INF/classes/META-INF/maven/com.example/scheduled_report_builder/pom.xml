@@ -99,13 +99,17 @@
 		</dependency>
 		
 		
-		<dependency>
+	  <dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		
+		<!--<dependency>
            <groupId>com.oracle.database.jdbc</groupId>
            <artifactId>ojdbc6</artifactId>
            <version>11.2.0.4</version>
-		</dependency>
-
-		
+           </dependency>-->
 		<!-- Security -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -153,6 +157,19 @@
 		<artifactId>unboundid-ldapsdk</artifactId>
 	</dependency>
         -->
+        <!-- https://mvnrepository.com/artifact/com.oracle.ojdbc/orai18n -->
+<dependency>
+    <groupId>com.oracle.ojdbc</groupId>
+    <artifactId>orai18n</artifactId>
+    <version>19.3.0.0</version>
+</dependency>
+        <!-- https://mvnrepository.com/artifact/com.auth0/java-jwt -->
+<dependency>
+    <groupId>com.auth0</groupId>
+    <artifactId>java-jwt</artifactId>
+    <version>4.0.0</version>
+</dependency>
+        
 	</dependencies>
 
 	<build>
