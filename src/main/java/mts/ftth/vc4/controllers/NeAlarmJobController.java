@@ -64,8 +64,8 @@ public class NeAlarmJobController {
 			response.setFinishStatus(jobService.finishJob(neType,vc4Id,faultReason,finishUser,actualClosureDate,notes,faultCode));
 			return new ResponseEntity<APIResponse>(response, HttpStatus.OK);
 	}
-	@GetMapping("/getElementJobs")
-	public ResponseEntity<APIResponse> getElementJobs(@RequestParam(value = "elementType") String neType){
+	@GetMapping("/getElementFaulty")
+	public ResponseEntity<APIResponse> getElementFaulty(@RequestParam(value = "elementType") String neType){
 		
 		APIResponse response=new APIResponse();
 		logger.info("##############################################");
