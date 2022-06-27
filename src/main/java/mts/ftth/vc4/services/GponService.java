@@ -8,7 +8,7 @@ import mts.ftth.vc4.models.Gpon;
 import mts.ftth.vc4.payload.response.APIResponse;
 
 public interface GponService {
-	public List<Gpon>GetAllGpon(String vc4Tocken,int PaginatorStartElement , int PaginatorNumberOfElements,String exchCode);
+	public ResponseEntity<APIResponse> GetAllGpon(String vc4Tocken,int PaginatorStartElement , int PaginatorNumberOfElements,String exchCode);
 	
 	public ResponseEntity<APIResponse> GetGponCards(String vc4Tocken,String gponId);
 	

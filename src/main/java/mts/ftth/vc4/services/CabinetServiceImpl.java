@@ -67,8 +67,22 @@ public class CabinetServiceImpl implements CabinetService{
 			Response response = client.newCall(request).execute();
 			
 			responseCode = response.code();
-			responseMsg =response.message();
 			System.out.println("response code: "+response.code());
+			if(responseCode == 401) {
+				vc4Token.token = vc4Token.getVc4Token();
+				vc4Tocken = vc4Token.token;
+				passToken = "Bearer "+vc4Tocken;
+				request = new Request.Builder()
+						  .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_CABINET_LIST/filtered/EXCHCODE== \""+exchCode+"\"")
+						  .method("GET", null)
+						  .addHeader("Authorization", passToken)
+						  .build();
+				
+				client = sl.getUnsafeOkHttpClient();
+			    response = client.newCall(request).execute();
+			}
+			
+			responseMsg =response.message();
 			String str = response.body().string();
 			System.out.println("response exch cab list: "+str);
 			
@@ -138,8 +152,22 @@ public class CabinetServiceImpl implements CabinetService{
 			Response response = client.newCall(request).execute();
 			
 			responseCode = response.code();
-			responseMsg =response.message();
 			System.out.println("response code: "+response.code());
+			if(responseCode == 401) {
+				vc4Token.token = vc4Token.getVc4Token();
+				vc4Tocken = vc4Token.token;
+				passToken = "Bearer "+vc4Tocken;
+				request = new Request.Builder()
+						  .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_CABINET_SPLITTERS_LIST/filtered/cabinetid== "+cabId)
+						  .method("GET", null)
+						  .addHeader("Authorization", passToken)
+						  .build();
+				
+				client = sl.getUnsafeOkHttpClient();
+			    response = client.newCall(request).execute();
+			}
+			
+			responseMsg =response.message();
 			String str = response.body().string();
 			System.out.println("response  GetCabSplitterList: "+str);
 			
@@ -208,8 +236,22 @@ public class CabinetServiceImpl implements CabinetService{
 			Response response = client.newCall(request).execute();
 			
 			responseCode = response.code();
-			responseMsg =response.message();
 			System.out.println("response code: "+response.code());
+			if(responseCode == 401) {
+				vc4Token.token = vc4Token.getVc4Token();
+				vc4Tocken = vc4Token.token;
+				passToken = "Bearer "+vc4Tocken;
+				request = new Request.Builder()
+						  .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_TB_SPLITTERS_LIST/filtered/cabinetid== "+cabId)
+						  .method("GET", null)
+						  .addHeader("Authorization", passToken)
+						  .build();
+				
+				client = sl.getUnsafeOkHttpClient();
+			    response = client.newCall(request).execute();
+			}
+			
+			responseMsg =response.message();
 			String str = response.body().string();
 			System.out.println("response GetCabTBoxList : "+str);
 			
@@ -284,8 +326,22 @@ public class CabinetServiceImpl implements CabinetService{
 			Response response = client.newCall(request).execute();
 			
 			responseCode = response.code();
-			responseMsg =response.message();
 			System.out.println("response code: "+response.code());
+			if(responseCode == 401) {
+				vc4Token.token = vc4Token.getVc4Token();
+				vc4Tocken = vc4Token.token;
+				passToken = "Bearer "+vc4Tocken;
+				request = new Request.Builder()
+						  .url(vc4Token.getUrl()+"/api/ims/CustomDataOperation/ExecuteProcedure/GetNodePorts")
+						  .method("GET", null)
+						  .addHeader("Authorization", passToken)
+						  .build();
+				
+				client = sl.getUnsafeOkHttpClient();
+			    response = client.newCall(request).execute();
+			}
+			
+			responseMsg =response.message();
 			String str = response.body().string();
 			System.out.println("response GetSplitterPortList : "+str);
 			

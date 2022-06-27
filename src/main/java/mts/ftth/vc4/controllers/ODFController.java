@@ -35,7 +35,7 @@ private static final Logger logger = LogManager.getLogger(GponController.class);
 		logger.info("##############################################");
 		logger.info("Client request to fetch getODFList...");
 		logger.info("##############################################");
-		token = vc4Token.getVc4Token();
+		token = vc4Token.token;
 		System.out.println("tt :" +token);
 		if(token.equals("Fail")) {
 			response.setStatus(HttpStatus.REQUEST_TIMEOUT);
@@ -55,7 +55,7 @@ private static final Logger logger = LogManager.getLogger(GponController.class);
 		logger.info("##############################################");
 		logger.info("Client request to fetch getODFPortList...");
 		logger.info("##############################################");
-		token = vc4Token.getVc4Token();
+		token = vc4Token.token;
 		System.out.println("tt :" +token);
 		if(token.equals("Fail")) {
 			response.setStatus(HttpStatus.REQUEST_TIMEOUT);
