@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -31,6 +33,7 @@ public class VC4Token implements WebMvcConfigurer {
 //	private String userName ;
 //	@Value("${vc4.password}")
 //	private String password ;
+	public static String token;
 	
 	@Autowired
 	private Environment env;
@@ -91,5 +94,10 @@ public class VC4Token implements WebMvcConfigurer {
 	public void setUrl(String url) {
 		this.url = url;
 	}
+	
+	@PostConstruct
+    private void postConstruct() {
+        token = getVc4Token();
+    }
 
 }

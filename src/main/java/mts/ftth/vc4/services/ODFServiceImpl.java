@@ -52,8 +52,21 @@ public class ODFServiceImpl implements ODFService {
 			Response response = client.newCall(request).execute();
 			
 			responseCode = response.code();
-			responseMsg =response.message();
 			System.out.println("response code: "+response.code());
+			if(responseCode == 401) {
+				vc4Token.token = vc4Token.getVc4Token();
+				vc4Tocken = vc4Token.token;
+				passToken = "Bearer "+vc4Tocken;
+				request = new Request.Builder()
+						  .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_MMR_ODF_LIST/filtered/ID>0")
+						  .method("GET", null)
+						  .addHeader("Authorization", passToken)
+						  .build();
+				
+				client = sl.getUnsafeOkHttpClient();
+			    response = client.newCall(request).execute();
+			}
+			responseMsg =response.message();
 			String str = response.body().string();
 			System.out.println("response GetODFList : "+str);
 			
@@ -120,8 +133,21 @@ public class ODFServiceImpl implements ODFService {
 			Response response = client.newCall(request).execute();
 			
 			responseCode = response.code();
-			responseMsg =response.message();
 			System.out.println("response code: "+response.code());
+			if(responseCode == 401) {
+				vc4Token.token = vc4Token.getVc4Token();
+				vc4Tocken = vc4Token.token;
+				passToken = "Bearer "+vc4Tocken;
+				request = new Request.Builder()
+						  .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_MMR_ODF_PORTS_LIST/filtered/ODFID== "+odfId)
+						  .method("GET", null)
+						  .addHeader("Authorization", passToken)
+						  .build();
+				
+				client = sl.getUnsafeOkHttpClient();
+			    response = client.newCall(request).execute();
+			}
+			responseMsg =response.message();
 			String str = response.body().string();
 			System.out.println("response GetODFPortList : "+str);
 			
