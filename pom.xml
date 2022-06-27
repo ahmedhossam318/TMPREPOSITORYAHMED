@@ -10,10 +10,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>scheduled_report_builder</artifactId>
+	<artifactId>FCC_VC4</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>scheduled_report_builder</name>
-	<description>Demo project for Spring Boot</description>
+	<name>FCC_VC4</name>
+	<description>FCC_VC4 Backend</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
