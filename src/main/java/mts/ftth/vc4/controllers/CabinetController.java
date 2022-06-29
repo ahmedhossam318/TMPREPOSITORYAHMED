@@ -100,4 +100,17 @@ private static final Logger logger = LogManager.getLogger(GponController.class);
 		ResponseEntity<APIResponse> res = cabinetService.GetSplitterPortList(token, splitterId);
 		return res;
 	}
+	
+	@GetMapping("/getCabinetAlarmJobs")
+	public ResponseEntity<APIResponse> getCabinetAlarmJobs(@RequestParam(value = "Vc4Id") Long vc4Id){
+		ResponseEntity<APIResponse> res = cabinetService.GetCabinetAlarmJobs(vc4Id);
+		return res;
+	}
+	
+	
+	@GetMapping("/getBoxAlarmJobs")
+	public ResponseEntity<APIResponse> getBoxAlarmJobs(@RequestParam(value = "Vc4Id") Long vc4Id){
+		ResponseEntity<APIResponse> res = cabinetService.GetCabinetBoxAlarmJobs(vc4Id);
+		return res;
+	}
 }

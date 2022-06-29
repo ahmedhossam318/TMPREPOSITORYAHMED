@@ -9,4 +9,7 @@ public interface CabinetService {
 	public ResponseEntity<APIResponse> GetCabSplitterList(String vc4Tocken,String cabId);
 	public ResponseEntity<APIResponse> GetCabTBoxList(String vc4Tocken,String cabId);
 	public ResponseEntity<APIResponse> GetSplitterPortList(String vc4Tocken,String splitterId);
+	
+	public ResponseEntity<APIResponse> GetCabinetAlarmJobs(Long vc4Id);
+	public ResponseEntity<APIResponse> GetCabinetBoxAlarmJobs(Long vc4Id);
 }
