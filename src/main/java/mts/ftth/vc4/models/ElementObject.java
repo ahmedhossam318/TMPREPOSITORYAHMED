@@ -6,6 +6,7 @@ public class ElementObject {
 	private NeGponPortAlarmJob portElement;
 	private NeCabinetAlarmJob cabinetElement;
 	private NeBoxAlarmJob boxElement;
+	
 	public NeGponAlarmJob getGponElement() {
 		return gponElement;
 	}
