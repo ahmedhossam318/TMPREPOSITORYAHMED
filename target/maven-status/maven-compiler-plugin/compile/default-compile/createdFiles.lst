@@ -54,6 +54,7 @@ mts\ftth\vc4\services\ODFService.class
 mts\ftth\vc4\models\SYS_CONFIG.class
 mts\ftth\vc4\models\Cabinet.class
 mts\ftth\vc4\models\NeGponPortAlarmJob.class
+mts\ftth\vc4\models\ElementObject.class
 mts\ftth\vc4\security\WLSJmxInterface.class
 mts\ftth\vc4\models\User.class
 mts\ftth\vc4\exceptions\ApiExceptionHandler.class

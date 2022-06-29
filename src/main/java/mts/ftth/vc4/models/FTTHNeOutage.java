@@ -2,7 +2,10 @@ package mts.ftth.vc4.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -10,6 +13,8 @@ import javax.persistence.Table;
 public class FTTHNeOutage {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "id_generator")
+	@SequenceGenerator(name="id_generator", sequenceName = "vc4_alarm.FTTH_NE_OUTAGE_SEQ", allocationSize=1)
 	@Column(name="NE_ID")
 	private Long neId;
 	

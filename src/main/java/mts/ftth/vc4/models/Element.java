@@ -1,10 +1,18 @@
 package mts.ftth.vc4.models;
 
+
+
 public class Element {
-	public void setFaultReason(String s) {}
-	public void setFinishUser(String s) {}
-	public void setNotes(String s) {}
-	public void setActualRepairDate(String s) {}
-	public void setFaultCode(String s) {}
-	public void setJobFlag(Long s) {}
+	
+	public void setFaultReason(String s) {} ;
+	public void setFinishUser(String s) {};
+	public void setNotes(String s) {};
+	public void setActualRepairDate(String s) {};
+	public void setFaultCode(String s) {};
+	public void setJobFlag(Long s) {} ;
+//	public Long getVc4Id() {return null;}
+	public Long getVc4Id() {
+		// TODO Auto-generated method stub
+		return null;
+	};
 }

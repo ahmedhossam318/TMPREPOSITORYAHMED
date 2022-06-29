@@ -79,9 +79,26 @@ public class NeAlarmJobServiceImpl implements NeAlarmJobService {
 	}
 
 	@Override
-	public ResponseEntity<APIResponse> createJob(String neType, Element element) {
-		// TODO Auto-generated method stub
-		return null;
+	public String createJob(String neType, Element element) {
+		FTTHNeOutage ne = neRepository.findAllByVc4Id(element.getVc4Id());
+		if (ne != null) {
+			System.out.println("Outage element:"+ne.getVc4Id());
+			ne.setFaulty((long) 1);
+			neRepository.save(ne);
+		
+		}else{
+//			System.out.println("Outage element "+ne.getVc4Id());
+			FTTHNeOutage f = new FTTHNeOutage();
+			f.setNeType(neType);
+			f.setFaulty((long) 1);
+			f.setVc4Id(element.getVc4Id());
+			neRepository.save(f);
+			
+		
+		}
+		repository = ((AlarmJobRepository) aFactory.getNeAlarm(neType));
+		repository.save(element);
+		return "success";
 	}
 
 

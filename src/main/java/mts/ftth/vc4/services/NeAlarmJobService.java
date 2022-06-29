@@ -17,7 +17,7 @@ public interface NeAlarmJobService {
 	
 	public long queryJob(long vc4Id);
 	
-	public ResponseEntity<APIResponse> createJob(String neType,Element element);
+	public String createJob(String neType,Element element);
 	
 	public String finishJob(String neType,Long vc4Id,String faultyReason, String finishUser
 			,String actualClosureDate, String notes,String faultCode);

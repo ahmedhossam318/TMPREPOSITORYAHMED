@@ -31,5 +31,6 @@ public class APIResponse {
 	protected Map<?, ?> data;
 	protected Long jobStatus;
 	protected String finishStatus;
+	protected String createStatus;
 	protected List<FTTHNeOutage> elementJobs; 
 }

@@ -2,17 +2,150 @@ package mts.ftth.vc4.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import lombok.Data;
 
 @Entity
-@Data
+
 @Table(name="NE_GPON_CARD_ALARM_JOB", schema = "VC4_ALARM")
 public class NeGponCardAlarmJob  extends Element {
 	
+	public Long getJobNo() {
+		return jobNo;
+	}
+
+	public void setJobNo(Long jobNo) {
+		this.jobNo = jobNo;
+	}
+
+	public Long getVc4Id() {
+		return vc4Id;
+	}
+
+	public void setVc4Id(Long vc4Id) {
+		this.vc4Id = vc4Id;
+	}
+
+	public String getPromisedRepairDate() {
+		return promisedRepairDate;
+	}
+
+	public void setPromisedRepairDate(String promisedRepairDate) {
+		this.promisedRepairDate = promisedRepairDate;
+	}
+
+	public String getActualRepairDate() {
+		return actualRepairDate;
+	}
+
+	public void setActualRepairDate(String actualRepairDate) {
+		this.actualRepairDate = actualRepairDate;
+	}
+
+	public String getInstanceClosure() {
+		return instanceClosure;
+	}
+
+	public void setInstanceClosure(String instanceClosure) {
+		this.instanceClosure = instanceClosure;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public Long getJobFlag() {
+		return jobFlag;
+	}
+
+	public void setJobFlag(Long jobFlag) {
+		this.jobFlag = jobFlag;
+	}
+
+	public String getOutOfService() {
+		return outOfService;
+	}
+
+	public void setOutOfService(String outOfService) {
+		this.outOfService = outOfService;
+	}
+
+	public String getJobDate() {
+		return jobDate;
+	}
+
+	public void setJobDate(String jobDate) {
+		this.jobDate = jobDate;
+	}
+
+	public String getFinishUser() {
+		return finishUser;
+	}
+
+	public void setFinishUser(String finishUser) {
+		this.finishUser = finishUser;
+	}
+
+	public String getNotes() {
+		return notes;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
+
+	public String getFaultReason() {
+		return faultReason;
+	}
+
+	public void setFaultReason(String faultReason) {
+		this.faultReason = faultReason;
+	}
+
+	public String getJponId() {
+		return jponId;
+	}
+
+	public void setJponId(String jponId) {
+		this.jponId = jponId;
+	}
+
+	public String getShelfId() {
+		return shelfId;
+	}
+
+	public void setShelfId(String shelfId) {
+		this.shelfId = shelfId;
+	}
+
+	public String getSlotId() {
+		return slotId;
+	}
+
+	public void setSlotId(String slotId) {
+		this.slotId = slotId;
+	}
+
+	public String getFaultCode() {
+		return faultCode;
+	}
+
+	public void setFaultCode(String faultCode) {
+		this.faultCode = faultCode;
+	}
+
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "id_generator")
+	@SequenceGenerator(name="id_generator", sequenceName = "vc4_alarm.JOB_ID_SEQ", allocationSize=1)
 	@Column(name="JOB_NO")
 	Long jobNo;
 	
@@ -32,7 +165,7 @@ public class NeGponCardAlarmJob  extends Element {
 	String userName;
 	
 	@Column(name="JOB_FLAG")
-	Long jobFlag;
+	Long jobFlag=(long) 1;
 	
 	@Column(name="OUT_OF_SERVICE")
 	String outOfService;
