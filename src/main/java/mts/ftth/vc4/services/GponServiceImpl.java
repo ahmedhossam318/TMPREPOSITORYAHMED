@@ -16,7 +16,14 @@ import mts.ftth.vc4.controllers.VC4Token;
 import mts.ftth.vc4.models.Gpon;
 import mts.ftth.vc4.models.GponCard;
 import mts.ftth.vc4.models.GponCardPort;
+import mts.ftth.vc4.models.NeGponAlarmJob;
+import mts.ftth.vc4.models.NeGponCardAlarmJob;
+import mts.ftth.vc4.models.NeGponPortAlarmJob;
 import mts.ftth.vc4.payload.response.APIResponse;
+import mts.ftth.vc4.repos.NeGponAlarmJobRepository;
+import mts.ftth.vc4.repos.NeGponCardAlarmJobRepository;
+import mts.ftth.vc4.repos.NeGponPortAlarmJobRepository;
+import mts.ftth.vc4.repos.SysConfigRepo;
 import mts.ftth.vc4.security.SSLTool;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -29,6 +36,15 @@ import java.io.IOException;
 public class GponServiceImpl implements GponService{
 	@Autowired
 	VC4Token vc4Token;
+	
+	@Autowired
+	NeGponAlarmJobRepository gponAlarmJobRepo;
+	
+	@Autowired
+	NeGponCardAlarmJobRepository gponCardAlarmJobRepo;
+
+	@Autowired
+	NeGponPortAlarmJobRepository gponPortAlarmJobRepo;
 	
 	@SuppressWarnings("unchecked")
 	@Override
@@ -282,6 +298,65 @@ public class GponServiceImpl implements GponService{
 		}
 
 		
+		return  new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public ResponseEntity<APIResponse> GetGponAlarmJobs(Long vc4Id){
+		APIResponse apiResponse=new APIResponse();
+		List<NeGponAlarmJob> gponJobs = new ArrayList<NeGponAlarmJob>();
+		
+		gponJobs=  gponAlarmJobRepo.findGponJobsByVc4Id(vc4Id);
+		System.out.println("gponJobs.isEmpty() : "+gponJobs.isEmpty());
+		if(gponJobs == null || gponJobs.isEmpty())
+			apiResponse.setClientMessage("NO_DATA_FOUND");
+		else
+			apiResponse.setClientMessage("Success");
+		
+		apiResponse.setStatus(HttpStatus.OK);
+        apiResponse.setStatusCode(HttpStatus.OK.value());
+        apiResponse.setBody(gponJobs);
+        
+		return  new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public ResponseEntity<APIResponse> GetGponCardAlarmJobs(Long vc4Id){
+		APIResponse apiResponse=new APIResponse();
+		List<NeGponCardAlarmJob> gponCardJobs = new ArrayList<NeGponCardAlarmJob>();
+		
+		gponCardJobs=  gponCardAlarmJobRepo.findGponCardJobsByVc4Id(vc4Id);
+		if(gponCardJobs == null || gponCardJobs.isEmpty())
+			apiResponse.setClientMessage("NO_DATA_FOUND");
+		else
+			apiResponse.setClientMessage("Success");
+		
+		apiResponse.setStatus(HttpStatus.OK);
+        apiResponse.setStatusCode(HttpStatus.OK.value());
+        apiResponse.setBody(gponCardJobs);
+        
+		return  new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public ResponseEntity<APIResponse> GetGponPortAlarmJobs(Long vc4Id){
+		APIResponse apiResponse=new APIResponse();
+		List<NeGponPortAlarmJob> gponPortJobs = new ArrayList<NeGponPortAlarmJob>();
+		
+		gponPortJobs=  gponPortAlarmJobRepo.findGponPortJobsByVc4Id(vc4Id);
+		if(gponPortJobs == null || gponPortJobs.isEmpty())
+			apiResponse.setClientMessage("NO_DATA_FOUND");
+		else
+			apiResponse.setClientMessage("Success");
+		
+		apiResponse.setStatus(HttpStatus.OK);
+        apiResponse.setStatusCode(HttpStatus.OK.value());
+        apiResponse.setBody(gponPortJobs);
+        
 		return  new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
 	}
 }

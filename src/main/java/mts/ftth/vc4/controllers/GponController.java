@@ -123,4 +123,23 @@ public class GponController {
 		ResponseEntity<APIResponse> res = gponService.GetGponCardPorts(token, cardId);
 		return res;
 	}
+	
+	
+	@GetMapping("/getGponAlarmJobs")
+	public ResponseEntity<APIResponse> getGponAlarmJobs(@RequestParam(value = "Vc4Id") Long vc4Id){
+		ResponseEntity<APIResponse> res = gponService.GetGponAlarmJobs(vc4Id);
+		return res;
+	}
+	
+	@GetMapping("/getGponCardAlarmJobs")
+	public ResponseEntity<APIResponse> getGponCardAlarmJobs(@RequestParam(value = "Vc4Id") Long vc4Id){
+		ResponseEntity<APIResponse> res = gponService.GetGponCardAlarmJobs(vc4Id);
+		return res;
+	}
+	
+	@GetMapping("/getGponPortAlarmJobs")
+	public ResponseEntity<APIResponse> getGponPortAlarmJobs(@RequestParam(value = "Vc4Id") Long vc4Id){
+		ResponseEntity<APIResponse> res = gponService.GetGponPortAlarmJobs(vc4Id);
+		return res;
+	}
 }

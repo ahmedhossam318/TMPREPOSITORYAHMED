@@ -18,11 +18,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import mts.ftth.vc4.controllers.VC4Token;
 import mts.ftth.vc4.models.Cabinet;
 import mts.ftth.vc4.models.GponCard;
+import mts.ftth.vc4.models.NeBoxAlarmJob;
+import mts.ftth.vc4.models.NeCabinetAlarmJob;
+import mts.ftth.vc4.models.NeGponPortAlarmJob;
 import mts.ftth.vc4.models.Splitter;
 import mts.ftth.vc4.models.SplitterPort;
 import mts.ftth.vc4.models.SplitterPortResponse;
 import mts.ftth.vc4.models.TBox;
 import mts.ftth.vc4.payload.response.APIResponse;
+import mts.ftth.vc4.repos.NeBoxAlarmJobRepository;
+import mts.ftth.vc4.repos.NeCabinetAlarmJobRepository;
+import mts.ftth.vc4.repos.NeGponAlarmJobRepository;
 import mts.ftth.vc4.security.SSLTool;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -41,6 +47,12 @@ public class CabinetServiceImpl implements CabinetService{
 	
 	@Autowired
 	SplitterPortResponse portResponse ;
+	
+	@Autowired
+	NeCabinetAlarmJobRepository cabinetAlarmJobRepo;
+	
+	@Autowired
+	NeBoxAlarmJobRepository boxAlarmJobRepo;
 	
 	@SuppressWarnings("unchecked")
 	@Override
@@ -387,6 +399,44 @@ public class CabinetServiceImpl implements CabinetService{
 		}
 
 		
+		return  new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public ResponseEntity<APIResponse> GetCabinetAlarmJobs(Long vc4Id){
+		APIResponse apiResponse=new APIResponse();
+		List<NeCabinetAlarmJob> cabinetJobs = new ArrayList<NeCabinetAlarmJob>();
+		
+		cabinetJobs=  cabinetAlarmJobRepo.findCabinetJobsByVc4Id(vc4Id);
+		if(cabinetJobs == null || cabinetJobs.isEmpty())
+			apiResponse.setClientMessage("NO_DATA_FOUND");
+		else
+			apiResponse.setClientMessage("Success");
+		
+		apiResponse.setStatus(HttpStatus.OK);
+        apiResponse.setStatusCode(HttpStatus.OK.value());
+        apiResponse.setBody(cabinetJobs);
+        
+		return  new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public ResponseEntity<APIResponse> GetCabinetBoxAlarmJobs(Long vc4Id){
+		APIResponse apiResponse=new APIResponse();
+		List<NeBoxAlarmJob> boxJobs = new ArrayList<NeBoxAlarmJob>();
+		
+		boxJobs=  boxAlarmJobRepo.findBoxJobsByVc4Id(vc4Id);
+		if(boxJobs == null || boxJobs.isEmpty())
+			apiResponse.setClientMessage("NO_DATA_FOUND");
+		else
+			apiResponse.setClientMessage("Success");
+		
+		apiResponse.setStatus(HttpStatus.OK);
+        apiResponse.setStatusCode(HttpStatus.OK.value());
+        apiResponse.setBody(boxJobs);
+        
 		return  new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
 	}
 
