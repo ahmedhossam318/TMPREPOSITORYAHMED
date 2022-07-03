@@ -65,7 +65,7 @@ public class NeAlarmJobController {
 	@PostMapping("/finishJob")
 	public ResponseEntity<APIResponse> finishJob(@RequestParam(value = "elementType") String neType,@RequestParam(value = "VC4Id") long vc4Id
 			,@RequestParam(value = "faultReason") String faultReason,@RequestParam(value = "finishUser") String finishUser
-			,@RequestParam(value = "actualClosureDate") String actualClosureDate,@RequestParam(value = "notes") String notes,
+			,@RequestParam(value = "actualRepairDate") String actualRepairDate,@RequestParam(value = "notes") String notes,
 			@RequestParam(value = "faultCode") String faultCode){
 		
 		APIResponse response=new APIResponse();
@@ -73,10 +73,20 @@ public class NeAlarmJobController {
 		logger.info("Client request to finish job ...");
 		logger.info("##############################################");
 		
-		
+		String finishSts = jobService.finishJob(neType,vc4Id,faultReason,finishUser,actualRepairDate,notes,faultCode);
+		if (finishSts.equals("SUCCESS")) {
 			response.setStatus(HttpStatus.OK);
-			response.setFinishStatus(jobService.finishJob(neType,vc4Id,faultReason,finishUser,actualClosureDate,notes,faultCode));
+			response.setFinishStatus("Success");
 			return new ResponseEntity<APIResponse>(response, HttpStatus.OK);
+		}else if(finishSts.equals("not_valid_repaire")) {
+			response.setStatus(HttpStatus.BAD_REQUEST);
+			response.setFinishStatus("Not Valid Repair Date");
+			return new ResponseEntity<APIResponse>(response, HttpStatus.NOT_FOUND);
+		}else {
+			response.setStatus(HttpStatus.NOT_FOUND);
+			response.setFinishStatus("Fail");
+			return new ResponseEntity<APIResponse>(response, HttpStatus.NOT_FOUND);
+		}
 	}
 	@GetMapping("/getElementFaulty")
 	public ResponseEntity<APIResponse> getElementFaulty(@RequestParam(value = "elementType") String neType){
@@ -101,7 +111,7 @@ public class NeAlarmJobController {
 //			@RequestParam(value = "faultyReason") String faultyReason,
 //			@RequestParam(value = "notes") String notes){
 		//System.out.println("element VC4ID:"+element.getVc4Id());
-       System.out.println("getVc4Id::"+element.getGponElement().getVc4Id());
+//       System.out.println("getVc4Id::"+element.getGponElement().getVc4Id());
        
 //		ObjectMapper mapper = new ObjectMapper();
 //		NeGponAlarmJob result= mapper.readValue(element, NeGponAlarmJob.class);
@@ -131,6 +141,7 @@ public class NeAlarmJobController {
 			e = (NeBoxAlarmJob) element.getBoxElement();
 
 		}
+		
 		System.out.println("element VC4ID:"+e.getVc4Id());
 		String createSts =jobService.createJob(neType,e);
 			response.setStatus(HttpStatus.OK);

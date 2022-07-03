@@ -2,6 +2,9 @@ package mts.ftth.vc4.services;
 
 import mts.ftth.vc4.models.Element;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,32 +46,54 @@ public class NeAlarmJobServiceImpl implements NeAlarmJobService {
 
 	@Override
 	public String finishJob(String neType,Long vc4Id,String faultyReason, String finishUser
-			,String actualClosureDate, String notes,String faultCode){
+			,String actualRepaireDate, String notes,String faultCode){
 		// TODO Auto-generated method stub
-		FTTHNeOutage ne = neRepository.findAllByVc4Id(vc4Id);
+		repository = ((AlarmJobRepository) aFactory.getNeAlarm(neType));
+		
+		String found = "NOT_FOUND";
 		Element c=null;
+		c = (Element) repository.findAllByVc4Id(vc4Id);
+		if (c != null) {
+//			String repDateStr = c.getActualRepairDate();
+//			Date oDate = c.getOutOfService();
+			SimpleDateFormat formatter1=new SimpleDateFormat("dd-MMM-yyyy"); 
+//			SimpleDateFormat formatter2=new SimpleDateFormat("yyyy-MMM-dd hh:mm:ss"); 
+			Date repDate=null;
+			Date outDate=c.getOutOfService();
+			Date sDate=new Date();
+			try {
+//				 String outDateStr = formatter1.format(oDate);
+				 repDate = formatter1.parse(actualRepaireDate);
+//				 outDate = formatter1.parse(outDateStr);
+				 System.out.println("repDate.compareTo(sDate):"+repDate.compareTo(sDate)+" #### "+repDate.compareTo(outDate));
+				 if(repDate.compareTo(sDate) > 0 || repDate.compareTo(outDate) < 0){
+					 System.out.println("into compare Date############");
+					 return "not_valid_repaire";
+				 }
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+			c.setFaultReason(faultyReason);
+			c.setFinishUser(finishUser);
+			c.setActualRepairDate(actualRepaireDate);
+			c.setFaultCode(faultCode);
+			c.setJobFlag((long) 0);
+			c.setNotes(notes);
+			
+			found = "FOUND";
+		}
+		repository.save(c);
+		FTTHNeOutage ne = neRepository.findAllByVc4Id(vc4Id);
+		
+		
 		if (ne != null && ne.getFaulty() == 1) {
 			ne.setFaulty((long) 0);
 			System.out.println("networkElement:"+ne.getVc4Id());
 			System.out.println("neType:"+neType);
 			neRepository.save(ne);
 
-			repository = ((AlarmJobRepository) aFactory.getNeAlarm(neType));
 			
-			String found = "NOT_FOUND";
-			
-			c = (Element) repository.findAllByVc4Id(vc4Id);
-			if (c != null) {
-				c.setFaultReason(faultyReason);
-				c.setFinishUser(finishUser);
-				c.setActualRepairDate(actualClosureDate);
-				c.setFaultCode(faultCode);
-				c.setJobFlag((long) 0);
-				c.setNotes(notes);
-				
-				found = "FOUND";
-			}
-			repository.save(c);
 			if (found.equals("FOUND")) {
 				
 				return "SUCCESS";
