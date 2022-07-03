@@ -365,17 +365,13 @@ public class CabinetServiceImpl implements CabinetService{
 					apiResponse.setClientMessage("No records found for Entity:TEAPI_GET_TB_SPLITTERS_LIST");
 					return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
 				}else {
-					
-//		               
-		                   
 					ObjectMapper mapper = new ObjectMapper();
                     mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-//                   spPorts = mapper.readValue(str, new TypeReference<List<SplitterPort>>(){});
-                     portResponse  = mapper.readValue(str, SplitterPortResponse.class);
-//                   
-                   apiResponse.setStatus(HttpStatus.OK);
-                   apiResponse.setStatusCode(HttpStatus.OK.value());
-                   apiResponse.setBody(portResponse);
+                    portResponse  = mapper.readValue(str, SplitterPortResponse.class);
+
+                    apiResponse.setStatus(HttpStatus.OK);
+                    apiResponse.setStatusCode(HttpStatus.OK.value());
+                    apiResponse.setBody(portResponse);
 				}
 				
 				if(portResponse != null)
@@ -389,6 +385,12 @@ public class CabinetServiceImpl implements CabinetService{
 				apiResponse.setClientMessage(responseMsg);
 				return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
 			}
+			if(responseCode == 500) {
+				apiResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+				apiResponse.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+				apiResponse.setClientMessage("Exception occurs. Could not execute ExecuteProcedure with Procedure:GetNodePorts.");
+				return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -397,8 +399,6 @@ public class CabinetServiceImpl implements CabinetService{
 			apiResponse.setClientMessage("An error occured while fetching audit data");
 			return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-
-		
 		return  new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
 	}
 	
