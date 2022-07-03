@@ -1,5 +1,7 @@
 package mts.ftth.vc4.models;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -73,11 +75,11 @@ public class NeGponAlarmJob  extends Element  {
 		this.jobFlag = jobFlag;
 	}
 
-	public String getOutOfService() {
+	public Date getOutOfService() {
 		return outOfService;
 	}
 
-	public void setOutOfService(String outOfService) {
+	public void setOutOfService(Date outOfService) {
 		this.outOfService = outOfService;
 	}
 
@@ -162,7 +164,7 @@ public class NeGponAlarmJob  extends Element  {
 	Long jobFlag=(long) 1;
 	
 	@Column(name="OUT_OF_SERVICE")
-	String outOfService;
+	Date outOfService;
 	
 	@Column(name="JOB_DATE")
 	String jobDate;

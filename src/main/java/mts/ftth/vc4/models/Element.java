@@ -1,6 +1,6 @@
 package mts.ftth.vc4.models;
 
-
+import java.util.Date;
 
 public class Element {
 	
@@ -14,5 +14,11 @@ public class Element {
 	public Long getVc4Id() {
 		// TODO Auto-generated method stub
 		return null;
-	};
+	}
+	public Date getOutOfService() {
+		return null;
+	}
+	public String getActualRepairDate() {
+		return null;
+	}
 }
