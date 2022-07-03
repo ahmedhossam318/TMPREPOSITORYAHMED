@@ -1,3 +1,4 @@
+D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\models\ActiveLineData.java
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\ServletInitializer.java
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\models\SplitterPort.java
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\repos\FTTHNeOutageRepositry.java
@@ -44,6 +45,7 @@ D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mt
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\services\AuditService.java
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\configuration\SpringFoxConfig.java
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\models\Element.java
+D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\services\LineCardService.java
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\services\SysConfigVC4Service.java
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\models\Cabinet.java
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\models\Role.java
@@ -59,6 +61,7 @@ D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mt
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\models\TBox.java
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\repos\SysAuditRepo.java
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\services\NeAlarmJobService.java
+D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\services\LineCardServiceImpl.java
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\repos\NeBoxAlarmJobRepository.java
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\models\GponCard.java
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\controllers\GponController.java
@@ -84,4 +87,6 @@ D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mt
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\services\ODFServiceImpl.java
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\services\SysConfigService.java
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\security\JwtProperties.java
+D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\controllers\LineCardController.java
+D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\models\ActiveLineDataResponse.java
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\models\NeBoxAlarmJob.java

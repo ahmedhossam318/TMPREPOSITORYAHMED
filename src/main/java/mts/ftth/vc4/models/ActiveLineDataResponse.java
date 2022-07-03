@@ -2,9 +2,13 @@ package mts.ftth.vc4.models;
 
 import java.io.Serializable;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class ActiveLineDataResponse implements Serializable{
 
 	/**
