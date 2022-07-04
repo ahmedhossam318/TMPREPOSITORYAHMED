@@ -18,7 +18,6 @@ import mts.ftth.vc4.services.LineCardService;
 @RestController
 @RequestMapping("/api/LineCard")
 @RequiredArgsConstructor
-@SecurityRequirement(name = "jwtsec")
 public class LineCardController {
 	private static final Logger logger = LogManager.getLogger(GponController.class);
 	

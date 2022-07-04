@@ -75,6 +75,7 @@ D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mt
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\services\SysConfigVC4ServiceImpl.java
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\services\CabinetService.java
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\models\GponCardPort.java
+D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\models\PassiveLineData.java
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\controllers\ODFController.java
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\models\NeCabinetAlarmJob.java
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\exceptions\ApiRequestException.java
@@ -85,6 +86,7 @@ D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mt
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\configuration\WLSConfig.java
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\models\UserPermission.java
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\services\ODFServiceImpl.java
+D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\models\PassiveLineDataResponse.java
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\services\SysConfigService.java
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\security\JwtProperties.java
 D:\Projects and Tasks\WFM Project\Phase3\VC4\FCC_VC4_MiddleWare\src\main\java\mts\ftth\vc4\controllers\LineCardController.java
