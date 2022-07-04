@@ -28,6 +28,7 @@ import mts.ftth.vc4.models.NeCabinetAlarmJob;
 import mts.ftth.vc4.models.NeGponAlarmJob;
 import mts.ftth.vc4.models.NeGponCardAlarmJob;
 import mts.ftth.vc4.models.NeGponPortAlarmJob;
+import mts.ftth.vc4.models.FinishObject;
 import mts.ftth.vc4.payload.response.APIResponse;
 import mts.ftth.vc4.services.NeAlarmJobServiceImpl;
 
@@ -63,17 +64,14 @@ public class NeAlarmJobController {
 	}
 	
 	@PostMapping("/finishJob")
-	public ResponseEntity<APIResponse> finishJob(@RequestParam(value = "elementType") String neType,@RequestParam(value = "VC4Id") long vc4Id
-			,@RequestParam(value = "faultReason") String faultReason,@RequestParam(value = "finishUser") String finishUser
-			,@RequestParam(value = "actualRepairDate") String actualRepairDate,@RequestParam(value = "notes") String notes,
-			@RequestParam(value = "faultCode") String faultCode){
+	public ResponseEntity<APIResponse> finishJob(@RequestBody FinishObject finish){
 		
 		APIResponse response=new APIResponse();
 		logger.info("##############################################");
 		logger.info("Client request to finish job ...");
 		logger.info("##############################################");
 		
-		String finishSts = jobService.finishJob(neType,vc4Id,faultReason,finishUser,actualRepairDate,notes,faultCode);
+		String finishSts = jobService.finishJob(finish.getNeType(),finish.getVc4Id(),finish.getFaultReason(),finish.getFinishUser(),finish.getActualRepairDate(),finish.getNotes(),finish.getFaultCode());
 		if (finishSts.equals("SUCCESS")) {
 			response.setStatus(HttpStatus.OK);
 			response.setFinishStatus("Success");
