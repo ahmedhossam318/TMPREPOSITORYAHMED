@@ -1,0 +1,648 @@
+{
+	"info": {
+		"_postman_id": "bc022bf8-6804-4a84-8665-03751dd010dc",
+		"name": "FTTH_VC4_midleware",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1320201"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\" : \"VC4\", \"password\" : \"123456789\" }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://10.19.35.75:8003/FCCVc4/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"10",
+						"19",
+						"35",
+						"75"
+					],
+					"port": "8003",
+					"path": [
+						"FCCVc4",
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Copy",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "getGponList",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJWQzQiLCJpYXQiOjE2NTY0MjE2MTksImV4cCI6MTY1NjQ1MDQxOX0.Y6ipuDm6GS8bwhroO1T2ABwswA3g9L6ZGySnULJnFNFiQ__RHHFPnaypkMXUFImKfhgmzjg4WJvLxJUzYrtymA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://10.19.35.75:8003/FCCVc4/api/gpon/getGponList?PaginatorStartElement=1&PaginatorNumberOfElements=150&ExchCode=TG5CA",
+					"protocol": "http",
+					"host": [
+						"10",
+						"19",
+						"35",
+						"75"
+					],
+					"port": "8003",
+					"path": [
+						"FCCVc4",
+						"api",
+						"gpon",
+						"getGponList"
+					],
+					"query": [
+						{
+							"key": "PaginatorStartElement",
+							"value": "1"
+						},
+						{
+							"key": "PaginatorNumberOfElements",
+							"value": "150"
+						},
+						{
+							"key": "ExchCode",
+							"value": "TG5CA"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getGponCardList",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJWQzQiLCJpYXQiOjE2NTYzMzM5MzEsImV4cCI6MTY1NjM2MjczMX0.ZgCq70q6TqiTbIi3ysdYkacD3Jb91tKJUki6tXkEJBtisS8o_Bv4V_VyXXgssBtbgGEfOTha1S05kHdLqwge_Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/api/gpon/getGponCardList?GponId=6CT4CB30-M01Z-GZ-EG",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"gpon",
+						"getGponCardList"
+					],
+					"query": [
+						{
+							"key": "GponId",
+							"value": "6CT4CB30-M01Z-GZ-EG"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cards Ports List By Card ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJWQzQiLCJpYXQiOjE2NTYzMzM5MzEsImV4cCI6MTY1NjM2MjczMX0.ZgCq70q6TqiTbIi3ysdYkacD3Jb91tKJUki6tXkEJBtisS8o_Bv4V_VyXXgssBtbgGEfOTha1S05kHdLqwge_Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/api/gpon/getGponCardPortList?CardId=2372859",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"gpon",
+						"getGponCardPortList"
+					],
+					"query": [
+						{
+							"key": "CardId",
+							"value": "2372859"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getExchCabinetList",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJWQzQiLCJpYXQiOjE2NTY0MjIwMzIsImV4cCI6MTY1NjQ1MDgzMn0.Y35hrDpC0bMxP-V90BoJBAQkMnxqvD0WhQOIz74EwYh1-MYg2ov2BEDD8cggX8LDVyv8k-zPcAckeih8rWRXjQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://10.19.35.75:8003/FCCVc4/api/cabinet/getExchCabinetList?ExchCode=TG1CA",
+					"protocol": "http",
+					"host": [
+						"10",
+						"19",
+						"35",
+						"75"
+					],
+					"port": "8003",
+					"path": [
+						"FCCVc4",
+						"api",
+						"cabinet",
+						"getExchCabinetList"
+					],
+					"query": [
+						{
+							"key": "ExchCode",
+							"value": "TG1CA"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCabSplitterList",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJWQzQiLCJpYXQiOjE2NTYzMzM5MzEsImV4cCI6MTY1NjM2MjczMX0.ZgCq70q6TqiTbIi3ysdYkacD3Jb91tKJUki6tXkEJBtisS8o_Bv4V_VyXXgssBtbgGEfOTha1S05kHdLqwge_Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/api/cabinet/getCabSplitterList?cabinetid=484752",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"cabinet",
+						"getCabSplitterList"
+					],
+					"query": [
+						{
+							"key": "cabinetid",
+							"value": "484752"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getSplitterPortList",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJWQzQiLCJpYXQiOjE2NTYzMzM5MzEsImV4cCI6MTY1NjM2MjczMX0.ZgCq70q6TqiTbIi3ysdYkacD3Jb91tKJUki6tXkEJBtisS8o_Bv4V_VyXXgssBtbgGEfOTha1S05kHdLqwge_Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/api/cabinet/getSpliierPortList?SplitterId=8587730",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"cabinet",
+						"getSpliierPortList"
+					],
+					"query": [
+						{
+							"key": "SplitterId",
+							"value": "8587730"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCabTBoxList",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJWQzQiLCJpYXQiOjE2NTYzMzM5MzEsImV4cCI6MTY1NjM2MjczMX0.ZgCq70q6TqiTbIi3ysdYkacD3Jb91tKJUki6tXkEJBtisS8o_Bv4V_VyXXgssBtbgGEfOTha1S05kHdLqwge_Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/api/cabinet/getCabTBoxList?cabinetid=484752",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"cabinet",
+						"getCabTBoxList"
+					],
+					"query": [
+						{
+							"key": "cabinetid",
+							"value": "484752"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getODFList",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJWQzQiLCJpYXQiOjE2NTYzMzM5MzEsImV4cCI6MTY1NjM2MjczMX0.ZgCq70q6TqiTbIi3ysdYkacD3Jb91tKJUki6tXkEJBtisS8o_Bv4V_VyXXgssBtbgGEfOTha1S05kHdLqwge_Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/api/odf/getODFList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"odf",
+						"getODFList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getODFPortList",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJWQzQiLCJpYXQiOjE2NTYzMzM5MzEsImV4cCI6MTY1NjM2MjczMX0.ZgCq70q6TqiTbIi3ysdYkacD3Jb91tKJUki6tXkEJBtisS8o_Bv4V_VyXXgssBtbgGEfOTha1S05kHdLqwge_Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/api/odf/getODFPortList?ODFID=63783",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"odf",
+						"getODFPortList"
+					],
+					"query": [
+						{
+							"key": "ODFID",
+							"value": "63783"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getFaultList",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJWQzQiLCJpYXQiOjE2NTYzMzM5MzEsImV4cCI6MTY1NjM2MjczMX0.ZgCq70q6TqiTbIi3ysdYkacD3Jb91tKJUki6tXkEJBtisS8o_Bv4V_VyXXgssBtbgGEfOTha1S05kHdLqwge_Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/api/lookup/getFaultList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"lookup",
+						"getFaultList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getNEFaulty",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJWQzQiLCJpYXQiOjE2NTYzNDE1MDMsImV4cCI6MTY1NjM3MDMwM30.3Ab7OvBdzVodLAP7sywGaX3JSGo_lwklJlMuGxaQHdFD0K2T9b4jtISFRDAAknm0ulHFw1z9Ilkli9xdeFZhLw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/api/alarm/getElementFaulty?elementType=GPON",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"alarm",
+						"getElementFaulty"
+					],
+					"query": [
+						{
+							"key": "elementType",
+							"value": "GPON"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getGponAlarmJobs",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJWQzQiLCJpYXQiOjE2NTY0OTIzNDcsImV4cCI6MTY1NjUyMTE0N30.SGTRGS1TSLv_ADVA-lPaZX3L8SJnnvwbymfgFgBRINCuT_FaaN7xllcW5iSSEx87RVml1LgvaozCkMVqRLTeDA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/api/gpon/getGponAlarmJobs?Vc4Id=323",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"gpon",
+						"getGponAlarmJobs"
+					],
+					"query": [
+						{
+							"key": "Vc4Id",
+							"value": "323"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getGponCardAlarmJobs",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJWQzQiLCJpYXQiOjE2NTY0OTIzNDcsImV4cCI6MTY1NjUyMTE0N30.SGTRGS1TSLv_ADVA-lPaZX3L8SJnnvwbymfgFgBRINCuT_FaaN7xllcW5iSSEx87RVml1LgvaozCkMVqRLTeDA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/api/gpon/getGponCardAlarmJobs?Vc4Id=32355",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"gpon",
+						"getGponCardAlarmJobs"
+					],
+					"query": [
+						{
+							"key": "Vc4Id",
+							"value": "32355"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getGponPortAlarmJobs",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJWQzQiLCJpYXQiOjE2NTY0OTIzNDcsImV4cCI6MTY1NjUyMTE0N30.SGTRGS1TSLv_ADVA-lPaZX3L8SJnnvwbymfgFgBRINCuT_FaaN7xllcW5iSSEx87RVml1LgvaozCkMVqRLTeDA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/api/gpon/getGponPortAlarmJobs?Vc4Id=4523",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"gpon",
+						"getGponPortAlarmJobs"
+					],
+					"query": [
+						{
+							"key": "Vc4Id",
+							"value": "4523"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPassiveAlarmJobs",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJWQzQiLCJpYXQiOjE2NTY0OTIzNDcsImV4cCI6MTY1NjUyMTE0N30.SGTRGS1TSLv_ADVA-lPaZX3L8SJnnvwbymfgFgBRINCuT_FaaN7xllcW5iSSEx87RVml1LgvaozCkMVqRLTeDA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/api/cabinet/getCabinetAlarmJobs?Vc4Id=324",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"cabinet",
+						"getCabinetAlarmJobs"
+					],
+					"query": [
+						{
+							"key": "Vc4Id",
+							"value": "324"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPassiveBoxAlarmJobs",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJWQzQiLCJpYXQiOjE2NTY0OTIzNDcsImV4cCI6MTY1NjUyMTE0N30.SGTRGS1TSLv_ADVA-lPaZX3L8SJnnvwbymfgFgBRINCuT_FaaN7xllcW5iSSEx87RVml1LgvaozCkMVqRLTeDA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/api/cabinet/getBoxAlarmJobs?Vc4Id=78",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"cabinet",
+						"getBoxAlarmJobs"
+					],
+					"query": [
+						{
+							"key": "Vc4Id",
+							"value": "78"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

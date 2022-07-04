@@ -2,13 +2,16 @@ package mts.ftth.vc4.models;
 
 import java.io.Serializable;
 
+import org.springframework.context.annotation.Configuration;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@Configuration
+@RequiredArgsConstructor
 public class ActiveLineDataResponse implements Serializable{
 
 	/**

@@ -48,4 +48,23 @@ public class LineCardController {
 		return res;
 	}
 	
+
+	@GetMapping("/getLineCardPassiveData")
+	public ResponseEntity<APIResponse> getLineCardPassiveData(@RequestParam(value = "CityCode") String cityCode,@RequestParam(value = "TelNo") String telNo){
+		String token ="";
+		APIResponse response=new APIResponse();
+		logger.info("##############################################");
+		logger.info("Client request to fetch getLineCardPassiveData...");
+		logger.info("##############################################");
+		token = vc4Token.token;
+		System.out.println("tt :" +token);
+		if(token.equals("Fail")) {
+			response.setStatus(HttpStatus.REQUEST_TIMEOUT);
+			response.setStatusCode(HttpStatus.REQUEST_TIMEOUT.value());
+			return new ResponseEntity<APIResponse>(response, HttpStatus.REQUEST_TIMEOUT);
+		}
+		ResponseEntity<APIResponse> res = linecardService.getPassiveDataLineCard(token, cityCode,telNo);
+		return res;
+	}
+
 }
