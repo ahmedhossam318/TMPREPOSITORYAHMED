@@ -62,9 +62,11 @@ public class NeAlarmJobServiceImpl implements NeAlarmJobService {
 			Date outDate=c.getOutOfService();
 			Date sDate=new Date();
 			try {
-//				 String outDateStr = formatter1.format(oDate);
+				 String outDateStr = formatter1.format(outDate);
 				 repDate = formatter1.parse(actualRepaireDate);
-//				 outDate = formatter1.parse(outDateStr);
+				 System.out.println("actualRepaireDate:"+actualRepaireDate+"outDate:"+outDate);
+				 outDate = formatter1.parse(outDateStr);
+				 System.out.println("actualRepaireDate:"+repDate+"outDate:"+outDate);
 				 System.out.println("repDate.compareTo(sDate):"+repDate.compareTo(sDate)+" #### "+repDate.compareTo(outDate));
 				 if(repDate.compareTo(sDate) > 0 || repDate.compareTo(outDate) < 0){
 					 System.out.println("into compare Date############");

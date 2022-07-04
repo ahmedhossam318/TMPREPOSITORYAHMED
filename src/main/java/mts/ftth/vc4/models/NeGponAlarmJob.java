@@ -35,11 +35,11 @@ public class NeGponAlarmJob  extends Element  {
 		this.vc4Id = vc4Id;
 	}
 
-	public String getPromisedRepairDate() {
+	public Date getPromisedRepairDate() {
 		return promisedRepairDate;
 	}
 
-	public void setPromisedRepairDate(String promisedRepairDate) {
+	public void setPromisedRepairDate(Date promisedRepairDate) {
 		this.promisedRepairDate = promisedRepairDate;
 	}
 
@@ -149,7 +149,7 @@ public class NeGponAlarmJob  extends Element  {
 	Long vc4Id;
 	
 	@Column(name="PROMISED_REPAIR_DATE")
-	String promisedRepairDate;
+	Date promisedRepairDate;
 	
 	@Column(name="ACTUAL_REPAIR_DATE")
 	String actualRepairDate;
