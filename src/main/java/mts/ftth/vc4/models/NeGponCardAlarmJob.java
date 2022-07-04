@@ -9,7 +9,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import lombok.Data;
-
+import java.util.Date;
 @Entity
 
 @Table(name="NE_GPON_CARD_ALARM_JOB", schema = "VC4_ALARM")

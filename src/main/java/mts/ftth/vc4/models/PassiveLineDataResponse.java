@@ -12,12 +12,13 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 @Configuration
 @RequiredArgsConstructor
-public class ActiveLineDataResponse implements Serializable{
-
+public class PassiveLineDataResponse implements Serializable{
+	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 7103732249124916070L;
+	
 	
 	private String message;
 	private String action;
