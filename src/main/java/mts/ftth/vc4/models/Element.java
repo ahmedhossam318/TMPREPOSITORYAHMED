@@ -7,7 +7,7 @@ public class Element {
 	public void setFaultReason(String s) {} ;
 	public void setFinishUser(String s) {};
 	public void setNotes(String s) {};
-	public void setActualRepairDate(String s) {};
+	public void setActualRepairDate(Date s) {};
 	public void setFaultCode(String s) {};
 	public void setJobFlag(Long s) {} ;
 //	public Long getVc4Id() {return null;}
@@ -18,7 +18,7 @@ public class Element {
 	public Date getOutOfService() {
 		return null;
 	}
-	public String getActualRepairDate() {
+	public Date getActualRepairDate() {
 		return null;
 	}
 }

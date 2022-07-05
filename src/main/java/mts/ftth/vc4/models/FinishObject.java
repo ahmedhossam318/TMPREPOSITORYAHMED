@@ -6,6 +6,7 @@ public class FinishObject {
 	private long vc4Id;
 	private String faultReason;
 	private String finishUser;
+	
 	private String actualRepairDate;
 	private String notes;
 	private String faultCode;

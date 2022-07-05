@@ -56,7 +56,7 @@ public class NeAlarmJobServiceImpl implements NeAlarmJobService {
 		if (c != null) {
 //			String repDateStr = c.getActualRepairDate();
 //			Date oDate = c.getOutOfService();
-			SimpleDateFormat formatter1=new SimpleDateFormat("dd-MMM-yyyy"); 
+			SimpleDateFormat formatter1=new SimpleDateFormat("dd-MMM-yyyy hh:mm"); 
 //			SimpleDateFormat formatter2=new SimpleDateFormat("yyyy-MMM-dd hh:mm:ss"); 
 			Date repDate=null;
 			Date outDate=c.getOutOfService();
@@ -78,7 +78,7 @@ public class NeAlarmJobServiceImpl implements NeAlarmJobService {
 			} 
 			c.setFaultReason(faultyReason);
 			c.setFinishUser(finishUser);
-			c.setActualRepairDate(actualRepaireDate);
+			c.setActualRepairDate(repDate);
 			c.setFaultCode(faultCode);
 			c.setJobFlag((long) 0);
 			c.setNotes(notes);

@@ -43,11 +43,11 @@ public class NeGponAlarmJob  extends Element  {
 		this.promisedRepairDate = promisedRepairDate;
 	}
 
-	public String getActualRepairDate() {
+	public Date getActualRepairDate() {
 		return actualRepairDate;
 	}
 
-	public void setActualRepairDate(String actualRepairDate) {
+	public void setActualRepairDate(Date actualRepairDate) {
 		this.actualRepairDate = actualRepairDate;
 	}
 
@@ -152,7 +152,7 @@ public class NeGponAlarmJob  extends Element  {
 	Date promisedRepairDate;
 	
 	@Column(name="ACTUAL_REPAIR_DATE")
-	String actualRepairDate;
+	Date actualRepairDate;
 	
 	@Column(name="INSTANT_CLOSURE")
 	String instanceClosure;
@@ -163,7 +163,7 @@ public class NeGponAlarmJob  extends Element  {
 	@Column(name="JOB_FLAG")
 	Long jobFlag=(long) 1;
 	
-	@Column(name="OUT_OF_SERVICE")
+	@Column(name="OUT_OF_SERVICE",insertable = false)
 	Date outOfService;
 	
 	@Column(name="JOB_DATE")
