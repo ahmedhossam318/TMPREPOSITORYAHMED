@@ -19,7 +19,7 @@ public class Splitter {
 	private String splitterport;
 	private String splittername;
 	private String status;
-	private String splitterid;
+	private String splitterno;
 	private String cabinetname;
 	private String cabinetid;
 	private String exchcode;
@@ -129,11 +129,11 @@ public class Splitter {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public String getSplitterid() {
-		return splitterid;
+	public String getSplitterno() {
+		return splitterno;
 	}
-	public void setSplitterid(String splitterid) {
-		this.splitterid = splitterid;
+	public void setSplitterno(String splitterid) {
+		this.splitterno = splitterid;
 	}
 	public String getCabinetname() {
 		return cabinetname;
