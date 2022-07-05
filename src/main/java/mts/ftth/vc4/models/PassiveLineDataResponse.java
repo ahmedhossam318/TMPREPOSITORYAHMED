@@ -22,6 +22,6 @@ public class PassiveLineDataResponse implements Serializable{
 	
 	private String message;
 	private String action;
-	private ActiveLineData parameters;
+	private PassiveLineData parameters;
 
 }

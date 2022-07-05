@@ -46,12 +46,17 @@ public class LineCardServiceImpl implements LineCardService{
 		int responseCode = 0;
 		String responseMsg = "";
 		APIResponse apiResponse=new APIResponse();
-		
+		String newCity = "";
+		if( cityCode.length()==1) {
+			newCity = "0"+ cityCode;
+		}else {
+			newCity = cityCode;
+		}
 		passToken = "Bearer "+vc4Tocken;
 		OkHttpClient client = new OkHttpClient().newBuilder()
 				  .build();
 		MediaType mediaType = MediaType.parse("application/json");
-		RequestBody body = RequestBody.create(mediaType, "{\r\n    \"CITY_CODE\": \""+cityCode+"\",\r\n    \"TEL_NO\": \""+telNo+"\"\r\n}");
+		RequestBody body = RequestBody.create(mediaType, "{\r\n    \"CITY_CODE\": \""+newCity+"\",\r\n    \"TEL_NO\": \""+telNo+"\"\r\n}");
 		Request request = new Request.Builder()
 			      .url(vc4Token.getUrl()+"/api/ims/CustomDataOperation/ExecuteProcedure/QueryLineActiveInfo")
 				  .method("POST", body)
@@ -142,12 +147,17 @@ public class LineCardServiceImpl implements LineCardService{
 		int responseCode = 0;
 		String responseMsg = "";
 		APIResponse apiResponse=new APIResponse();
-		
+		String newCity = "";
+		if( cityCode.length()==1) {
+			newCity = "0"+ cityCode;
+		}else {
+			newCity = cityCode;
+		}
 		passToken = "Bearer "+vc4Tocken;
 		OkHttpClient client = new OkHttpClient().newBuilder()
 				  .build();
 		MediaType mediaType = MediaType.parse("application/json");
-		RequestBody body = RequestBody.create(mediaType, "{\r\n    \"CITY_CODE\": \""+cityCode+"\",\r\n    \"TEL_NO\": \""+telNo+"\"\r\n}");
+		RequestBody body = RequestBody.create(mediaType, "{\r\n    \"CITY_CODE\": \""+newCity+"\",\r\n    \"TEL_NO\": \""+telNo+"\"\r\n}");
 		Request request = new Request.Builder()
 			      .url(vc4Token.getUrl()+"/api/ims/CustomDataOperation/ExecuteProcedure/QueryLinePassiveInfo")
 				  .method("POST", body)
