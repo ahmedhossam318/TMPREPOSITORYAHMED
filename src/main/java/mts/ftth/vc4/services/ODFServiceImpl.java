@@ -190,4 +190,86 @@ public class ODFServiceImpl implements ODFService {
 		
 		return  new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
 	}
+	
+	public ResponseEntity<APIResponse> GetODFListByType(String vc4Tocken,String type){
+		List<ODF> odfList = new ArrayList<ODF>();
+		String passToken ="";
+		SSLTool sl = new SSLTool();
+		int responseCode = 0;
+		String responseMsg = "";
+		APIResponse apiResponse=new APIResponse();
+		
+		passToken = "Bearer "+vc4Tocken;
+		OkHttpClient client = new OkHttpClient().newBuilder()
+				  .build();
+		MediaType mediaType = MediaType.parse("text/plain");
+		RequestBody body = RequestBody.create(mediaType, "");
+		Request request = new Request.Builder()
+				  .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_MMR_ODF_LIST/filtered/ID>0?ExchCode=3434&POPId=32&odfcat=MMR-P")
+				  .method("GET", null)
+				  .addHeader("Authorization", passToken)
+				  .build();
+		try {
+			client = sl.getUnsafeOkHttpClient();
+			Response response = client.newCall(request).execute();
+			
+			responseCode = response.code();
+			System.out.println("response code: "+response.code());
+			if(responseCode == 401) {
+				vc4Token.token = vc4Token.getVc4Token();
+				vc4Tocken = vc4Token.token;
+				passToken = "Bearer "+vc4Tocken;
+				request = new Request.Builder()
+						  .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_MMR_ODF_LIST/filtered/ID>0?ExchCode=3434&POPId=32&odfcat=MMR-P")
+						  .method("GET", null)
+						  .addHeader("Authorization", passToken)
+						  .build();
+				
+				client = sl.getUnsafeOkHttpClient();
+			    response = client.newCall(request).execute();
+			}
+			responseMsg =response.message();
+			String str = response.body().string();
+			System.out.println("response GetODFListByType : "+str);
+			
+			if (!str.equals("") ) {
+				System.out.println("not empty");
+				if(str.equals("No records found for Entity:TEAPI_GET_TB_SPLITTERS_LIST")) {
+					apiResponse.setStatus(HttpStatus.OK);
+					apiResponse.setStatusCode(HttpStatus.OK.value());
+					apiResponse.setClientMessage("No records found for Entity:TEAPI_GET_TB_SPLITTERS_LIST");
+					return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+				}else {
+                   ObjectMapper mapper = new ObjectMapper();
+                   mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+                   odfList = mapper.readValue(str, new TypeReference<List<ODF>>(){});
+                   apiResponse.setStatus(HttpStatus.OK);
+                   apiResponse.setStatusCode(HttpStatus.OK.value());
+                   apiResponse.setBody(odfList);
+				}
+				
+				if(odfList != null)
+					apiResponse.setClientMessage("Success");
+				else
+					apiResponse.setClientMessage("No object found");
+            }
+			if(responseCode == 404) {
+				apiResponse.setStatus(HttpStatus.NOT_FOUND);
+				apiResponse.setStatusCode(HttpStatus.NOT_FOUND.value());
+				apiResponse.setClientMessage(responseMsg);
+				return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			apiResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+			apiResponse.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+			apiResponse.setClientMessage("An error occured while fetching audit data");
+			return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+		
+		return  new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+	}
+	
 }

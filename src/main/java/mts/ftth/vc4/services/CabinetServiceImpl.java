@@ -16,6 +16,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import mts.ftth.vc4.controllers.VC4Token;
+import mts.ftth.vc4.models.ActiveLineDataResponse;
 import mts.ftth.vc4.models.Cabinet;
 import mts.ftth.vc4.models.GponCard;
 import mts.ftth.vc4.models.NeBoxAlarmJob;
@@ -24,7 +25,10 @@ import mts.ftth.vc4.models.NeGponPortAlarmJob;
 import mts.ftth.vc4.models.Splitter;
 import mts.ftth.vc4.models.SplitterPort;
 import mts.ftth.vc4.models.SplitterPortResponse;
+import mts.ftth.vc4.models.SplitterType;
 import mts.ftth.vc4.models.TBox;
+import mts.ftth.vc4.models.UpSplitter;
+import mts.ftth.vc4.models.UpSplitterResponse;
 import mts.ftth.vc4.payload.response.APIResponse;
 import mts.ftth.vc4.repos.NeBoxAlarmJobRepository;
 import mts.ftth.vc4.repos.NeCabinetAlarmJobRepository;
@@ -47,6 +51,9 @@ public class CabinetServiceImpl implements CabinetService{
 	
 	@Autowired
 	SplitterPortResponse portResponse ;
+	
+	@Autowired
+	UpSplitterResponse upSplitterRes;
 	
 	@Autowired
 	NeCabinetAlarmJobRepository cabinetAlarmJobRepo;
@@ -437,6 +444,187 @@ public class CabinetServiceImpl implements CabinetService{
         apiResponse.setStatusCode(HttpStatus.OK.value());
         apiResponse.setBody(boxJobs);
         
+		return  new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public ResponseEntity<APIResponse> GetSplitterTypes(String vc4Tocken){
+		List<SplitterType> splitterTypes = new ArrayList<SplitterType>();
+		String passToken ="";
+		SSLTool sl = new SSLTool();
+		int responseCode = 0;
+		String responseMsg = "";
+		APIResponse apiResponse=new APIResponse();
+		
+		passToken = "Bearer "+vc4Tocken;
+		OkHttpClient client = new OkHttpClient().newBuilder()
+				  .build();
+		MediaType mediaType = MediaType.parse("text/plain");
+		RequestBody body = RequestBody.create(mediaType, "");
+		Request request = new Request.Builder()
+				  .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_SLITTERS_TYPES_LIST/filtered/ID>0")
+				  .method("GET", null)
+				  .addHeader("Authorization", passToken)
+				  .build();
+		try {
+			client = sl.getUnsafeOkHttpClient();
+			Response response = client.newCall(request).execute();
+			
+			responseCode = response.code();
+			System.out.println("response code: "+response.code());
+			if(responseCode == 401) {
+				vc4Token.token = vc4Token.getVc4Token();
+				vc4Tocken = vc4Token.token;
+				passToken = "Bearer "+vc4Tocken;
+				request = new Request.Builder()
+						  .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_SLITTERS_TYPES_LIST/filtered/ID>0")
+						  .method("GET", null)
+						  .addHeader("Authorization", passToken)
+						  .build();
+				
+				client = sl.getUnsafeOkHttpClient();
+			    response = client.newCall(request).execute();
+			}
+			
+			responseMsg =response.message();
+			String str = response.body().string();
+			System.out.println("response GetSplitterTypes: "+str);
+			
+			if (!str.equals("") ) {
+				System.out.println("not empty");
+				if(str.equals("No records found for Entity:TEAPI_GET_CABINET_LIST")) {
+					apiResponse.setStatus(HttpStatus.OK);
+					apiResponse.setStatusCode(HttpStatus.OK.value());
+					apiResponse.setClientMessage("No records found for Entity:TEAPI_GET_CABINET_LIST");
+					return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+				}else {
+                   ObjectMapper mapper = new ObjectMapper();
+                   mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+                   splitterTypes = mapper.readValue(str, new TypeReference<List<SplitterType>>(){});
+                   apiResponse.setStatus(HttpStatus.OK);
+                   apiResponse.setStatusCode(HttpStatus.OK.value());
+                   apiResponse.setBody(splitterTypes);
+				}
+				
+				if(splitterTypes != null)
+					apiResponse.setClientMessage("Success");
+				else
+					apiResponse.setClientMessage("No object found");
+            }
+			if(responseCode == 404) {
+				apiResponse.setStatus(HttpStatus.NOT_FOUND);
+				apiResponse.setStatusCode(HttpStatus.NOT_FOUND.value());
+				apiResponse.setClientMessage(responseMsg);
+				return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			apiResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+			apiResponse.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+			apiResponse.setClientMessage("An error occured while fetching audit data");
+			return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+		
+		return  new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public ResponseEntity<APIResponse> UpdateSplitter(String vc4Tocken,UpSplitter splitter){
+		String passToken ="";
+		SSLTool sl = new SSLTool();
+		int responseCode = 0;
+		String responseMsg = "";
+		APIResponse apiResponse=new APIResponse();
+		passToken = "Bearer "+vc4Tocken;
+		OkHttpClient client = new OkHttpClient().newBuilder()
+				  .build();
+		MediaType mediaType = MediaType.parse("application/json");
+
+		RequestBody body = RequestBody.create(mediaType, "{\r\n    \"EXCH_CODE\": \""+splitter.getEXCH_CODE()+"\",\r\n    \"CABINET_NO\": \""+splitter.getCABINET_NO()+"\",\r\n    \"SPLITTER_ID\": \""+splitter.getSPLITTER_ID()+"\",\r\n    \"GPON_ID\": \""+splitter.getGPON_ID()+"\",\r\n    \"GPON_SHELF\": \""+splitter.getGPON_SHELF()+"\",\r\n    \"GPON_CARD\": \""+splitter.getGPON_CARD()+"\",\r\n    \"GPON_PORT\": \""+splitter.getGPON_PORT()+"\",\r\n    \"MMR_A_ODF\": \""+splitter.getMMR_A_ODF()+"\",\r\n    \"MMR_A_PORT\": \""+splitter.getMMR_A_PORT()+"\",\r\n    \"MMR_P_ODF\": \""+splitter.getMMR_P_ODF()+"\",\r\n    \"MMR_P_PORT\": \""+splitter.getMMR_P_PORT()+"\"\r\n}");
+		Request request = new Request.Builder()
+			      .url(vc4Token.getUrl()+"/api/ims/CustomDataOperation/ExecuteProcedure/UpdateFCCSplitter")
+				  .method("POST", body)
+				  .addHeader("Authorization", passToken)
+				  .addHeader("Content-Type", "application/json")
+				  .build();
+		System.out.println("updateSplitter request : " +request.toString());
+		System.out.println("req body : "+ request.body().toString());
+		try {
+			client = sl.getUnsafeOkHttpClient();
+			Response response = client.newCall(request).execute();
+			
+			responseCode = response.code();
+			System.out.println("response code: "+response.code());
+			if(responseCode == 401) {
+				vc4Token.token = vc4Token.getVc4Token();
+				vc4Tocken = vc4Token.token;
+				passToken = "Bearer "+vc4Tocken;
+				request = new Request.Builder()
+						  .url(vc4Token.getUrl()+"/api/ims/CustomDataOperation/ExecuteProcedure/UpdateFCCSplitter")
+						  .method("POST", body)
+						  .addHeader("Authorization", passToken)
+						  .addHeader("Content-Type", "application/json")
+						  .build();
+				
+				client = sl.getUnsafeOkHttpClient();
+			    response = client.newCall(request).execute();
+			}
+			
+			responseMsg =response.message();
+			
+			String str = response.body().string();
+			System.out.println("response UpdateSplitter: "+str);
+			
+			if (!str.equals("") ) {
+				System.out.println("not empty");
+				if(str.equals("No records found for Entity:TEAPI_GET_GPON_LIST")) {
+					apiResponse.setStatus(HttpStatus.OK);
+					apiResponse.setStatusCode(HttpStatus.OK.value());
+					apiResponse.setClientMessage("No records found for Entity:TEAPI_GET_GPON_LIST");
+					return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+				}else {
+                   ObjectMapper mapper = new ObjectMapper();
+                   mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+                   upSplitterRes = mapper.readValue(str, UpSplitterResponse.class);
+                   apiResponse.setStatus(HttpStatus.OK);
+                   apiResponse.setStatusCode(HttpStatus.OK.value());
+                   apiResponse.setBody(upSplitterRes);
+				}
+				
+				if(upSplitterRes != null)
+					apiResponse.setClientMessage("Success");
+				else
+					apiResponse.setClientMessage("No object found");
+            }
+			if(responseCode == 404) {
+				apiResponse.setStatus(HttpStatus.NOT_FOUND);
+				apiResponse.setStatusCode(HttpStatus.NOT_FOUND.value());
+				apiResponse.setClientMessage(responseMsg);
+				apiResponse.setBody(null);
+				return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+			}
+			if(responseCode == 500) {
+				apiResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+				apiResponse.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+				apiResponse.setClientMessage("Exception occurs. Could not execute ExecuteProcedure with Procedure:UpdateFCCSplitter.");
+				apiResponse.setBody(null);
+				return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			apiResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+			apiResponse.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+			apiResponse.setClientMessage("An error occured while fetching audit data");
+			return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+		
 		return  new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
 	}
 

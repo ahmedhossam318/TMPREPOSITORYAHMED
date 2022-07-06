@@ -2,6 +2,7 @@ package mts.ftth.vc4.services;
 
 import org.springframework.http.ResponseEntity;
 
+import mts.ftth.vc4.models.UpSplitter;
 import mts.ftth.vc4.payload.response.APIResponse;
 
 public interface CabinetService {
@@ -12,4 +13,9 @@ public interface CabinetService {
 	
 	public ResponseEntity<APIResponse> GetCabinetAlarmJobs(Long vc4Id);
 	public ResponseEntity<APIResponse> GetCabinetBoxAlarmJobs(Long vc4Id);
+	public ResponseEntity<APIResponse> GetSplitterTypes(String vc4Tocken);
+	
+	public ResponseEntity<APIResponse> UpdateSplitter(String vc4Tocken,UpSplitter splitter);
+	
+	
 }

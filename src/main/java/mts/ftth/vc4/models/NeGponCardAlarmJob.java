@@ -158,9 +158,11 @@ public class NeGponCardAlarmJob  extends Element {
 	
 	@Column(name="PROMISED_REPAIR_DATE")
   //  @JsonFormat(pattern = "dd-MMM-yyyy hh:mm:ss")
+	@JsonFormat(timezone = "GMT+02:00")
 	Date promisedRepairDate;
 	
 	@Column(name="ACTUAL_REPAIR_DATE")
+	@JsonFormat(timezone = "GMT+02:00")
 	Date actualRepairDate;
 	
 	@Column(name="INSTANT_CLOSURE")
@@ -173,6 +175,7 @@ public class NeGponCardAlarmJob  extends Element {
 	Long jobFlag=(long) 1;
 	
 	@Column(name="OUT_OF_SERVICE",insertable = false)
+	@JsonFormat(timezone = "GMT+02:00")
 	Date outOfService;
 	
 	@Column(name="JOB_DATE")

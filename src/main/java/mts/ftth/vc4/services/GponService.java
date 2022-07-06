@@ -20,4 +20,8 @@ public interface GponService {
 	
 	public ResponseEntity<APIResponse> GetGponPortAlarmJobs(Long vc4Id);
 	
+	
+	public ResponseEntity<APIResponse> GetGponByPopId(String vc4Tocken,int PaginatorStartElement , int PaginatorNumberOfElements,String popId);
+	public ResponseEntity<APIResponse> GetCardsByGponNodeId(String vc4Tocken,String gponNodeId);
+	
 }

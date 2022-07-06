@@ -6,12 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
+import mts.ftth.vc4.models.FinishObject;
+import mts.ftth.vc4.models.UpSplitter;
 import mts.ftth.vc4.payload.response.APIResponse;
 import mts.ftth.vc4.services.CabinetService;
 import mts.ftth.vc4.services.GponService;
@@ -113,4 +117,24 @@ private static final Logger logger = LogManager.getLogger(GponController.class);
 		ResponseEntity<APIResponse> res = cabinetService.GetCabinetBoxAlarmJobs(vc4Id);
 		return res;
 	}
+	
+	
+	@PostMapping("/updateFCCSplitter")
+	public ResponseEntity<APIResponse> updateSplitter(@RequestBody UpSplitter splitter){
+		String token ="";
+		APIResponse response=new APIResponse();
+		logger.info("##############################################");
+		logger.info("Client request to fetch updateSplitter...");
+		logger.info("##############################################");
+		token = vc4Token.token;
+		System.out.println("tt :" +token);
+		if(token.equals("Fail")) {
+			response.setStatus(HttpStatus.REQUEST_TIMEOUT);
+			response.setStatusCode(HttpStatus.REQUEST_TIMEOUT.value());
+			return new ResponseEntity<APIResponse>(response, HttpStatus.REQUEST_TIMEOUT);
+		}
+		ResponseEntity<APIResponse> res = cabinetService.UpdateSplitter(token, splitter);
+		return res;
+	}
+	
 }
