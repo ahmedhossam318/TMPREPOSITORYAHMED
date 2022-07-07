@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import mts.ftth.vc4.models.FinishObject;
+import mts.ftth.vc4.models.UpBox;
 import mts.ftth.vc4.models.UpSplitter;
 import mts.ftth.vc4.payload.response.APIResponse;
 import mts.ftth.vc4.services.CabinetService;
@@ -122,6 +123,7 @@ private static final Logger logger = LogManager.getLogger(GponController.class);
 	@PostMapping("/updateFCCSplitter")
 	public ResponseEntity<APIResponse> updateSplitter(@RequestBody UpSplitter splitter){
 		String token ="";
+		System.out.println("citty : "+splitter.getEXCH_CODE());
 		APIResponse response=new APIResponse();
 		logger.info("##############################################");
 		logger.info("Client request to fetch updateSplitter...");
@@ -137,4 +139,23 @@ private static final Logger logger = LogManager.getLogger(GponController.class);
 		return res;
 	}
 	
+	
+	@PostMapping("/updateFCCBox")
+	public ResponseEntity<APIResponse> updateFCCBox(@RequestBody UpBox box){
+		String token ="";
+		APIResponse response=new APIResponse();
+		System.out.println("type : "+box.getBOX_ID());
+		logger.info("##############################################");
+		logger.info("Client request to fetch updateFCCBox...");
+		logger.info("##############################################");
+		token = vc4Token.token;
+		System.out.println("tt :" +token);
+		if(token.equals("Fail")) {
+			response.setStatus(HttpStatus.REQUEST_TIMEOUT);
+			response.setStatusCode(HttpStatus.REQUEST_TIMEOUT.value());
+			return new ResponseEntity<APIResponse>(response, HttpStatus.REQUEST_TIMEOUT);
+		}
+		ResponseEntity<APIResponse> res = cabinetService.UpdateBox(token, box);
+		return res;
+	}
 }

@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -74,6 +75,25 @@ public class LookupController {
 			return new ResponseEntity<APIResponse>(response, HttpStatus.REQUEST_TIMEOUT);
 		}
 		ResponseEntity<APIResponse> res = cabinetService.GetSplitterTypes(token);
+		return res;
+	}
+	
+	
+	@GetMapping("/getTBTypes")
+	public ResponseEntity<APIResponse> getTBTypes(){
+		String token ="";
+		APIResponse response=new APIResponse();
+		logger.info("##############################################");
+		logger.info("Client request to fetch getTBTypes...");
+		logger.info("##############################################");
+		token = vc4Token.token;
+		System.out.println("tt :" +token);
+		if(token.equals("Fail")) {
+			response.setStatus(HttpStatus.REQUEST_TIMEOUT);
+			response.setStatusCode(HttpStatus.REQUEST_TIMEOUT.value());
+			return new ResponseEntity<APIResponse>(response, HttpStatus.REQUEST_TIMEOUT);
+		}
+		ResponseEntity<APIResponse> res = lookupService.GetTBoxType(token);
 		return res;
 	}
 

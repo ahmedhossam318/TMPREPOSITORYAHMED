@@ -27,6 +27,8 @@ import mts.ftth.vc4.models.SplitterPort;
 import mts.ftth.vc4.models.SplitterPortResponse;
 import mts.ftth.vc4.models.SplitterType;
 import mts.ftth.vc4.models.TBox;
+import mts.ftth.vc4.models.UpBox;
+import mts.ftth.vc4.models.UpBoxResponse;
 import mts.ftth.vc4.models.UpSplitter;
 import mts.ftth.vc4.models.UpSplitterResponse;
 import mts.ftth.vc4.payload.response.APIResponse;
@@ -54,6 +56,9 @@ public class CabinetServiceImpl implements CabinetService{
 	
 	@Autowired
 	UpSplitterResponse upSplitterRes;
+	
+	@Autowired
+	UpBoxResponse upBoxRes;
 	
 	@Autowired
 	NeCabinetAlarmJobRepository cabinetAlarmJobRepo;
@@ -546,6 +551,7 @@ public class CabinetServiceImpl implements CabinetService{
 		MediaType mediaType = MediaType.parse("application/json");
 
 		RequestBody body = RequestBody.create(mediaType, "{\r\n    \"EXCH_CODE\": \""+splitter.getEXCH_CODE()+"\",\r\n    \"CABINET_NO\": \""+splitter.getCABINET_NO()+"\",\r\n    \"SPLITTER_ID\": \""+splitter.getSPLITTER_ID()+"\",\r\n    \"GPON_ID\": \""+splitter.getGPON_ID()+"\",\r\n    \"GPON_SHELF\": \""+splitter.getGPON_SHELF()+"\",\r\n    \"GPON_CARD\": \""+splitter.getGPON_CARD()+"\",\r\n    \"GPON_PORT\": \""+splitter.getGPON_PORT()+"\",\r\n    \"MMR_A_ODF\": \""+splitter.getMMR_A_ODF()+"\",\r\n    \"MMR_A_PORT\": \""+splitter.getMMR_A_PORT()+"\",\r\n    \"MMR_P_ODF\": \""+splitter.getMMR_P_ODF()+"\",\r\n    \"MMR_P_PORT\": \""+splitter.getMMR_P_PORT()+"\"\r\n}");
+		System.out.println("body : "+"{\r\n    \"EXCH_CODE\": \""+splitter.getEXCH_CODE()+"\",\r\n    \"CABINET_NO\": \""+splitter.getCABINET_NO()+"\",\r\n    \"SPLITTER_ID\": \""+splitter.getSPLITTER_ID()+"\",\r\n    \"GPON_ID\": \""+splitter.getGPON_ID()+"\",\r\n    \"GPON_SHELF\": \""+splitter.getGPON_SHELF()+"\",\r\n    \"GPON_CARD\": \""+splitter.getGPON_CARD()+"\",\r\n    \"GPON_PORT\": \""+splitter.getGPON_PORT()+"\",\r\n    \"MMR_A_ODF\": \""+splitter.getMMR_A_ODF()+"\",\r\n    \"MMR_A_PORT\": \""+splitter.getMMR_A_PORT()+"\",\r\n    \"MMR_P_ODF\": \""+splitter.getMMR_P_ODF()+"\",\r\n    \"MMR_P_PORT\": \""+splitter.getMMR_P_PORT()+"\"\r\n}");
 		Request request = new Request.Builder()
 			      .url(vc4Token.getUrl()+"/api/ims/CustomDataOperation/ExecuteProcedure/UpdateFCCSplitter")
 				  .method("POST", body)
@@ -628,4 +634,98 @@ public class CabinetServiceImpl implements CabinetService{
 		return  new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
 	}
 
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public ResponseEntity<APIResponse> UpdateBox(String vc4Tocken,UpBox box){
+		String passToken ="";
+		SSLTool sl = new SSLTool();
+		int responseCode = 0;
+		String responseMsg = "";
+		APIResponse apiResponse=new APIResponse();
+		passToken = "Bearer "+vc4Tocken;
+		OkHttpClient client = new OkHttpClient().newBuilder()
+				  .build();
+		MediaType mediaType = MediaType.parse("application/json");
+
+		RequestBody body = RequestBody.create(mediaType, "{\r\n    \"EXCH_CODE\": \""+box.getEXCH_CODE()+"\",\r\n    \"CABINET_NO\": \""+box.getCABINET_NO()+"\",\r\n    \"BOX_ID\": \""+box.getBOX_ID()+"\",\r\n    \"BOX_ADDRESS\": \""+box.getBOX_ADDRESS()+"\",\r\n    \"BOX_TYPE\": \""+box.getBOX_TYPE()+"\",\r\n    \"BOX_LONG\": \""+box.getBOX_LONG()+"\",\r\n    \"BOX_LAT\": \""+box.getBOX_LAT()+"\"\r\n}");
+		Request request = new Request.Builder()
+			      .url(vc4Token.getUrl()+"/api/ims/CustomDataOperation/ExecuteProcedure/UpdateFCCBox")
+				  .method("POST", body)
+				  .addHeader("Authorization", passToken)
+				  .addHeader("Content-Type", "application/json")
+				  .build();
+		try {
+			client = sl.getUnsafeOkHttpClient();
+			Response response = client.newCall(request).execute();
+			
+			responseCode = response.code();
+			System.out.println("response code: "+response.code());
+			if(responseCode == 401) {
+				vc4Token.token = vc4Token.getVc4Token();
+				vc4Tocken = vc4Token.token;
+				passToken = "Bearer "+vc4Tocken;
+				request = new Request.Builder()
+						  .url(vc4Token.getUrl()+"/api/ims/CustomDataOperation/ExecuteProcedure/UpdateFCCBox")
+						  .method("POST", body)
+						  .addHeader("Authorization", passToken)
+						  .addHeader("Content-Type", "application/json")
+						  .build();
+				
+				client = sl.getUnsafeOkHttpClient();
+			    response = client.newCall(request).execute();
+			}
+			
+			responseMsg =response.message();
+			
+			String str = response.body().string();
+			System.out.println("response UpdateBox: "+str);
+			
+			if (!str.equals("") ) {
+				System.out.println("not empty");
+				if(str.equals("No records found for Entity:TEAPI_GET_GPON_LIST")) {
+					apiResponse.setStatus(HttpStatus.OK);
+					apiResponse.setStatusCode(HttpStatus.OK.value());
+					apiResponse.setClientMessage("No records found for Entity:TEAPI_GET_GPON_LIST");
+					return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+				}else {
+                   ObjectMapper mapper = new ObjectMapper();
+                   mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+                   upBoxRes = mapper.readValue(str, UpBoxResponse.class);
+                   apiResponse.setStatus(HttpStatus.OK);
+                   apiResponse.setStatusCode(HttpStatus.OK.value());
+                   apiResponse.setBody(upBoxRes);
+				}
+				
+				if(upBoxRes != null)
+					apiResponse.setClientMessage("Success");
+				else
+					apiResponse.setClientMessage("No object found");
+            }
+			if(responseCode == 404) {
+				apiResponse.setStatus(HttpStatus.NOT_FOUND);
+				apiResponse.setStatusCode(HttpStatus.NOT_FOUND.value());
+				apiResponse.setClientMessage(responseMsg);
+				apiResponse.setBody(null);
+				return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+			}
+			if(responseCode == 500) {
+				apiResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+				apiResponse.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+				apiResponse.setClientMessage("Exception occurs. Could not execute ExecuteProcedure with Procedure:UpdateFCCBox.");
+				apiResponse.setBody(null);
+				return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			apiResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+			apiResponse.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+			apiResponse.setClientMessage("An error occured while fetching audit data");
+			return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+		
+		return  new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+	}
 }
