@@ -15,11 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import mts.ftth.vc4.models.FinishObject;
+import mts.ftth.vc4.models.TBPortRequest;
 import mts.ftth.vc4.models.UpBox;
+import mts.ftth.vc4.models.UpBoxSplitter;
 import mts.ftth.vc4.models.UpSplitter;
 import mts.ftth.vc4.payload.response.APIResponse;
 import mts.ftth.vc4.services.CabinetService;
 import mts.ftth.vc4.services.GponService;
+import mts.ftth.vc4.services.LineCardService;
 
 @RestController
 @RequestMapping("/api/cabinet")
@@ -30,6 +33,9 @@ private static final Logger logger = LogManager.getLogger(GponController.class);
 	
 	@Autowired
 	CabinetService cabinetService;
+	
+	@Autowired
+	LineCardService linecardService;
 	
 	@Autowired
 	VC4Token vc4Token;
@@ -158,4 +164,62 @@ private static final Logger logger = LogManager.getLogger(GponController.class);
 		ResponseEntity<APIResponse> res = cabinetService.UpdateBox(token, box);
 		return res;
 	}
+	
+	
+	@GetMapping("/getFreeSpliierPortList")
+	public ResponseEntity<APIResponse> getFreeSpliierPortList(@RequestParam(value = "SplitterId") String splitterId){
+		String token ="";
+		APIResponse response=new APIResponse();
+		logger.info("##############################################");
+		logger.info("Client request to fetch getFreeSpliierPortList...");
+		logger.info("##############################################");
+		token = vc4Token.token;
+		System.out.println("tt :" +token);
+		if(token.equals("Fail")) {
+			response.setStatus(HttpStatus.REQUEST_TIMEOUT);
+			response.setStatusCode(HttpStatus.REQUEST_TIMEOUT.value());
+			return new ResponseEntity<APIResponse>(response, HttpStatus.REQUEST_TIMEOUT);
+		}
+		ResponseEntity<APIResponse> res = cabinetService.GetSplitterFreePortList(token, splitterId);
+		return res;
+	}
+	
+	@PostMapping("/updateFCCBoxSplitter")
+	public ResponseEntity<APIResponse> updateFCCBoxSplitter(@RequestBody UpBoxSplitter boxSplitter){
+		String token ="";
+//		System.out.println("citty : "+splitter.getEXCH_CODE());
+		APIResponse response=new APIResponse();
+		logger.info("##############################################");
+		logger.info("Client request to fetch updateFCCBoxSplitter...");
+		logger.info("##############################################");
+		token = vc4Token.token;
+		System.out.println("tt :" +token);
+		if(token.equals("Fail")) {
+			response.setStatus(HttpStatus.REQUEST_TIMEOUT);
+			response.setStatusCode(HttpStatus.REQUEST_TIMEOUT.value());
+			return new ResponseEntity<APIResponse>(response, HttpStatus.REQUEST_TIMEOUT);
+		}
+		ResponseEntity<APIResponse> res = cabinetService.UpdateBoxSplitter(token, boxSplitter);
+		return res;
+	}
+	
+	
+	@PostMapping("/getBoxTerminals")
+	public ResponseEntity<APIResponse> getBoxTerminals(@RequestBody TBPortRequest req){
+		String token ="";
+		APIResponse response=new APIResponse();
+		logger.info("##############################################");
+		logger.info("Client request to fetch getTBPotByPassive...");
+		logger.info("##############################################");
+		token = vc4Token.token;
+		System.out.println("tt :" +token);
+		if(token.equals("Fail")) {
+			response.setStatus(HttpStatus.REQUEST_TIMEOUT);
+			response.setStatusCode(HttpStatus.REQUEST_TIMEOUT.value());
+			return new ResponseEntity<APIResponse>(response, HttpStatus.REQUEST_TIMEOUT);
+		}
+		ResponseEntity<APIResponse> res = linecardService.getTBPotByPassive(token, req);
+		return res;
+	}
+	
 }

@@ -147,7 +147,7 @@ public class GponServiceImpl implements GponService{
 		MediaType mediaType = MediaType.parse("text/plain");
 		RequestBody body = RequestBody.create(mediaType, "");
 		Request request = new Request.Builder()
-				  .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_GPON_CARDS_LIST/filtered/GPONID == \""+gponId+"\"")
+				  .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_GPON_CARDS_LIST/filtered/GPONID == \""+gponId+"\" and cardclass==\"GPON\"") // and cardclass==\"GPON\""
 				  .method("GET", null)
 				  .addHeader("Authorization", passToken)
 				  .build();
@@ -162,7 +162,7 @@ public class GponServiceImpl implements GponService{
 				vc4Tocken = vc4Token.token;
 				passToken = "Bearer "+vc4Tocken;
 				request = new Request.Builder()
-						  .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_GPON_CARDS_LIST/filtered/GPONID == \""+gponId+"\"")
+						  .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_GPON_CARDS_LIST/filtered/GPONID == \""+gponId+"\" and cardclass==\"GPON\"")
 						  .method("GET", null)
 						  .addHeader("Authorization", passToken)
 						  .build();

@@ -3,6 +3,7 @@ package mts.ftth.vc4.services;
 import org.springframework.http.ResponseEntity;
 
 import mts.ftth.vc4.models.UpBox;
+import mts.ftth.vc4.models.UpBoxSplitter;
 import mts.ftth.vc4.models.UpSplitter;
 import mts.ftth.vc4.payload.response.APIResponse;
 
@@ -19,4 +20,6 @@ public interface CabinetService {
 	public ResponseEntity<APIResponse> UpdateSplitter(String vc4Tocken,UpSplitter splitter);
 	
 	public ResponseEntity<APIResponse> UpdateBox(String vc4Tocken,UpBox box);
+	public ResponseEntity<APIResponse> GetSplitterFreePortList(String vc4Tocken,String splitterId);
+	public ResponseEntity<APIResponse> UpdateBoxSplitter(String vc4Tocken,UpBoxSplitter boxSplitter);
 }
