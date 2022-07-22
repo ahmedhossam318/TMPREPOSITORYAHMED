@@ -86,8 +86,8 @@ public class CabinetServiceImpl implements CabinetService{
 				  .build();
 		MediaType mediaType = MediaType.parse("text/plain");
 		RequestBody body = RequestBody.create(mediaType, "");
-		Request request = new Request.Builder()
-				  .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_CABINET_LIST/filtered/EXCHCODE== \""+exchCode+"\"")
+		Request request = new Request.Builder()//"https://10.98.35.78:2080/api/ims/TEAPI_GET_CABINET_LIST/filtered/EXCHCODE== \"INVCA\"?PaginatorStartElement=1&PaginatorNumberOfElements=1000"
+				  .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_CABINET_LIST/filtered/EXCHCODE== \""+exchCode+"\"?PaginatorStartElement=1&PaginatorNumberOfElements=1000")
 				  .method("GET", null)
 				  .addHeader("Authorization", passToken)
 				  .build();
@@ -102,7 +102,7 @@ public class CabinetServiceImpl implements CabinetService{
 				vc4Tocken = vc4Token.token;
 				passToken = "Bearer "+vc4Tocken;
 				request = new Request.Builder()
-						  .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_CABINET_LIST/filtered/EXCHCODE== \""+exchCode+"\"")
+						  .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_CABINET_LIST/filtered/EXCHCODE== \""+exchCode+"\"?PaginatorStartElement=1&PaginatorNumberOfElements=1000")
 						  .method("GET", null)
 						  .addHeader("Authorization", passToken)
 						  .build();

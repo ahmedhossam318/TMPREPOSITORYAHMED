@@ -377,7 +377,7 @@ public class GponServiceImpl implements GponService{
 		MediaType mediaType = MediaType.parse("text/plain");
 		RequestBody body = RequestBody.create(mediaType, "");
 		Request request = new Request.Builder()
-			      .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_GPON_LIST/filtered/exchcode== \""+popId+"\"?PaginatorStartElement="+PaginatorStartElement+"&PaginatorNumberOfElements="+PaginatorNumberOfElements)
+			      .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_GPON_LIST/filtered/popid== \""+popId+"\"?PaginatorStartElement="+PaginatorStartElement+"&PaginatorNumberOfElements="+PaginatorNumberOfElements)
 				  .method("GET", null)
 				  .addHeader("Authorization", passToken)
 				  .build();
@@ -392,7 +392,7 @@ public class GponServiceImpl implements GponService{
 				vc4Tocken = vc4Token.token;
 				passToken = "Bearer "+vc4Tocken;
 				request = new Request.Builder()
-					      .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_GPON_LIST/filtered/exchcode== \""+popId+"\"?PaginatorStartElement="+PaginatorStartElement+"&PaginatorNumberOfElements="+PaginatorNumberOfElements)
+					      .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_GPON_LIST/filtered/popid== \""+popId+"\"?PaginatorStartElement="+PaginatorStartElement+"&PaginatorNumberOfElements="+PaginatorNumberOfElements)
 						  .method("GET", null)
 						  .addHeader("Authorization", passToken)
 						  .build();
