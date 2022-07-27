@@ -65,5 +65,43 @@ private static final Logger logger = LogManager.getLogger(GponController.class);
 		ResponseEntity<APIResponse> res = odfService.GetODFPortList(token,ODFID);
 		return res;
 	}
+	
+	@GetMapping("/getODFListByType")
+	public ResponseEntity<APIResponse> getODFListByType(String type){
+		String token ="";
+		APIResponse response=new APIResponse();
+		logger.info("##############################################");
+		logger.info("Client request to fetch getODFListByType...");
+		logger.info("##############################################");
+		token = vc4Token.token;
+		System.out.println("tt :" +token);
+		if(token.equals("Fail")) {
+			response.setStatus(HttpStatus.REQUEST_TIMEOUT);
+			response.setStatusCode(HttpStatus.REQUEST_TIMEOUT.value());
+			return new ResponseEntity<APIResponse>(response, HttpStatus.REQUEST_TIMEOUT);
+		}
+		ResponseEntity<APIResponse> res = odfService.GetODFListByType(token,type);
+		return res;
+	}
+	
+	
+	@GetMapping("/getODFListByPopId")
+	public ResponseEntity<APIResponse> getODFListByPopId(String popId){
+		String token ="";
+		APIResponse response=new APIResponse();
+		logger.info("##############################################");
+		logger.info("Client request to fetch getODFListByPopId...");
+		logger.info("##############################################");
+		token = vc4Token.token;
+		System.out.println("tt :" +token);
+		if(token.equals("Fail")) {
+			response.setStatus(HttpStatus.REQUEST_TIMEOUT);
+			response.setStatusCode(HttpStatus.REQUEST_TIMEOUT.value());
+			return new ResponseEntity<APIResponse>(response, HttpStatus.REQUEST_TIMEOUT);
+		}
+		ResponseEntity<APIResponse> res = odfService.GetODFListByPopId(token,popId);
+		return res;
+	}
+
 
 }

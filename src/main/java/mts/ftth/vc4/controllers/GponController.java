@@ -52,37 +52,6 @@ public class GponController {
 		}
 		ResponseEntity<APIResponse> res = gponService.GetGponCards(token, gponId);
 		return res;
-		
-//		APIResponse response=new APIResponse();
-//		try {
-//			token = vc4Token.getVc4Token();
-//			System.out.println("tt :" +token);
-//			if(token.equals("Fail")) {
-//				response.setStatus(HttpStatus.REQUEST_TIMEOUT);
-//				response.setStatusCode(HttpStatus.REQUEST_TIMEOUT.value());
-//				return new ResponseEntity<APIResponse>(response, HttpStatus.REQUEST_TIMEOUT);
-//			}
-//			gponCards=gponService.GetGponCards(token, gponId);
-//			
-//		response.setStatus(HttpStatus.OK);
-//		response.setStatusCode(HttpStatus.OK.value());
-//		if(gponCards != null)
-//			response.setClientMessage("Success");
-//		else
-//			response.setClientMessage("No object found");
-//		response.setBody(gponCards);	
-//		logger.info("Request Success.");
-//		}
-//		catch (Exception e) {
-//			logger.info("Request Failed");
-//			e.printStackTrace();
-//			response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
-//			response.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
-//			response.setClientMessage("An error occured while fetching audit data");
-//			return new ResponseEntity<APIResponse>(response, HttpStatus.INTERNAL_SERVER_ERROR);
-//		}
-//		logger.info("##############################################");
-//		return new ResponseEntity<APIResponse>(response, HttpStatus.OK);
 	}
 	
 	
@@ -140,6 +109,45 @@ public class GponController {
 	@GetMapping("/getGponPortAlarmJobs")
 	public ResponseEntity<APIResponse> getGponPortAlarmJobs(@RequestParam(value = "Vc4Id") Long vc4Id){
 		ResponseEntity<APIResponse> res = gponService.GetGponPortAlarmJobs(vc4Id);
+		return res;
+	}
+	
+	
+	@GetMapping("/getGponByPopId")
+	public ResponseEntity<APIResponse> getGponByPopId(@RequestParam(value = "PaginatorStartElement") int paginatorStartElement,
+			@RequestParam(value = "PaginatorNumberOfElements") int paginatorNumberOfElements 
+			,@RequestParam(value = "PopId") String popId){
+		String token ="";
+		APIResponse response=new APIResponse();
+		logger.info("##############################################");
+		logger.info("Client request to fetch GponByPopId list...");
+		logger.info("##############################################");
+		token = vc4Token.token;
+		System.out.println("tt :" +token);
+		if(token.equals("Fail")) {
+			response.setStatus(HttpStatus.REQUEST_TIMEOUT);
+			response.setStatusCode(HttpStatus.REQUEST_TIMEOUT.value());
+			return new ResponseEntity<APIResponse>(response, HttpStatus.REQUEST_TIMEOUT);
+		}
+		ResponseEntity<APIResponse> res = gponService.GetGponByPopId(token, paginatorStartElement , paginatorNumberOfElements,popId);
+		return res;
+	}
+	
+	@GetMapping("/getCardListByGponNodeId")
+	public ResponseEntity<APIResponse> getCardListByGponNodeId(@RequestParam(value = "GponNodeId") String gponNodeId){
+		String token ="";
+		APIResponse response=new APIResponse();
+		logger.info("##############################################");
+		logger.info("Client request to fetch getCardListByGponNodeId...");
+		logger.info("##############################################");
+		token = vc4Token.token;
+		System.out.println("tt :" +token);
+		if(token.equals("Fail")) {
+			response.setStatus(HttpStatus.REQUEST_TIMEOUT);
+			response.setStatusCode(HttpStatus.REQUEST_TIMEOUT.value());
+			return new ResponseEntity<APIResponse>(response, HttpStatus.REQUEST_TIMEOUT);
+		}
+		ResponseEntity<APIResponse> res = gponService.GetCardsByGponNodeId(token, gponNodeId);
 		return res;
 	}
 }

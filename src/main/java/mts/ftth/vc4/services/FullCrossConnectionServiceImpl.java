@@ -15,10 +15,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import mts.ftth.vc4.controllers.VC4Token;
 import mts.ftth.vc4.models.Cabinet;
-import mts.ftth.vc4.models.Fault;
-import mts.ftth.vc4.models.TBType;
+import mts.ftth.vc4.models.CrossConnection;
+import mts.ftth.vc4.models.SplitterPort;
 import mts.ftth.vc4.payload.response.APIResponse;
-import mts.ftth.vc4.repos.FaultRepo;
 import mts.ftth.vc4.security.SSLTool;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -27,23 +26,14 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 @Service
-public class LookupServiceImpl implements LookupService{
-	@Autowired
-	private FaultRepo faultRepo;
-	
+public class FullCrossConnectionServiceImpl implements  FullCrossConnectionService{
 	@Autowired
 	VC4Token vc4Token;
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Fault>GetAllFault(){
-		return faultRepo.findAll();
-	}
-	
-	@SuppressWarnings("unchecked")
-	@Override
-	public ResponseEntity<APIResponse> GetTBoxType(String vc4Tocken){
-		List<TBType> tbTypeList = new ArrayList<TBType>();
+	public ResponseEntity<APIResponse>  getFullCrossConnection(String vc4Tocken,String exchCode,int paginatorStartElement, int paginatorNumberOfElements){
+		List<CrossConnection> crossConnList = new ArrayList<CrossConnection>();
 		String passToken ="";
 		SSLTool sl = new SSLTool();
 		int responseCode = 0;
@@ -51,12 +41,11 @@ public class LookupServiceImpl implements LookupService{
 		APIResponse apiResponse=new APIResponse();
 		
 		passToken = "Bearer "+vc4Tocken;
-		OkHttpClient client = new OkHttpClient().newBuilder()
-				  .build();
+		OkHttpClient client = new OkHttpClient().newBuilder().build();
 		MediaType mediaType = MediaType.parse("text/plain");
 		RequestBody body = RequestBody.create(mediaType, "");
 		Request request = new Request.Builder()
-				  .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_TB_TYPES_LIST/filtered/ID>0")
+				  .url(vc4Token.getUrl()+"/api/ims/TEAPI_FULLCROSSCONNECTIONS/filtered/ID>0 and EXCHCODE == \""+exchCode+"\"?PaginatorStartElement="+paginatorStartElement+"&PaginatorNumberOfElements="+paginatorNumberOfElements)
 				  .method("GET", null)
 				  .addHeader("Authorization", passToken)
 				  .build();
@@ -71,7 +60,7 @@ public class LookupServiceImpl implements LookupService{
 				vc4Tocken = vc4Token.token;
 				passToken = "Bearer "+vc4Tocken;
 				request = new Request.Builder()
-						  .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_TB_TYPES_LIST/filtered/ID>0")
+				   		  .url(vc4Token.getUrl()+"/api/ims/TEAPI_FULLCROSSCONNECTIONS/filtered/ID>0 and EXCHCODE == \""+exchCode+"\"?PaginatorStartElement="+paginatorStartElement+"&PaginatorNumberOfElements="+paginatorNumberOfElements)
 						  .method("GET", null)
 						  .addHeader("Authorization", passToken)
 						  .build();
@@ -82,25 +71,25 @@ public class LookupServiceImpl implements LookupService{
 			
 			responseMsg =response.message();
 			String str = response.body().string();
-			System.out.println("response exch cab list: "+str);
+			System.out.println("response getFullCrossConnection: "+str);
 			
 			if (!str.equals("") ) {
 				System.out.println("not empty");
-				if(str.equals("No records found for Entity:TEAPI_GET_CABINET_LIST")) {
+				if(str.equals("No records found for Entity:TEAPI_FULLCROSSCONNECTIONS")) {
 					apiResponse.setStatus(HttpStatus.OK);
 					apiResponse.setStatusCode(HttpStatus.OK.value());
-					apiResponse.setClientMessage("No records found for Entity:TEAPI_GET_CABINET_LIST");
+					apiResponse.setClientMessage("No records found for Entity:TEAPI_FULLCROSSCONNECTIONS");
 					return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
 				}else {
                    ObjectMapper mapper = new ObjectMapper();
                    mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-                   tbTypeList = mapper.readValue(str, new TypeReference<List<TBType>>(){});
+                   crossConnList = mapper.readValue(str, new TypeReference<List<CrossConnection>>(){});
                    apiResponse.setStatus(HttpStatus.OK);
                    apiResponse.setStatusCode(HttpStatus.OK.value());
-                   apiResponse.setBody(tbTypeList);
+                   apiResponse.setBody(crossConnList);
 				}
 				
-				if(tbTypeList != null)
+				if(crossConnList != null)
 					apiResponse.setClientMessage("Success");
 				else
 					apiResponse.setClientMessage("No object found");
@@ -123,6 +112,5 @@ public class LookupServiceImpl implements LookupService{
 		
 		return  new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
 	}
-	
 
 }

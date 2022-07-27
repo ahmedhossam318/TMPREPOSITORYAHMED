@@ -8,4 +8,8 @@ public interface ODFService {
 	public ResponseEntity<APIResponse> GetODFList(String vc4Tocken);
 	
 	public ResponseEntity<APIResponse> GetODFPortList(String vc4Tocken,String odfId);
+	
+	public ResponseEntity<APIResponse> GetODFListByType(String vc4Tocken,String type);
+	
+	public ResponseEntity<APIResponse> GetODFListByPopId(String vc4Tocken ,String popId);
 }

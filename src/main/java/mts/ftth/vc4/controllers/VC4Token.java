@@ -53,8 +53,10 @@ public class VC4Token implements WebMvcConfigurer {
 		userName = sysConfigVc4List.get(0).getVC4_USERNAME();
 		password = sysConfigVc4List.get(0).getVC4_PASSWORD();
 		setUrl(sysConfigVc4List.get(0).getVC4_URL());
-//		System.out.println("userName db :"+ sysConfigVc4List.get(0).getVC4_USERNAME());
-//		System.out.println("password db :"+ sysConfigVc4List.get(0).getVC4_PASSWORD());
+		
+		System.out.println("userName db :"+ userName);
+		System.out.println("password db :"+ password);
+		System.out.println("Vc4 URl db :"+ getUrl());
 		
 		try {
             OkHttpClient client = new OkHttpClient().newBuilder().build();
@@ -67,6 +69,7 @@ public class VC4Token implements WebMvcConfigurer {
               .addHeader("Authorization",  Credentials.basic(userName, password))
               .addHeader("Content-Type", "application/x-www-form-urlencoded")
               .build();
+            System.out.println("Vc4 Login Request : "+ request.toString());
             client = sl.getUnsafeOkHttpClient();
             Response response = client.newCall(request).execute();
             

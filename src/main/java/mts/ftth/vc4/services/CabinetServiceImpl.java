@@ -16,6 +16,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import mts.ftth.vc4.controllers.VC4Token;
+import mts.ftth.vc4.models.ActiveLineDataResponse;
 import mts.ftth.vc4.models.Cabinet;
 import mts.ftth.vc4.models.GponCard;
 import mts.ftth.vc4.models.NeBoxAlarmJob;
@@ -24,7 +25,14 @@ import mts.ftth.vc4.models.NeGponPortAlarmJob;
 import mts.ftth.vc4.models.Splitter;
 import mts.ftth.vc4.models.SplitterPort;
 import mts.ftth.vc4.models.SplitterPortResponse;
+import mts.ftth.vc4.models.SplitterType;
 import mts.ftth.vc4.models.TBox;
+import mts.ftth.vc4.models.UpBox;
+import mts.ftth.vc4.models.UpBoxResponse;
+import mts.ftth.vc4.models.UpBoxSplitter;
+import mts.ftth.vc4.models.UpBoxSplitterResponse;
+import mts.ftth.vc4.models.UpSplitter;
+import mts.ftth.vc4.models.UpSplitterResponse;
 import mts.ftth.vc4.payload.response.APIResponse;
 import mts.ftth.vc4.repos.NeBoxAlarmJobRepository;
 import mts.ftth.vc4.repos.NeCabinetAlarmJobRepository;
@@ -49,6 +57,15 @@ public class CabinetServiceImpl implements CabinetService{
 	SplitterPortResponse portResponse ;
 	
 	@Autowired
+	UpSplitterResponse upSplitterRes;
+	
+	@Autowired
+	UpBoxSplitterResponse upBoxSplitterRes;
+	
+	@Autowired
+	UpBoxResponse upBoxRes;
+	
+	@Autowired
 	NeCabinetAlarmJobRepository cabinetAlarmJobRepo;
 	
 	@Autowired
@@ -69,8 +86,8 @@ public class CabinetServiceImpl implements CabinetService{
 				  .build();
 		MediaType mediaType = MediaType.parse("text/plain");
 		RequestBody body = RequestBody.create(mediaType, "");
-		Request request = new Request.Builder()
-				  .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_CABINET_LIST/filtered/EXCHCODE== \""+exchCode+"\"")
+		Request request = new Request.Builder()//"https://10.98.35.78:2080/api/ims/TEAPI_GET_CABINET_LIST/filtered/EXCHCODE== \"INVCA\"?PaginatorStartElement=1&PaginatorNumberOfElements=1000"
+				  .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_CABINET_LIST/filtered/EXCHCODE== \""+exchCode+"\"?PaginatorStartElement=1&PaginatorNumberOfElements=1000")
 				  .method("GET", null)
 				  .addHeader("Authorization", passToken)
 				  .build();
@@ -85,7 +102,7 @@ public class CabinetServiceImpl implements CabinetService{
 				vc4Tocken = vc4Token.token;
 				passToken = "Bearer "+vc4Tocken;
 				request = new Request.Builder()
-						  .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_CABINET_LIST/filtered/EXCHCODE== \""+exchCode+"\"")
+						  .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_CABINET_LIST/filtered/EXCHCODE== \""+exchCode+"\"?PaginatorStartElement=1&PaginatorNumberOfElements=1000")
 						  .method("GET", null)
 						  .addHeader("Authorization", passToken)
 						  .build();
@@ -321,13 +338,14 @@ public class CabinetServiceImpl implements CabinetService{
         String bodyJsonStr = "";
         
 		passToken = "Bearer "+vc4Tocken;
-		bodyJson.put("NODE_ID", splitterId);
-
-        bodyJsonStr = bodyJson.toString();
+//		bodyJson.put("NODE_ID", splitterId);
+//
+//        bodyJsonStr = bodyJson.toString();
 		OkHttpClient client = new OkHttpClient().newBuilder()
 				  .build();
 		MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType, bodyJsonStr);
+//        RequestBody body = RequestBody.create(mediaType, bodyJsonStr);
+        RequestBody body = RequestBody.create(mediaType, "{\r\n    \"NODE_ID\": "+splitterId+",\r\n    \"STATUS\":\"ALL\"\r\n}");
 		Request request = new Request.Builder()
 				  .url(vc4Token.getUrl()+"/api/ims/CustomDataOperation/ExecuteProcedure/GetNodePorts")
 				  .post(body)
@@ -439,5 +457,475 @@ public class CabinetServiceImpl implements CabinetService{
         
 		return  new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public ResponseEntity<APIResponse> GetSplitterTypes(String vc4Tocken){
+		List<SplitterType> splitterTypes = new ArrayList<SplitterType>();
+		String passToken ="";
+		SSLTool sl = new SSLTool();
+		int responseCode = 0;
+		String responseMsg = "";
+		APIResponse apiResponse=new APIResponse();
+		
+		passToken = "Bearer "+vc4Tocken;
+		OkHttpClient client = new OkHttpClient().newBuilder()
+				  .build();
+		MediaType mediaType = MediaType.parse("text/plain");
+		RequestBody body = RequestBody.create(mediaType, "");
+		Request request = new Request.Builder()
+				  .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_SLITTERS_TYPES_LIST/filtered/ID>0")
+				  .method("GET", null)
+				  .addHeader("Authorization", passToken)
+				  .build();
+		try {
+			client = sl.getUnsafeOkHttpClient();
+			Response response = client.newCall(request).execute();
+			
+			responseCode = response.code();
+			System.out.println("response code: "+response.code());
+			if(responseCode == 401) {
+				vc4Token.token = vc4Token.getVc4Token();
+				vc4Tocken = vc4Token.token;
+				passToken = "Bearer "+vc4Tocken;
+				request = new Request.Builder()
+						  .url(vc4Token.getUrl()+"/api/ims/TEAPI_GET_SLITTERS_TYPES_LIST/filtered/ID>0")
+						  .method("GET", null)
+						  .addHeader("Authorization", passToken)
+						  .build();
+				
+				client = sl.getUnsafeOkHttpClient();
+			    response = client.newCall(request).execute();
+			}
+			
+			responseMsg =response.message();
+			String str = response.body().string();
+			System.out.println("response GetSplitterTypes: "+str);
+			
+			if (!str.equals("") ) {
+				System.out.println("not empty");
+				if(str.equals("No records found for Entity:TEAPI_GET_CABINET_LIST")) {
+					apiResponse.setStatus(HttpStatus.OK);
+					apiResponse.setStatusCode(HttpStatus.OK.value());
+					apiResponse.setClientMessage("No records found for Entity:TEAPI_GET_CABINET_LIST");
+					return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+				}else {
+                   ObjectMapper mapper = new ObjectMapper();
+                   mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+                   splitterTypes = mapper.readValue(str, new TypeReference<List<SplitterType>>(){});
+                   apiResponse.setStatus(HttpStatus.OK);
+                   apiResponse.setStatusCode(HttpStatus.OK.value());
+                   apiResponse.setBody(splitterTypes);
+				}
+				
+				if(splitterTypes != null)
+					apiResponse.setClientMessage("Success");
+				else
+					apiResponse.setClientMessage("No object found");
+            }
+			if(responseCode == 404) {
+				apiResponse.setStatus(HttpStatus.NOT_FOUND);
+				apiResponse.setStatusCode(HttpStatus.NOT_FOUND.value());
+				apiResponse.setClientMessage(responseMsg);
+				return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			apiResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+			apiResponse.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+			apiResponse.setClientMessage("An error occured while fetching audit data");
+			return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+		
+		return  new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public ResponseEntity<APIResponse> UpdateSplitter(String vc4Tocken,UpSplitter splitter){
+		String passToken ="";
+		SSLTool sl = new SSLTool();
+		int responseCode = 0;
+		String responseMsg = "";
+		APIResponse apiResponse=new APIResponse();
+		passToken = "Bearer "+vc4Tocken;
+		OkHttpClient client = new OkHttpClient().newBuilder()
+				  .build();
+		MediaType mediaType = MediaType.parse("application/json");
+
+		RequestBody body = RequestBody.create(mediaType, "{\r\n    \"EXCH_CODE\": \""+splitter.getEXCH_CODE()+"\",\r\n    \"CABINET_NO\": \""+splitter.getCABINET_NO()+"\",\r\n    \"SPLITTER_ID\": \""+splitter.getSPLITTER_ID()+"\",\r\n    \"GPON_ID\": \""+splitter.getGPON_ID()+"\",\r\n    \"GPON_SHELF\": \""+splitter.getGPON_SHELF()+"\",\r\n    \"GPON_CARD\": \""+splitter.getGPON_CARD()+"\",\r\n    \"GPON_PORT\": \""+splitter.getGPON_PORT()+"\",\r\n    \"MMR_A_ODF\": \""+splitter.getMMR_A_ODF()+"\",\r\n    \"MMR_A_PORT\": \""+splitter.getMMR_A_PORT()+"\",\r\n    \"MMR_P_ODF\": \""+splitter.getMMR_P_ODF()+"\",\r\n    \"MMR_P_PORT\": \""+splitter.getMMR_P_PORT()+"\"\r\n}");
+		System.out.println("body : "+"{\r\n    \"EXCH_CODE\": \""+splitter.getEXCH_CODE()+"\",\r\n    \"CABINET_NO\": \""+splitter.getCABINET_NO()+"\",\r\n    \"SPLITTER_ID\": \""+splitter.getSPLITTER_ID()+"\",\r\n    \"GPON_ID\": \""+splitter.getGPON_ID()+"\",\r\n    \"GPON_SHELF\": \""+splitter.getGPON_SHELF()+"\",\r\n    \"GPON_CARD\": \""+splitter.getGPON_CARD()+"\",\r\n    \"GPON_PORT\": \""+splitter.getGPON_PORT()+"\",\r\n    \"MMR_A_ODF\": \""+splitter.getMMR_A_ODF()+"\",\r\n    \"MMR_A_PORT\": \""+splitter.getMMR_A_PORT()+"\",\r\n    \"MMR_P_ODF\": \""+splitter.getMMR_P_ODF()+"\",\r\n    \"MMR_P_PORT\": \""+splitter.getMMR_P_PORT()+"\"\r\n}");
+		Request request = new Request.Builder()
+			      .url(vc4Token.getUrl()+"/api/ims/CustomDataOperation/ExecuteProcedure/UpdateFCCSplitter")
+				  .method("POST", body)
+				  .addHeader("Authorization", passToken)
+				  .addHeader("Content-Type", "application/json")
+				  .build();
+		System.out.println("updateSplitter request : " +request.toString());
+		System.out.println("req body : "+ request.body().toString());
+		try {
+			client = sl.getUnsafeOkHttpClient();
+			Response response = client.newCall(request).execute();
+			
+			responseCode = response.code();
+			System.out.println("response code: "+response.code());
+			if(responseCode == 401) {
+				vc4Token.token = vc4Token.getVc4Token();
+				vc4Tocken = vc4Token.token;
+				passToken = "Bearer "+vc4Tocken;
+				request = new Request.Builder()
+						  .url(vc4Token.getUrl()+"/api/ims/CustomDataOperation/ExecuteProcedure/UpdateFCCSplitter")
+						  .method("POST", body)
+						  .addHeader("Authorization", passToken)
+						  .addHeader("Content-Type", "application/json")
+						  .build();
+				
+				client = sl.getUnsafeOkHttpClient();
+			    response = client.newCall(request).execute();
+			}
+			
+			responseMsg =response.message();
+			
+			String str = response.body().string();
+			System.out.println("response UpdateSplitter: "+str);
+			
+			if (!str.equals("") ) {
+				System.out.println("not empty");
+				if(str.equals("No records found for Entity:TEAPI_GET_GPON_LIST")) {
+					apiResponse.setStatus(HttpStatus.OK);
+					apiResponse.setStatusCode(HttpStatus.OK.value());
+					apiResponse.setClientMessage("No records found for Entity:TEAPI_GET_GPON_LIST");
+					return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+				}else {
+                   ObjectMapper mapper = new ObjectMapper();
+                   mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+                   upSplitterRes = mapper.readValue(str, UpSplitterResponse.class);
+                   apiResponse.setStatus(HttpStatus.OK);
+                   apiResponse.setStatusCode(HttpStatus.OK.value());
+                   apiResponse.setBody(upSplitterRes);
+				}
+				
+				if(upSplitterRes != null)
+					apiResponse.setClientMessage("Success");
+				else
+					apiResponse.setClientMessage("No object found");
+            }
+			if(responseCode == 404) {
+				apiResponse.setStatus(HttpStatus.NOT_FOUND);
+				apiResponse.setStatusCode(HttpStatus.NOT_FOUND.value());
+				apiResponse.setClientMessage(responseMsg);
+				apiResponse.setBody(null);
+				return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+			}
+			if(responseCode == 500) {
+				apiResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+				apiResponse.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+				apiResponse.setClientMessage("Exception occurs. Could not execute ExecuteProcedure with Procedure:UpdateFCCSplitter.");
+				apiResponse.setBody(null);
+				return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			apiResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+			apiResponse.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+			apiResponse.setClientMessage("An error occured while fetching audit data");
+			return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+		
+		return  new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+	}
+
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public ResponseEntity<APIResponse> UpdateBox(String vc4Tocken,UpBox box){
+		String passToken ="";
+		SSLTool sl = new SSLTool();
+		int responseCode = 0;
+		String responseMsg = "";
+		APIResponse apiResponse=new APIResponse();
+		passToken = "Bearer "+vc4Tocken;
+		OkHttpClient client = new OkHttpClient().newBuilder()
+				  .build();
+		MediaType mediaType = MediaType.parse("application/json");
+
+		RequestBody body = RequestBody.create(mediaType, "{\r\n    \"EXCH_CODE\": \""+box.getEXCH_CODE()+"\",\r\n    \"CABINET_NO\": \""+box.getCABINET_NO()+"\",\r\n    \"BOX_ID\": \""+box.getBOX_ID()+"\",\r\n    \"BOX_ADDRESS\": \""+box.getBOX_ADDRESS()+"\",\r\n    \"BOX_TYPE\": \""+box.getBOX_TYPE()+"\",\r\n    \"BOX_LONG\": \""+box.getBOX_LONG()+"\",\r\n    \"BOX_LAT\": \""+box.getBOX_LAT()+"\"\r\n}");
+		Request request = new Request.Builder()
+			      .url(vc4Token.getUrl()+"/api/ims/CustomDataOperation/ExecuteProcedure/UpdateFCCBox")
+				  .method("POST", body)
+				  .addHeader("Authorization", passToken)
+				  .addHeader("Content-Type", "application/json")
+				  .build();
+		try {
+			client = sl.getUnsafeOkHttpClient();
+			Response response = client.newCall(request).execute();
+			
+			responseCode = response.code();
+			System.out.println("response code: "+response.code());
+			if(responseCode == 401) {
+				vc4Token.token = vc4Token.getVc4Token();
+				vc4Tocken = vc4Token.token;
+				passToken = "Bearer "+vc4Tocken;
+				request = new Request.Builder()
+						  .url(vc4Token.getUrl()+"/api/ims/CustomDataOperation/ExecuteProcedure/UpdateFCCBox")
+						  .method("POST", body)
+						  .addHeader("Authorization", passToken)
+						  .addHeader("Content-Type", "application/json")
+						  .build();
+				
+				client = sl.getUnsafeOkHttpClient();
+			    response = client.newCall(request).execute();
+			}
+			
+			responseMsg =response.message();
+			
+			String str = response.body().string();
+			System.out.println("response UpdateBox: "+str);
+			
+			if (!str.equals("") ) {
+				System.out.println("not empty");
+				if(str.equals("No records found for Entity:TEAPI_GET_GPON_LIST")) {
+					apiResponse.setStatus(HttpStatus.OK);
+					apiResponse.setStatusCode(HttpStatus.OK.value());
+					apiResponse.setClientMessage("No records found for Entity:TEAPI_GET_GPON_LIST");
+					return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+				}else {
+                   ObjectMapper mapper = new ObjectMapper();
+                   mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+                   upBoxRes = mapper.readValue(str, UpBoxResponse.class);
+                   apiResponse.setStatus(HttpStatus.OK);
+                   apiResponse.setStatusCode(HttpStatus.OK.value());
+                   apiResponse.setBody(upBoxRes);
+				}
+				
+				if(upBoxRes != null)
+					apiResponse.setClientMessage("Success");
+				else
+					apiResponse.setClientMessage("No object found");
+            }
+			if(responseCode == 404) {
+				apiResponse.setStatus(HttpStatus.NOT_FOUND);
+				apiResponse.setStatusCode(HttpStatus.NOT_FOUND.value());
+				apiResponse.setClientMessage(responseMsg);
+				apiResponse.setBody(null);
+				return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+			}
+			if(responseCode == 500) {
+				apiResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+				apiResponse.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+				apiResponse.setClientMessage("Exception occurs. Could not execute ExecuteProcedure with Procedure:UpdateFCCBox.");
+				apiResponse.setBody(null);
+				return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			apiResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+			apiResponse.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+			apiResponse.setClientMessage("An error occured while fetching audit data");
+			return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+		
+		return  new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public ResponseEntity<APIResponse> GetSplitterFreePortList(String vc4Tocken,String splitterId){
+//		List<SplitterPort> spPorts = new ArrayList<SplitterPort>();
+		 
+		String passToken ="";
+		SSLTool sl = new SSLTool();
+		int responseCode = 0;
+		String responseMsg = "";
+		APIResponse apiResponse=new APIResponse();
+		JSONObject bodyJson = new JSONObject();
+        String bodyJsonStr = "";
+        
+		passToken = "Bearer "+vc4Tocken;
+//		bodyJson.put("NODE_ID", splitterId);
+//
+//        bodyJsonStr = bodyJson.toString();
+		OkHttpClient client = new OkHttpClient().newBuilder()
+				  .build();
+		MediaType mediaType = MediaType.parse("application/json");
+//        RequestBody body = RequestBody.create(mediaType, bodyJsonStr);
+        RequestBody body = RequestBody.create(mediaType, "{\r\n    \"NODE_ID\": "+splitterId+",\r\n    \"STATUS\":\"Free\"\r\n}");
+		Request request = new Request.Builder()
+				  .url(vc4Token.getUrl()+"/api/ims/CustomDataOperation/ExecuteProcedure/GetNodePorts")
+				  .post(body)
+				  .addHeader("Authorization", passToken)
+				  .build();
+		try {
+			client = sl.getUnsafeOkHttpClient();
+			Response response = client.newCall(request).execute();
+			
+			responseCode = response.code();
+			System.out.println("response code: "+response.code());
+			if(responseCode == 401) {
+				vc4Token.token = vc4Token.getVc4Token();
+				vc4Tocken = vc4Token.token;
+				passToken = "Bearer "+vc4Tocken;
+				request = new Request.Builder()
+						  .url(vc4Token.getUrl()+"/api/ims/CustomDataOperation/ExecuteProcedure/GetNodePorts")
+						  .method("GET", null)
+						  .addHeader("Authorization", passToken)
+						  .build();
+				
+				client = sl.getUnsafeOkHttpClient();
+			    response = client.newCall(request).execute();
+			}
+			
+			responseMsg =response.message();
+			String str = response.body().string();
+			System.out.println("response GetSplitterFreePortList : "+str);
+			
+			if (!str.equals("") ) {
+				System.out.println("not empty");
+				if(str.equals("No records found for Entity:TEAPI_GET_TB_SPLITTERS_LIST")) {
+					apiResponse.setStatus(HttpStatus.OK);
+					apiResponse.setStatusCode(HttpStatus.OK.value());
+					apiResponse.setClientMessage("No records found for Entity:TEAPI_GET_TB_SPLITTERS_LIST");
+					return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+				}else {
+					ObjectMapper mapper = new ObjectMapper();
+                    mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+                    portResponse  = mapper.readValue(str, SplitterPortResponse.class);
+
+                    apiResponse.setStatus(HttpStatus.OK);
+                    apiResponse.setStatusCode(HttpStatus.OK.value());
+                    apiResponse.setBody(portResponse);
+				}
+				
+				if(portResponse != null)
+					apiResponse.setClientMessage("Success");
+				else
+					apiResponse.setClientMessage("No object found");
+            }
+			if(responseCode == 404) {
+				apiResponse.setStatus(HttpStatus.NOT_FOUND);
+				apiResponse.setStatusCode(HttpStatus.NOT_FOUND.value());
+				apiResponse.setClientMessage(responseMsg);
+				return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+			}
+			if(responseCode == 500) {
+				apiResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+				apiResponse.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+				apiResponse.setClientMessage("Exception occurs. Could not execute ExecuteProcedure with Procedure:GetNodePorts.");
+				return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			apiResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+			apiResponse.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+			apiResponse.setClientMessage("An error occured while fetching audit data");
+			return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		return  new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public ResponseEntity<APIResponse> UpdateBoxSplitter(String vc4Tocken,UpBoxSplitter boxSplitter){
+		String passToken ="";
+		SSLTool sl = new SSLTool();
+		int responseCode = 0;
+		String responseMsg = "";
+		APIResponse apiResponse=new APIResponse();
+		passToken = "Bearer "+vc4Tocken;
+		OkHttpClient client = new OkHttpClient().newBuilder()
+				  .build();
+		MediaType mediaType = MediaType.parse("application/json");
+
+		RequestBody body = RequestBody.create(mediaType, "{\r\n    \"BOX_PORT_ID\": "+boxSplitter.getBOX_PORT_ID()+",\r\n    \"SPLITTER_PORT_ID\": "+boxSplitter.getSPLITTER_PORT_ID()+",\r\n    \"ODF_ID\":\"\",\r\n    \"ODF_PORT\":\"\"\r\n}");
+		Request request = new Request.Builder()
+			      .url(vc4Token.getUrl()+"/api/ims/CustomDataOperation/ExecuteProcedure/UpdateFCCBoxSplitter")
+				  .method("POST", body)
+				  .addHeader("Authorization", passToken)
+				  .addHeader("Content-Type", "application/json")
+				  .build();
+		System.out.println("UpdateFCCBoxSplitter request : " +request.toString());
+		System.out.println("req body : "+ request.body().toString());
+		try {
+			client = sl.getUnsafeOkHttpClient();
+			Response response = client.newCall(request).execute();
+			
+			responseCode = response.code();
+			System.out.println("response code: "+response.code());
+			if(responseCode == 401) {
+				vc4Token.token = vc4Token.getVc4Token();
+				vc4Tocken = vc4Token.token;
+				passToken = "Bearer "+vc4Tocken;
+				request = new Request.Builder()
+						  .url(vc4Token.getUrl()+"/api/ims/CustomDataOperation/ExecuteProcedure/UpdateFCCBoxSplitter")
+						  .method("POST", body)
+						  .addHeader("Authorization", passToken)
+						  .addHeader("Content-Type", "application/json")
+						  .build();
+				
+				client = sl.getUnsafeOkHttpClient();
+			    response = client.newCall(request).execute();
+			}
+			
+			responseMsg =response.message();
+			
+			String str = response.body().string();
+			System.out.println("response UpdateFCCBoxSplitter: "+str);
+			
+			if (!str.equals("") ) {
+				System.out.println("not empty");
+				if(str.equals("No records found for Entity:TEAPI_GET_GPON_LIST")) {
+					apiResponse.setStatus(HttpStatus.OK);
+					apiResponse.setStatusCode(HttpStatus.OK.value());
+					apiResponse.setClientMessage("No records found for Entity:TEAPI_GET_GPON_LIST");
+					return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+				}else {
+                   ObjectMapper mapper = new ObjectMapper();
+                   mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+                   upBoxSplitterRes = mapper.readValue(str, UpBoxSplitterResponse.class);
+                   apiResponse.setStatus(HttpStatus.OK);
+                   apiResponse.setStatusCode(HttpStatus.OK.value());
+                   apiResponse.setBody(upBoxSplitterRes);
+				}
+				
+				if(upBoxSplitterRes != null)
+					apiResponse.setClientMessage("Success");
+				else
+					apiResponse.setClientMessage("No object found");
+            }
+			if(responseCode == 404) {
+				apiResponse.setStatus(HttpStatus.NOT_FOUND);
+				apiResponse.setStatusCode(HttpStatus.NOT_FOUND.value());
+				apiResponse.setClientMessage(responseMsg);
+				apiResponse.setBody(null);
+				return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+			}
+			if(responseCode == 500) {
+				apiResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+				apiResponse.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+				apiResponse.setClientMessage("Exception occurs. Could not execute ExecuteProcedure with Procedure:UpdateFCCBoxSplitter.");
+				apiResponse.setBody(null);
+				return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			apiResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+			apiResponse.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+			apiResponse.setClientMessage("An error occured while fetching audit data");
+			return new ResponseEntity<APIResponse>(apiResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+		
+		return  new ResponseEntity<APIResponse>(apiResponse, HttpStatus.OK);
+	}
+
 
 }

@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
@@ -149,9 +151,11 @@ public class NeGponAlarmJob  extends Element  {
 	Long vc4Id;
 	
 	@Column(name="PROMISED_REPAIR_DATE")
+	@JsonFormat(timezone = "GMT+02:00")
 	Date promisedRepairDate;
 	
 	@Column(name="ACTUAL_REPAIR_DATE")
+	@JsonFormat(timezone = "GMT+02:00")
 	Date actualRepairDate;
 	
 	@Column(name="INSTANT_CLOSURE")
@@ -164,6 +168,7 @@ public class NeGponAlarmJob  extends Element  {
 	Long jobFlag=(long) 1;
 	
 	@Column(name="OUT_OF_SERVICE",insertable = false)
+	@JsonFormat(timezone = "GMT+02:00")
 	Date outOfService;
 	
 	@Column(name="JOB_DATE")

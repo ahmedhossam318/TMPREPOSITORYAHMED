@@ -76,13 +76,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
-		System.out.println("encode : " +new BCryptPasswordEncoder().encode("VC4").toString());
-		System.out.println("encode : " +new BCryptPasswordEncoder().encode("VC4").toString());
-		System.out.println("check : "+ new BCryptPasswordEncoder().matches("VC4", new BCryptPasswordEncoder().encode("VC4").toString()));
-		System.out.println("userName s :"+ userName);
-		System.out.println("password s :"+ password);
-		authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-//		authenticationManagerBuilder.authenticationProvider(wlsAuthenticationProvider);
+//		System.out.println("encode : " +new BCryptPasswordEncoder().encode("VC4").toString());
+//		System.out.println("encode : " +new BCryptPasswordEncoder().encode("VC4").toString());
+//		System.out.println("check : "+ new BCryptPasswordEncoder().matches("VC4", new BCryptPasswordEncoder().encode("VC4").toString()));
+//		System.out.println("userName s :"+ userName);
+//		System.out.println("password s :"+ password);
+//		authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+		authenticationManagerBuilder.authenticationProvider(wlsAuthenticationProvider);
 	}
 	
 	@Override
