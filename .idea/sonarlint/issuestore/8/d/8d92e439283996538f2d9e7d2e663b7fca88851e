@@ -1,0 +1,31 @@
+
+l	java:S116'"RRename this field "USER_ID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–àĞíÿÿÿÿÿ
+m	java:S116)"SRename this field "USERNAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™½µşÿÿÿÿ
+m	java:S116*"XRename this field "EMAIL_ADDRESS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ö½îó
+q	java:S116+"WRename this field "DISPLAY_NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Àò°ûÿÿÿÿ
+u	java:S116,"[Rename this field "LAST_MODIFIED_BY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŠˆŸøÿÿÿÿÿ
+p	java:S116-"VRename this field "ORG_UNIT_ID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚½ıÿÿÿÿ
+r	java:S116."XRename this field "USER_PASSWORD" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ê¸˜ÿÿÿÿÿ
+q	java:S116/"WRename this field "PASSWORD_ENC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İÌ’ûÿÿÿÿ
+l	java:S1165"RRename this field "EMP_ORG" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßÀñ—ùÿÿÿÿ
+j	java:S116>"PRename this field "ROLES" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(òÁàÚúÿÿÿÿ
+p	java:S116G"VRename this field "PERMISSIONS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–Üœ³ıÿÿÿÿ
+B
+java:S1948>"'Make "ROLES" transient or serializable.(òÁàÚúÿÿÿÿ
+H
+java:S1948G"-Make "PERMISSIONS" transient or serializable.(–Üœ³ıÿÿÿÿ
+V	java:S1250"<This block of commented-out lines of code should be removed.(§û‘…ıÿÿÿÿ
+Q	java:S1258"<This block of commented-out lines of code should be removed.(³ä€ä
+Q	java:S125J"<This block of commented-out lines of code should be removed.(æ±õÒ
+B
+java:S1602P",Remove useless curly braces around statement(Ãç¦™
+B
+java:S1602T",Remove useless curly braces around statement(·éÿå
+V	java:S125X"<This block of commented-out lines of code should be removed.(§¾Ì„øÿÿÿÿ
+Q	java:S125\"<This block of commented-out lines of code should be removed.(ª·Ğ
+V	java:S125}"<This block of commented-out lines of code should be removed.(·áÑ©üÿÿÿÿ
+N
+java:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ
+R	java:S125”"<This block of commented-out lines of code should be removed.(ÒÕ¶
+F
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ

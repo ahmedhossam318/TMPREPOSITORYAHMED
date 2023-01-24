@@ -37,7 +37,8 @@ public class User implements UserDetails{
 	
 	@Id
 	private Long USER_ID;
-	@Column(name="USER_NAME") private String USERNAME;
+	@Column(name="USER_NAME") 
+	private String USERNAME;
 	private String EMAIL_ADDRESS;
 	private String DISPLAY_NAME;
 	private String LAST_MODIFIED_BY;

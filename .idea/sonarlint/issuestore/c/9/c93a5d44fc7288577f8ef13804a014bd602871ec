@@ -1,0 +1,33 @@
+
+t
+java:S22933"YReplace the type specification in this constructor call with the diamond operator ("<>").(ë´°¦øÿÿÿÿ
+l
+java:S1104$"QMake token a static final constant or non-public and provide accessors if needed.(İ®¼àùÿÿÿÿ
+F
+java:S1444$"+Make this "public static token" field final(İ®¼àùÿÿÿÿ
+Q	java:S125!"<This block of commented-out lines of code should be removed.(×¼Ì
+_
+java:S18543"DRemove this useless assignment to local variable "sysConfigVc4List".(ë´°¦øÿÿÿÿ
+U
+java:S1854>":Remove this useless assignment to local variable "client".(ÔÁåÎùÿÿÿÿ
+T
+java:S1117/"9Rename "token" which hides the field declared at line 36.(ö‹¡Şúÿÿÿÿ
+S	java:S1069"9Replace this use of System.out or System.err by a logger.(ïíÎ½øÿÿÿÿ
+S	java:S106:"9Replace this use of System.out or System.err by a logger.(¦ëíšúÿÿÿÿ
+S	java:S106;"9Replace this use of System.out or System.err by a logger.(Çô‡ëùÿÿÿÿ
+D
+java:S1874A".Remove this use of "create"; it is deprecated.(Ù³Û
+S	java:S106H"9Replace this use of System.out or System.err by a logger.(¦ÏŒ˜ÿÿÿÿÿ
+N	java:S106N"9Replace this use of System.out or System.err by a logger.(Š›¢
+Q	java:S125O"<This block of commented-out lines of code should be removed.(ØÎœÆ
+Q
+java:S2696g"6Make the enclosing method "static" or remove this set.(åÖ‹Šşÿÿÿÿ
+K
+java:S1128"0Remove this unused import 'java.io.IOException'.(ªº»Úıÿÿÿÿ
+e
+java:S1128
+"ORemove this unused import 'org.springframework.beans.factory.annotation.Value'.(ìø›
+Y
+java:S1128"CRemove this unused import 'org.springframework.stereotype.Service'.(¼º¡Ú
+\
+java:S1128"FRemove this unused import 'mts.ftth.vc4.services.SysConfigVC4Service'.(Ø¡Ê†

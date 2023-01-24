@@ -1,0 +1,25 @@
+
+o
+java:S2293;"YReplace the type specification in this constructor call with the diamond operator ("<>").(õ™—
+t
+java:S2293K"YReplace the type specification in this constructor call with the diamond operator ("<>").(ıÛŠ¬ıÿÿÿÿ
+t
+java:S2293^"YReplace the type specification in this constructor call with the diamond operator ("<>").(ıÛŠ¬ıÿÿÿÿ
+Š
+java:S1192-"oDefine a constant instead of duplicating this literal "##############################################" 6 times.(’Ç£—ùÿÿÿÿ
+v
+java:S1488M"[Immediately return this expression instead of assigning it to the temporary variable "res".(ä¾…şÿÿÿÿ
+q
+java:S1488`"[Immediately return this expression instead of assigning it to the temporary variable "res".(‡ûã†
+N
+java:S3416"3Update this logger to use "LookupController.class".(ôáığüÿÿÿÿ
+P
+java:S2209F"5Change this instance-reference to a static reference.(Óà °ıÿÿÿÿ
+M	java:S106G"9Replace this use of System.out or System.err by a logger.(Ìø¾c
+P
+java:S2209Y"5Change this instance-reference to a static reference.(Óà °ıÿÿÿÿ
+M	java:S106Z"9Replace this use of System.out or System.err by a logger.(Ìø¾c
+l
+java:S1128"QRemove this unused import 'org.springframework.web.bind.annotation.RequestParam'.(Â¬À·ùÿÿÿÿ
+P
+java:S1128"5Remove this unused import 'mts.ftth.vc4.models.Gpon'.(¢å¤Äùÿÿÿÿ

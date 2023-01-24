@@ -1,0 +1,42 @@
+
+t
+java:S2293+"YReplace the type specification in this constructor call with the diamond operator ("<>").(ıÛŠ¬ıÿÿÿÿ
+t
+java:S2293>"YReplace the type specification in this constructor call with the diamond operator ("<>").(ıÛŠ¬ıÿÿÿÿ
+t
+java:S2293R"YReplace the type specification in this constructor call with the diamond operator ("<>").(ıÛŠ¬ıÿÿÿÿ
+t
+java:S2293d"YReplace the type specification in this constructor call with the diamond operator ("<>").(ıÛŠ¬ıÿÿÿÿ
+t
+java:S2293w"YReplace the type specification in this constructor call with the diamond operator ("<>").(ıÛŠ¬ıÿÿÿÿ
+‹
+java:S1192#"pDefine a constant instead of duplicating this literal "##############################################" 10 times.(’Ç£—ùÿÿÿÿ
+f	java:S117F"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷­ë
+q
+java:S1488-"[Immediately return this expression instead of assigning it to the temporary variable "res".(Ì±³æ
+v
+java:S1488@"[Immediately return this expression instead of assigning it to the temporary variable "res".(è¯§‹üÿÿÿÿ
+v
+java:S1488T"[Immediately return this expression instead of assigning it to the temporary variable "res".(ôØ”Ñùÿÿÿÿ
+q
+java:S1488f"[Immediately return this expression instead of assigning it to the temporary variable "res".(Ûë¾ë
+v
+java:S1488y"[Immediately return this expression instead of assigning it to the temporary variable "res".(Ìî·ëøÿÿÿÿ
+K
+java:S3416"0Update this logger to use "ODFController.class".(ôáığüÿÿÿÿ
+P
+java:S2209&"5Change this instance-reference to a static reference.(Óà °ıÿÿÿÿ
+M	java:S106'"9Replace this use of System.out or System.err by a logger.(Ìø¾c
+P
+java:S22098"5Change this instance-reference to a static reference.(Óà °ıÿÿÿÿ
+M	java:S1069"9Replace this use of System.out or System.err by a logger.(Ìø¾c
+N	java:S106:"9Replace this use of System.out or System.err by a logger.(óŒô¡
+P
+java:S2209M"5Change this instance-reference to a static reference.(Óà °ıÿÿÿÿ
+M	java:S106N"9Replace this use of System.out or System.err by a logger.(Ìø¾c
+P
+java:S2209_"5Change this instance-reference to a static reference.(Óà °ıÿÿÿÿ
+M	java:S106`"9Replace this use of System.out or System.err by a logger.(Ìø¾c
+P
+java:S2209r"5Change this instance-reference to a static reference.(Óà °ıÿÿÿÿ
+M	java:S106s"9Replace this use of System.out or System.err by a logger.(Ìø¾c

@@ -2,7 +2,7 @@ package mts.ftth.vc4.services;
 
 import java.util.List;
 
-import org.springframework.data.domain.Pageable;
+import mts.ftth.vc4.services.apiInterface.SysConfigVC4Service;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -11,13 +11,13 @@ import mts.ftth.vc4.repos.SysConfigRepo;
 
 @Service
 @RequiredArgsConstructor
-public class SysConfigVC4ServiceImpl implements SysConfigVC4Service{
+public class SysConfigVC4ServiceImpl implements SysConfigVC4Service {
 
-	private final SysConfigRepo sysConfigRepo;
-	
-	@Override
-	public List<SYS_CONFIG> GetAllSysConfigVc4() {
-		return sysConfigRepo.GetAllSysConfig();
-	}
+    private final SysConfigRepo sysConfigRepo;
+
+    @Override
+    public List<SYS_CONFIG> GetAllSysConfigVc4() {
+        return sysConfigRepo.GetAllSysConfig();
+    }
 
 }

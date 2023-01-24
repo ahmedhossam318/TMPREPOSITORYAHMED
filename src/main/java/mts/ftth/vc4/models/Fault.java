@@ -8,10 +8,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name="NW_FAULT_REASON", schema = "VC4_ALARM")
-@Data
+@Setter
+@Getter
 public class Fault {
 	@Id
 	@Column(name="FAULT_CODE")

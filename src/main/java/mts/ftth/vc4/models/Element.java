@@ -8,6 +8,7 @@ public class Element {
 	public void setFinishUser(String s) {};
 	public void setNotes(String s) {};
 	public void setActualRepairDate(Date s) {};
+	public void setInstanceClosure(Date s) {};
 	public void setFaultCode(String s) {};
 	public void setJobFlag(Long s) {} ;
 //	public Long getVc4Id() {return null;}
@@ -19,6 +20,9 @@ public class Element {
 		return null;
 	}
 	public Date getActualRepairDate() {
+		return null;
+	}
+	public String getUserName() {
 		return null;
 	}
 }

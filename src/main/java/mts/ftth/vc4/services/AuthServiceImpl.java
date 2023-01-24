@@ -1,9 +1,9 @@
 package mts.ftth.vc4.services;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import mts.ftth.vc4.services.apiInterface.AuthService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +15,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import mts.ftth.vc4.globalControllers.AuthController;
-import mts.ftth.vc4.models.User;
 import mts.ftth.vc4.payload.request.LoginRequest;
 import mts.ftth.vc4.payload.response.JwtResponse;
 import mts.ftth.vc4.repos.UserDataScopeRepo;
@@ -24,7 +22,7 @@ import mts.ftth.vc4.security.JwtUtils;
 
 @Service
 @RequiredArgsConstructor
-public class AuthServiceImpl implements AuthService{
+public class AuthServiceImpl implements AuthService {
 	@Autowired
 	UserDataScopeRepo userScopeRepo;
 	private final AuthenticationManager authenticationManager;

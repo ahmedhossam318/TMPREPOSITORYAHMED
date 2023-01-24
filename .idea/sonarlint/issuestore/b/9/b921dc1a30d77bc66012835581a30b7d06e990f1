@@ -1,0 +1,11 @@
+
+X
+java:S2094"BRemove this empty class, write its code or make it an "interface".(Š«çÈ
+V	java:S125"<This block of commented-out lines of code should be removed.(ä˜üùÿÿÿÿ
+Q	java:S125"<This block of commented-out lines of code should be removed.(áåçÄ
+<
+java:S1128"&Remove this unused import 'java.util'.(Î€ŒÙ
+^
+java:S1128"HRemove this unused import 'org.springframework.context.annotation.Bean'.(‚î‰Þ
+l
+java:S1128"QRemove this unused import 'org.springframework.context.annotation.Configuration'.(¬²Úäþÿÿÿÿ

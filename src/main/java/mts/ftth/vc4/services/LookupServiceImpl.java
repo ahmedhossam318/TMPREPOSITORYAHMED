@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import mts.ftth.vc4.services.apiInterface.LookupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +15,6 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import mts.ftth.vc4.controllers.VC4Token;
-import mts.ftth.vc4.models.Cabinet;
 import mts.ftth.vc4.models.Fault;
 import mts.ftth.vc4.models.TBType;
 import mts.ftth.vc4.payload.response.APIResponse;
@@ -27,7 +27,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 @Service
-public class LookupServiceImpl implements LookupService{
+public class LookupServiceImpl implements LookupService {
 	@Autowired
 	private FaultRepo faultRepo;
 	

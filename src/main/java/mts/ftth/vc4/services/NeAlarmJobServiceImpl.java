@@ -7,12 +7,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import mts.ftth.vc4.models.NeGponAlarmJob;
+import mts.ftth.vc4.repos.NeGponAlarmJobRepository;
+import mts.ftth.vc4.services.apiInterface.NeAlarmJobService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import mts.ftth.vc4.models.FTTHNeOutage;
-import mts.ftth.vc4.payload.response.APIResponse;
 import mts.ftth.vc4.repos.AlarmFactoryRepo;
 import mts.ftth.vc4.repos.AlarmJobRepository;
 import mts.ftth.vc4.repos.FTTHNeOutageRepositry;
@@ -26,6 +27,9 @@ public class NeAlarmJobServiceImpl implements NeAlarmJobService {
 	FTTHNeOutageRepositry neRepository;
 	@Autowired
 	AlarmFactoryRepo aFactory;
+	@Autowired
+	NeGponAlarmJobRepository gponRepo ;
+
 
 
 
@@ -38,7 +42,6 @@ public class NeAlarmJobServiceImpl implements NeAlarmJobService {
 			return ne.getFaulty();
 		else
 			return (long) 0;
-
 	}
 
 	
@@ -81,6 +84,7 @@ public class NeAlarmJobServiceImpl implements NeAlarmJobService {
 			c.setActualRepairDate(repDate);
 			c.setFaultCode(faultCode);
 			c.setJobFlag((long) 0);
+			c.setInstanceClosure(sDate);
 			c.setNotes(notes);
 			
 			found = "FOUND";
@@ -129,13 +133,24 @@ public class NeAlarmJobServiceImpl implements NeAlarmJobService {
 	}
 
 
-
-
 	@Override
 	public List<FTTHNeOutage> getElementJobs(String type) {
 		// TODO Auto-generated method stub
 		List<FTTHNeOutage> elementJobs = neRepository.findAllByNeType(type);
 		return elementJobs;
+	}
+
+	@Override
+	public String updateElementJobs(NeGponAlarmJob neGponAlarmJob) {
+		try {
+
+//			aFactory.getNeAlarm("GPON").save(neGponAlarmJob);
+			gponRepo.save(neGponAlarmJob);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			return "error";}
+		return "success";
 	}
 
 }

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import mts.ftth.vc4.services.apiInterface.FullCrossConnectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,9 +15,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import mts.ftth.vc4.controllers.VC4Token;
-import mts.ftth.vc4.models.Cabinet;
 import mts.ftth.vc4.models.CrossConnection;
-import mts.ftth.vc4.models.SplitterPort;
 import mts.ftth.vc4.payload.response.APIResponse;
 import mts.ftth.vc4.security.SSLTool;
 import okhttp3.MediaType;
@@ -26,7 +25,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 @Service
-public class FullCrossConnectionServiceImpl implements  FullCrossConnectionService{
+public class FullCrossConnectionServiceImpl implements FullCrossConnectionService {
 	@Autowired
 	VC4Token vc4Token;
 	

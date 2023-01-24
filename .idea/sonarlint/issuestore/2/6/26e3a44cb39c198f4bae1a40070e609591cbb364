@@ -1,0 +1,13 @@
+
+o
+java:S2293)"YReplace the type specification in this constructor call with the diamond operator ("<>").(±—úÚ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(•‹ôùýÿÿÿÿ
+Q	java:S125"<This block of commented-out lines of code should be removed.(èŽ«Ý
+<
+java:S1452!"&Remove usage of generic wildcard type.(“ºŠž
++
+java:S3457""Not enough arguments.(íÆÓ
+X
+java:S1128"BRemove this unused import 'javax.servlet.http.HttpServletRequest'.(ø©¹…
+N
+java:S1128"3Remove this unused import 'javax.validation.Valid'.(æ¤ñ÷úÿÿÿÿ

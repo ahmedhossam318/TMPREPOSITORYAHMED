@@ -25,6 +25,8 @@ public class UpSplitter {
 	private String MMR_P_ODF;
 	private String MMR_P_PORT;
 	private String SPLITTER_TYPE;
+	private String userName;
+	private String actionName;
 	
 	public String getEXCH_CODE() {
 		return EXCH_CODE;
@@ -97,5 +99,17 @@ public class UpSplitter {
 	}
 	public void setSPLITTER_TYPE(String sPLITTER_TYPE) {
 		SPLITTER_TYPE = sPLITTER_TYPE;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getActionName() {
+		return actionName;
+	}
+	public void setActionName(String actionName) {
+		this.actionName = actionName;
 	}
 }

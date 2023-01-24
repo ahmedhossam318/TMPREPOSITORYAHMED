@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import mts.ftth.vc4.services.apiInterface.LineCardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,15 +16,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import mts.ftth.vc4.controllers.VC4Token;
 import mts.ftth.vc4.models.ActiveLineDataResponse;
-import mts.ftth.vc4.models.Gpon;
 import mts.ftth.vc4.models.PassiveLineDataResponse;
-import mts.ftth.vc4.models.SplitterPortResponse;
 import mts.ftth.vc4.models.TBPortRequest;
 import mts.ftth.vc4.models.TBPortResponse;
 import mts.ftth.vc4.models.TBoxLC;
 import mts.ftth.vc4.models.UpLineCardRequest;
 import mts.ftth.vc4.models.UpLineCardResponse;
-import mts.ftth.vc4.models.UpSplitterResponse;
 import mts.ftth.vc4.payload.response.APIResponse;
 import mts.ftth.vc4.security.SSLTool;
 import okhttp3.MediaType;
@@ -33,7 +31,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 @Service
-public class LineCardServiceImpl implements LineCardService{
+public class LineCardServiceImpl implements LineCardService {
 	
 	@Autowired
 	VC4Token vc4Token;

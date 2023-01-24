@@ -1,0 +1,9 @@
+
+i	java:S116"TRename this field "module_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õ÷Ù
+V	java:S125&"<This block of commented-out lines of code should be removed.(¶ìóÑùÿÿÿÿ
+Q	java:S125)"<This block of commented-out lines of code should be removed.(ùÕƒ¼
+N	java:S106+"9Replace this use of System.out or System.err by a logger.(¬°²Ó
+N	java:S106,"9Replace this use of System.out or System.err by a logger.(Í½É
+Q	java:S125-"<This block of commented-out lines of code should be removed.(‡è£Ê
+S
+java:S1128"8Remove this unused import 'javax.persistence.Transient'.(Õ„¹ùÿÿÿÿÿ

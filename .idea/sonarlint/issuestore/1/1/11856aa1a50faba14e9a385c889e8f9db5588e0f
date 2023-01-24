@@ -1,0 +1,15 @@
+
+V	java:S125"<This block of commented-out lines of code should be removed.(“Ö³’úÿÿÿÿ
+Q	java:S125%"<This block of commented-out lines of code should be removed.(„œàµ
+^
+java:S1128"HRemove this unused import 'org.springframework.context.annotation.Bean'.(‚î‰Ş
+x
+java:S1128"]Remove this unused import 'org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder'.(åÅÚ…ûÿÿÿÿ
+a
+java:S1128"KRemove this unused import 'springfox.documentation.builders.PathSelectors'.(âİ¸ñ
+p
+java:S1128"URemove this unused import 'springfox.documentation.builders.RequestHandlerSelectors'.(òßª¿ıÿÿÿÿ
+`
+java:S1128"JRemove this unused import 'springfox.documentation.spi.DocumentationType'.(ÉêÉ¥
+d
+java:S1128"NRemove this unused import 'springfox.documentation.spring.web.plugins.Docket'.(‡éÔå

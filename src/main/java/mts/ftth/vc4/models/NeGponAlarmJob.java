@@ -13,133 +13,17 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
+@Setter
+@Getter
 @Entity
-
 @Table(name="NE_GPON_ALARM_JOB", schema = "VC4_ALARM")
 @RequiredArgsConstructor
 public class NeGponAlarmJob  extends Element  {
-	
-	public Long getJobNo() {
-		return jobNo;
-	}
 
-	public void setJobNo(Long jobNo) {
-		this.jobNo = jobNo;
-	}
-
-	public Long getVc4Id() {
-		return vc4Id;
-	}
-
-	public void setVc4Id(Long vc4Id) {
-		this.vc4Id = vc4Id;
-	}
-
-	public Date getPromisedRepairDate() {
-		return promisedRepairDate;
-	}
-
-	public void setPromisedRepairDate(Date promisedRepairDate) {
-		this.promisedRepairDate = promisedRepairDate;
-	}
-
-	public Date getActualRepairDate() {
-		return actualRepairDate;
-	}
-
-	public void setActualRepairDate(Date actualRepairDate) {
-		this.actualRepairDate = actualRepairDate;
-	}
-
-	public String getInstanceClosure() {
-		return instanceClosure;
-	}
-
-	public void setInstanceClosure(String instanceClosure) {
-		this.instanceClosure = instanceClosure;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public Long getJobFlag() {
-		return jobFlag;
-	}
-
-	public void setJobFlag(Long jobFlag) {
-		this.jobFlag = jobFlag;
-	}
-
-	public Date getOutOfService() {
-		return outOfService;
-	}
-
-	public void setOutOfService(Date outOfService) {
-		this.outOfService = outOfService;
-	}
-
-	public String getJobDate() {
-		return jobDate;
-	}
-
-	public void setJobDate(String jobDate) {
-		this.jobDate = jobDate;
-	}
-
-	public String getFinishUser() {
-		return finishUser;
-	}
-
-	public void setFinishUser(String finishUser) {
-		this.finishUser = finishUser;
-	}
-
-	public String getNotes() {
-		return notes;
-	}
-
-	public void setNotes(String notes) {
-		this.notes = notes;
-	}
-
-	public String getFaultReason() {
-		return faultReason;
-	}
-
-	public void setFaultReason(String faultReason) {
-		this.faultReason = faultReason;
-	}
-
-	public String getJponId() {
-		return jponId;
-	}
-
-	public void setJponId(String jponId) {
-		this.jponId = jponId;
-	}
-
-	public String getShelfId() {
-		return shelfId;
-	}
-
-	public void setShelfId(String shelfId) {
-		this.shelfId = shelfId;
-	}
-
-	public String getFaultCode() {
-		return faultCode;
-	}
-
-	public void setFaultCode(String faultCode) {
-		this.faultCode = faultCode;
-	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "id_generator")
@@ -159,7 +43,8 @@ public class NeGponAlarmJob  extends Element  {
 	Date actualRepairDate;
 	
 	@Column(name="INSTANT_CLOSURE")
-	String instanceClosure;
+	@JsonFormat(timezone = "GMT+02:00")
+	Date instanceClosure;
 	
 	@Column(name="USER_NAME")
 	String userName;

@@ -1,0 +1,36 @@
+
+o
+java:S2293<"YReplace the type specification in this constructor call with the diamond operator ("<>").(õ™—
+o
+java:S2293R"YReplace the type specification in this constructor call with the diamond operator ("<>").(õ™—
+t
+java:S2293V"YReplace the type specification in this constructor call with the diamond operator ("<>").(…Í£¢ùÿÿÿÿ
+t
+java:S2293Z"YReplace the type specification in this constructor call with the diamond operator ("<>").(…Í£¢ùÿÿÿÿ
+o
+java:S2293i"YReplace the type specification in this constructor call with the diamond operator ("<>").(õ™—
+p
+java:S2293¸"YReplace the type specification in this constructor call with the diamond operator ("<>").(õ™—
+‹
+java:S11925"pDefine a constant instead of duplicating this literal "##############################################" 10 times.(’Ç£—ùÿÿÿÿ
+V
+java:S2259¬"?A "NullPointerException" could be thrown; "e" is nullable here.(¼îòÕ
+b
+java:S4684m"@Replace this persistent entity with a simple POJO or DTO object.(±ä‹³úÿÿÿÿ8˜À†•Ø0
+Q	java:S125x"<This block of commented-out lines of code should be removed.(ÈÉ ç
+W	java:S125‡"<This block of commented-out lines of code should be removed.(Õ‹ëÿÿÿÿÿ
+R	java:S125"<This block of commented-out lines of code should be removed.(Õçáå
+W	java:S125—"<This block of commented-out lines of code should be removed.(¡Üİÿÿÿÿÿ
+T	java:S106š"9Replace this use of System.out or System.err by a logger.(Ÿûó¯ÿÿÿÿÿ
+W	java:S125›"<This block of commented-out lines of code should be removed.(Ö­Üûÿÿÿÿ
+T
+java:S1905"1Remove this unnecessary cast to "NeGponAlarmJob".(Ø§Åúÿÿÿÿ8À†•Ø0
+S
+java:S1905 "5Remove this unnecessary cast to "NeGponCardAlarmJob".(½œãò8À†•Ø0
+X
+java:S1905¢"5Remove this unnecessary cast to "NeGponPortAlarmJob".(Ğ°©ßøÿÿÿÿ8À†•Ø0
+W
+java:S1905¥"4Remove this unnecessary cast to "NeCabinetAlarmJob".(ß˜şªıÿÿÿÿ8ŸÀ†•Ø0
+N
+java:S1905¨"0Remove this unnecessary cast to "NeBoxAlarmJob".(‹ãÆÚ8ŸÀ†•Ø0
+O	java:S106¬"9Replace this use of System.out or System.err by a logger.(¼îòÕ

@@ -9,6 +9,7 @@ import mts.ftth.vc4.models.User;
 
 public interface UserRepo extends JpaRepository<User, Long>{
 
+	@Query(value="SELECT c FROM User c WHERE upper(c.USERNAME) = upper(?1)", nativeQuery = false)
 	User findByUSERNAME(String USERNAME);
 
 	Boolean existsByUSERNAME(String USERNAME);

@@ -7,4 +7,5 @@ import lombok.Data;
 public class UpLineCardRequest {
 	public String id;
     public ArrayList<PropertyAndValue> propertyAndValues;
+    private String userName;
 }

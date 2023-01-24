@@ -18,4 +18,6 @@ public class UpBox {
 	private String BOX_TYPE;
 	private String BOX_LONG;
 	private String BOX_LAT;
+	private String userName;
+	private String actionName;
 }

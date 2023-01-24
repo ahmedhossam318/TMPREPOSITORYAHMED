@@ -51,11 +51,11 @@ public class NeGponCardAlarmJob  extends Element {
 		this.actualRepairDate = actualRepairDate;
 	}
 
-	public String getInstanceClosure() {
+	public Date getInstanceClosure() {
 		return instanceClosure;
 	}
 
-	public void setInstanceClosure(String instanceClosure) {
+	public void setInstanceClosure(Date instanceClosure) {
 		this.instanceClosure = instanceClosure;
 	}
 
@@ -166,7 +166,8 @@ public class NeGponCardAlarmJob  extends Element {
 	Date actualRepairDate;
 	
 	@Column(name="INSTANT_CLOSURE")
-	String instanceClosure;
+	@JsonFormat(timezone = "GMT+02:00")
+	Date instanceClosure;
 	
 	@Column(name="USER_NAME")
 	String userName;

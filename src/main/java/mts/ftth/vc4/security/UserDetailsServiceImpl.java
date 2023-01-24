@@ -40,6 +40,8 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 		if(user != null) {
 //			user.setEMP_ORG(userRepo.getEmpOrg(user.getWORKER_ID()));
 			user.setPERMISSIONS(userPermRepo.getUserPermissionsByUSER_NAME(username, module_id));
+			System.out.println("username::"+username);
+			System.out.println("username permission::"+user.getPERMISSIONS());
 //			user.setSCOPE(userScopeRepo.getUserDataScopeByUSER_NAME(username));
 //			user.setScopeList(userScopeRepo.getUserDataScopeByUSER_NAME(username));		
 		}else

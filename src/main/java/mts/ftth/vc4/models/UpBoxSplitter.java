@@ -11,6 +11,7 @@ public class UpBoxSplitter {
 	public int bOX_PORT_ID;
 	@JsonProperty("SPLITTER_PORT_ID") 
 	public int sPLITTER_PORT_ID;
+	private String userName;
 //	@JsonProperty("ODF_ID") 
 //	public String oDF_ID;
 //	@JsonProperty("ODF_PORT") 

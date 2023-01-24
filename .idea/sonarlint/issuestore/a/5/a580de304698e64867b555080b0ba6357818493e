@@ -1,0 +1,150 @@
+
+t
+java:S2293n"YReplace the type specification in this constructor call with the diamond operator ("<>").(–¥Ò¿øÿÿÿÿ
+u
+java:S2293‚"YReplace the type specification in this constructor call with the diamond operator ("<>").(–¥Ò¿øÿÿÿÿ
+u
+java:S2293‰"YReplace the type specification in this constructor call with the diamond operator ("<>").(–¥Ò¿øÿÿÿÿ
+u
+java:S2293‘"YReplace the type specification in this constructor call with the diamond operator ("<>").(Â¨Šıúÿÿÿÿ
+u
+java:S2293•"YReplace the type specification in this constructor call with the diamond operator ("<>").(–¥Ò¿øÿÿÿÿ
+u
+java:S2293Ó"YReplace the type specification in this constructor call with the diamond operator ("<>").(–¥Ò¿øÿÿÿÿ
+u
+java:S2293ç"YReplace the type specification in this constructor call with the diamond operator ("<>").(–¥Ò¿øÿÿÿÿ
+u
+java:S2293î"YReplace the type specification in this constructor call with the diamond operator ("<>").(–¥Ò¿øÿÿÿÿ
+u
+java:S2293ö"YReplace the type specification in this constructor call with the diamond operator ("<>").(Â¨Šıúÿÿÿÿ
+u
+java:S2293ù"YReplace the type specification in this constructor call with the diamond operator ("<>").(–¥Ò¿øÿÿÿÿ
+u
+java:S2293ÿ"YReplace the type specification in this constructor call with the diamond operator ("<>").(¤™°öûÿÿÿÿ
+u
+java:S2293¯"YReplace the type specification in this constructor call with the diamond operator ("<>").(–¥Ò¿øÿÿÿÿ
+u
+java:S2293Â"YReplace the type specification in this constructor call with the diamond operator ("<>").(–¥Ò¿øÿÿÿÿ
+u
+java:S2293Ê"YReplace the type specification in this constructor call with the diamond operator ("<>").(Â¨Šıúÿÿÿÿ
+u
+java:S2293Î"YReplace the type specification in this constructor call with the diamond operator ("<>").(–¥Ò¿øÿÿÿÿ
+u
+java:S2293…"YReplace the type specification in this constructor call with the diamond operator ("<>").(–¥Ò¿øÿÿÿÿ
+u
+java:S2293™"YReplace the type specification in this constructor call with the diamond operator ("<>").(–¥Ò¿øÿÿÿÿ
+u
+java:S2293 "YReplace the type specification in this constructor call with the diamond operator ("<>").(–¥Ò¿øÿÿÿÿ
+u
+java:S2293¨"YReplace the type specification in this constructor call with the diamond operator ("<>").(Â¨Šıúÿÿÿÿ
+u
+java:S2293¬"YReplace the type specification in this constructor call with the diamond operator ("<>").(–¥Ò¿øÿÿÿÿ
+u
+java:S2293ä"YReplace the type specification in this constructor call with the diamond operator ("<>").(–¥Ò¿øÿÿÿÿ
+u
+java:S2293ø"YReplace the type specification in this constructor call with the diamond operator ("<>").(–¥Ò¿øÿÿÿÿ
+u
+java:S2293ÿ"YReplace the type specification in this constructor call with the diamond operator ("<>").(–¥Ò¿øÿÿÿÿ
+u
+java:S2293‡"YReplace the type specification in this constructor call with the diamond operator ("<>").(Â¨Šıúÿÿÿÿ
+u
+java:S2293‹"YReplace the type specification in this constructor call with the diamond operator ("<>").(–¥Ò¿øÿÿÿÿ
+b
+java:S1192F"GDefine a constant instead of duplicating this literal "\"\r
+}" 3 times.(èŞÍúÿÿÿÿ
+k
+java:S1192S"PDefine a constant instead of duplicating this literal "response code: " 5 times.(¦Æşÿÿÿÿ
+c
+java:S1192y"HDefine a constant instead of duplicating this literal "Success" 5 times.(îÚ¶ şÿÿÿÿ
+‹
+java:S1192j"pDefine a constant instead of duplicating this literal "No records found for Entity:TEAPI_GET_GPON_LIST" 8 times.(¤›Û—şÿÿÿÿ
+e
+java:S1192K"ODefine a constant instead of duplicating this literal "Authorization" 10 times.(ÀëÛ³
+t
+java:S1192F"YDefine a constant instead of duplicating this literal "\",\r
+    \"TEL_NO\": \"" 3 times.(èŞÍúÿÿÿÿ
+c
+java:S1192L"MDefine a constant instead of duplicating this literal "Content-Type" 8 times.(Û—Éœ
+u
+java:S1192F"ZDefine a constant instead of duplicating this literal "{\r
+    \"CITY_CODE\": \"" 3 times.(èŞÍúÿÿÿÿ
+m
+java:S1192E"RDefine a constant instead of duplicating this literal "application/json" 12 times.(öÁıüÿÿÿÿ
+k
+java:S1192{"PDefine a constant instead of duplicating this literal "No object found" 5 times.(•ÆêÇûÿÿÿÿ
+‡
+java:S1192"kDefine a constant instead of duplicating this literal "An error occured while fetching audit data" 5 times.(Û•…õıÿÿÿÿ
+e
+java:S1192i"JDefine a constant instead of duplicating this literal "not empty" 5 times.(•ííúÿÿÿÿ
+d
+java:S1192B"IDefine a constant instead of duplicating this literal "Bearer " 10 times.(ó¡»‚ÿÿÿÿÿ
+I
+java:S1874F".Remove this use of "create"; it is deprecated.(èŞÍúÿÿÿÿ
+N	java:S106G"9Replace this use of System.out or System.err by a logger.(²Ã·‹
+S	java:S106S"9Replace this use of System.out or System.err by a logger.(¦Æşÿÿÿÿ
+Q
+java:S2696U"6Make the enclosing method "static" or remove this set.(Œ¨ÒÚüÿÿÿÿ
+P
+java:S2209U"5Change this instance-reference to a static reference.(Œ¨ÒÚüÿÿÿÿ
+K
+java:S2209V"5Change this instance-reference to a static reference.(¡ê¸
+N	java:S106f"9Replace this use of System.out or System.err by a logger.(Öï°°
+S	java:S106i"9Replace this use of System.out or System.err by a logger.(•ííúÿÿÿÿ
+N
+java:S1135Œ"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ
+J
+java:S1874¬".Remove this use of "create"; it is deprecated.(èŞÍúÿÿÿÿ
+T	java:S106¸"9Replace this use of System.out or System.err by a logger.(¦Æşÿÿÿÿ
+R
+java:S2696º"6Make the enclosing method "static" or remove this set.(Œ¨ÒÚüÿÿÿÿ
+Q
+java:S2209º"5Change this instance-reference to a static reference.(Œ¨ÒÚüÿÿÿÿ
+L
+java:S2209»"5Change this instance-reference to a static reference.(¡ê¸
+T	java:S106Ë"9Replace this use of System.out or System.err by a logger.( Åó‰úÿÿÿÿ
+T	java:S106Î"9Replace this use of System.out or System.err by a logger.(•ííúÿÿÿÿ
+N
+java:S1135ñ"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ
+O
+java:S1854Š"8Remove this useless assignment to local variable "body".(Ù³Û
+E
+java:S1874Š".Remove this use of "create"; it is deprecated.(Ù³Û
+@
+java:S1481Š")Remove this unused "body" local variable.(Ù³Û
+T	java:S106•"9Replace this use of System.out or System.err by a logger.(¦Æşÿÿÿÿ
+R
+java:S2696—"6Make the enclosing method "static" or remove this set.(Œ¨ÒÚüÿÿÿÿ
+Q
+java:S2209—"5Change this instance-reference to a static reference.(Œ¨ÒÚüÿÿÿÿ
+L
+java:S2209˜"5Change this instance-reference to a static reference.(¡ê¸
+T	java:S106§"9Replace this use of System.out or System.err by a logger.(ëĞÔûÿÿÿÿ
+T	java:S106ª"9Replace this use of System.out or System.err by a logger.(•ííúÿÿÿÿ
+N
+java:S1135Å"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ
+J
+java:S1874Ş".Remove this use of "create"; it is deprecated.(„¡¤üÿÿÿÿ
+T	java:S106ê"9Replace this use of System.out or System.err by a logger.(¦Æşÿÿÿÿ
+R
+java:S2696ì"6Make the enclosing method "static" or remove this set.(Œ¨ÒÚüÿÿÿÿ
+Q
+java:S2209ì"5Change this instance-reference to a static reference.(Œ¨ÒÚüÿÿÿÿ
+L
+java:S2209í"5Change this instance-reference to a static reference.(¡ê¸
+T	java:S106ı"9Replace this use of System.out or System.err by a logger.(Ñ”şÉùÿÿÿÿ
+T	java:S106€"9Replace this use of System.out or System.err by a logger.(•ííúÿÿÿÿ
+N
+java:S1135£"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ
+E
+java:S1874½".Remove this use of "create"; it is deprecated.(òƒ«á
+T	java:S106É"9Replace this use of System.out or System.err by a logger.(¦Æşÿÿÿÿ
+R
+java:S2696Ë"6Make the enclosing method "static" or remove this set.(Œ¨ÒÚüÿÿÿÿ
+Q
+java:S2209Ë"5Change this instance-reference to a static reference.(Œ¨ÒÚüÿÿÿÿ
+L
+java:S2209Ì"5Change this instance-reference to a static reference.(¡ê¸
+T	java:S106Ü"9Replace this use of System.out or System.err by a logger.(…ãÊ…ùÿÿÿÿ
+T	java:S106ß"9Replace this use of System.out or System.err by a logger.(•ííúÿÿÿÿ
+N
+java:S1135‚"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ

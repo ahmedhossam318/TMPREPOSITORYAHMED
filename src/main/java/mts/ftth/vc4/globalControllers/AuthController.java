@@ -1,8 +1,5 @@
 package mts.ftth.vc4.globalControllers;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
-
 //import javax.validation.Valid;
 
 import org.apache.logging.log4j.LogManager;
@@ -18,7 +15,7 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import mts.ftth.vc4.payload.request.LoginRequest;
 import mts.ftth.vc4.payload.response.APIResponse;
-import mts.ftth.vc4.services.AuthService;
+import mts.ftth.vc4.services.apiInterface.AuthService;
 
 @RestController
 @RequestMapping("/api/auth")

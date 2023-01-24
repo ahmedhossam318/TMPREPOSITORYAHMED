@@ -9,7 +9,7 @@ import mts.ftth.vc4.models.UserPermission;
 
 public interface UserPermissionRepo extends JpaRepository<UserPermission, Long>{
 
-	@Query(value="SELECT * FROM so_schema.SC_USER_PERMISSION WHERE USER_NAME = ?1 and MODULE_ID = ?2", nativeQuery = true)
+	@Query(value="SELECT * FROM so_schema.SC_USER_PERMISSION WHERE upper(USER_NAME) = upper(?1) and MODULE_ID = ?2", nativeQuery = true)
 	public Set<UserPermission> getUserPermissionsByUSER_NAME(String USER_NAME, Long MODULE_ID);
 	
 }

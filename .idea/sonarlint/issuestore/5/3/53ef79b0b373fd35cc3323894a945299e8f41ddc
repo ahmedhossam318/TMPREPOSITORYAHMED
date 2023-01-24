@@ -1,0 +1,96 @@
+
+t
+java:S22938"YReplace the type specification in this constructor call with the diamond operator ("<>").(ıÛŠ¬ıÿÿÿÿ
+t
+java:S2293J"YReplace the type specification in this constructor call with the diamond operator ("<>").(ıÛŠ¬ıÿÿÿÿ
+t
+java:S2293\"YReplace the type specification in this constructor call with the diamond operator ("<>").(ıÛŠ¬ıÿÿÿÿ
+t
+java:S2293n"YReplace the type specification in this constructor call with the diamond operator ("<>").(ıÛŠ¬ıÿÿÿÿ
+u
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ıÛŠ¬ıÿÿÿÿ
+u
+java:S2293©"YReplace the type specification in this constructor call with the diamond operator ("<>").(ıÛŠ¬ıÿÿÿÿ
+u
+java:S2293Â"YReplace the type specification in this constructor call with the diamond operator ("<>").(ıÛŠ¬ıÿÿÿÿ
+u
+java:S2293Õ"YReplace the type specification in this constructor call with the diamond operator ("<>").(ıÛŠ¬ıÿÿÿÿ
+u
+java:S2293î"YReplace the type specification in this constructor call with the diamond operator ("<>").(ıÛŠ¬ıÿÿÿÿ
+d
+java:S1192€"HDefine a constant instead of duplicating this literal "CABINET" 3 times.(¬ıË€ÿÿÿÿÿ
+‹
+java:S11920"pDefine a constant instead of duplicating this literal "##############################################" 26 times.(’Ç£—ùÿÿÿÿ
+q
+java:S1488:"[Immediately return this expression instead of assigning it to the temporary variable "res".(ş•ËÒ
+v
+java:S1488L"[Immediately return this expression instead of assigning it to the temporary variable "res".(—âÖıÿÿÿÿ
+q
+java:S1488^"[Immediately return this expression instead of assigning it to the temporary variable "res".(ÅÙ‰
+v
+java:S1488p"[Immediately return this expression instead of assigning it to the temporary variable "res".(Ïï¿øÿÿÿÿ
+p
+java:S1488v"[Immediately return this expression instead of assigning it to the temporary variable "res".(³¬á
+q
+java:S1488}"[Immediately return this expression instead of assigning it to the temporary variable "res".(…´ÑÕ
+w
+java:S1488Ä"[Immediately return this expression instead of assigning it to the temporary variable "res".(´Í™ºıÿÿÿÿ
+w
+java:S1488ğ"[Immediately return this expression instead of assigning it to the temporary variable "res".(ü±ã†ùÿÿÿÿ
+O
+java:S3416"4Update this logger to use "CabinetController.class".(ôáığüÿÿÿÿ
+W
+java:S22093"5Change this instance-reference to a static reference.(Óà °ıÿÿÿÿ8èšúİ0
+M	java:S1064"9Replace this use of System.out or System.err by a logger.(Ìø¾c
+W
+java:S2209E"5Change this instance-reference to a static reference.(Óà °ıÿÿÿÿ8êšúİ0
+M	java:S106F"9Replace this use of System.out or System.err by a logger.(Ìø¾c
+W
+java:S2209W"5Change this instance-reference to a static reference.(Óà °ıÿÿÿÿ8ëšúİ0
+M	java:S106X"9Replace this use of System.out or System.err by a logger.(Ìø¾c
+W
+java:S2209i"5Change this instance-reference to a static reference.(Óà °ıÿÿÿÿ8ìšúİ0
+M	java:S106j"9Replace this use of System.out or System.err by a logger.(Ìø¾c
+O	java:S106…"9Replace this use of System.out or System.err by a logger.(Ê³¢ë
+X
+java:S2209Š"5Change this instance-reference to a static reference.(Óà °ıÿÿÿÿ8îšúİ0
+N	java:S106‹"9Replace this use of System.out or System.err by a logger.(Ìø¾c
+T	java:S106 "9Replace this use of System.out or System.err by a logger.(Æç èıÿÿÿÿ
+X
+java:S2209¤"5Change this instance-reference to a static reference.(Óà °ıÿÿÿÿ8ñšúİ0
+N	java:S106¥"9Replace this use of System.out or System.err by a logger.(Ìø¾c
+X
+java:S2209½"5Change this instance-reference to a static reference.(Óà °ıÿÿÿÿ8óšúİ0
+N	java:S106¾"9Replace this use of System.out or System.err by a logger.(Ìø¾c
+R	java:S125Ë"<This block of commented-out lines of code should be removed.(éµ
+X
+java:S2209Ğ"5Change this instance-reference to a static reference.(Óà °ıÿÿÿÿ8÷šúİ0
+N	java:S106Ñ"9Replace this use of System.out or System.err by a logger.(Ìø¾c
+X
+java:S2209é"5Change this instance-reference to a static reference.(Óà °ıÿÿÿÿ8ûšúİ0
+N	java:S106ê"9Replace this use of System.out or System.err by a logger.(Ìø¾c
+S
+java:S1854÷"<Remove this useless assignment to local variable "response".(ğøåº
+D
+java:S1481÷"-Remove this unused "response" local variable.(ğøåº
+X
+java:S2209û"5Change this instance-reference to a static reference.(Óà °ıÿÿÿÿ8üšúİ0
+R	java:S125ÿ"<This block of commented-out lines of code should be removed.(œä˜Ç
+S
+java:S1854‰"<Remove this useless assignment to local variable "response".(ğøåº
+D
+java:S1481‰"-Remove this unused "response" local variable.(ğøåº
+X
+java:S2209"5Change this instance-reference to a static reference.(Óà °ıÿÿÿÿ8ıšúİ0
+S
+java:S1854™"<Remove this useless assignment to local variable "response".(ğøåº
+c
+java:S4684˜"@Replace this persistent entity with a simple POJO or DTO object.(Ù¹Â°úÿÿÿÿ8şšúİ0
+D
+java:S1481™"-Remove this unused "response" local variable.(ğøåº
+S
+java:S1854ª"<Remove this useless assignment to local variable "response".(ğøåº
+^
+java:S4684©"@Replace this persistent entity with a simple POJO or DTO object.(èëñ‰8ÿšúİ0
+D
+java:S1481ª"-Remove this unused "response" local variable.(ğøåº

@@ -1,23 +1,19 @@
 package mts.ftth.vc4.controllers;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
-import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 import okhttp3.Credentials;
 import mts.ftth.vc4.models.SYS_CONFIG;
 import mts.ftth.vc4.repos.SysConfigRepo;
 import mts.ftth.vc4.security.SSLTool;
-import mts.ftth.vc4.services.SysConfigVC4Service;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

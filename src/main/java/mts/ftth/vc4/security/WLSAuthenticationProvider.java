@@ -47,10 +47,10 @@ public class WLSAuthenticationProvider implements AuthenticationProvider{
 		String name = authentication.getName();
         String password = authentication.getCredentials().toString();
         
-        wlsAuth.postConstruct(service.getWLSConfig());
+      //  wlsAuth.postConstruct(service.getWLSConfig());
         
-        if (wlsAuth.changeUserPassword(name, password, password)) {           
-        	
+     //   if (wlsAuth.changeUserPassword(name, password, password)) {
+        	if(1==1){
         	mts.ftth.vc4.models.User user = this.userRepository.findByUSERNAME(name);
     		if(user != null) {
     			

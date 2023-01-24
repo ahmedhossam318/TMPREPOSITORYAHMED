@@ -10,7 +10,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +22,7 @@ import mts.ftth.vc4.models.AuditSearch;
 import mts.ftth.vc4.models.SYS_AUDIT;
 import mts.ftth.vc4.payload.response.APIResponse;
 import mts.ftth.vc4.security.UserDetailsServiceImpl;
-import mts.ftth.vc4.services.AuditService;
+import mts.ftth.vc4.services.apiInterface.AuditService;
 
 
 @RestController
@@ -38,15 +37,18 @@ public class AuditController {
 	private UserDetailsServiceImpl userDetailsService;
 	
 	private static final Logger logger = LogManager.getLogger(AuditController.class);
-	@PostMapping("")
+	@PostMapping("/getAllAudit")
 	public ResponseEntity<APIResponse> getAllAudit(@RequestBody AuditSearch A,@RequestParam(value = "PageNo") int PageNo,
-			@RequestParam(value = "Size") int Size)
+			@RequestParam(value = "Size") int Size,Authentication auth)
 	{
 		logger.info("##############################################");
 		logger.info("Client request to fetch audit data...");
 		logger.info("##############################################");
 		APIResponse response=new APIResponse();
 		try {
+			System.out.println("in getaudit");
+			System.out.println("user:"+auth.getName() );
+			System.out.println("A.getSACTION_DATE()::"+A.getSACTION_DATE()+"user::"+A.getACTION_DATA());
 			System.out.println(A.toString());
 			List<SYS_AUDIT> objects;
 			Pageable page = PageRequest.of(PageNo-1, Size);

@@ -1,5 +1,11 @@
 package mts.ftth.vc4.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class Gpon {
 	private String id;
 	private String gponid;
@@ -21,113 +27,11 @@ public class Gpon {
 	private String errors;
 	
 	
-	public String getPopid() {
-		return popid;
-	}
-	public void setPopid(String popid) {
-		this.popid = popid;
-	}
-	
-	public String getGponid() {
-		return gponid;
-	}
-	public void setGponid(String gponid) {
-		this.gponid = gponid;
-	}
-	public String getShelfid() {
-		return shelfid;
-	}
-	public void setShelfid(String shelfid) {
-		this.shelfid = shelfid;
-	}
-	public String getVendor() {
-		return vendor;
-	}
-	public void setVendor(String vendor) {
-		this.vendor = vendor;
-	}
-	public String getMsanip() {
-		return msanip;
-	}
-	public void setMsanip(String msanip) {
-		this.msanip = msanip;
-	}
-	public String getMsancode() {
-		return msancode;
-	}
-	public void setMsancode(String msancode) {
-		this.msancode = msancode;
-	}
-	public String getLatitude() {
-		return latitude;
-	}
-	public void setLatitude(String latitude) {
-		this.latitude = latitude;
-	}
-	public String getLongitude() {
-		return longitude;
-	}
-	public void setLongitude(String longitude) {
-		this.longitude = longitude;
-	}
-	public String getGponmodel() {
-		return gponmodel;
-	}
-	public void setGponmodel(String gponmodel) {
-		this.gponmodel = gponmodel;
-	}
-	public String getInstallationlocation() {
-		return installationlocation;
-	}
-	public void setInstallationlocation(String installationlocation) {
-		this.installationlocation = installationlocation;
-	}
-	public String getPopname() {
-		return popname;
-	}
-	public void setPopname(String popname) {
-		this.popname = popname;
-	}
-	public String getExchangename() {
-		return exchangename;
-	}
-	public void setExchangename(String exchangename) {
-		this.exchangename = exchangename;
-	}
-	public String getExchange() {
-		return exchange;
-	}
-	public void setExchange(String exchange) {
-		this.exchange = exchange;
-	}
-	public String getGponname() {
-		return gponname;
-	}
-	public void setGponname(String gponname) {
-		this.gponname = gponname;
-	}
-	public String getRowVersion() {
-		return rowVersion;
-	}
-	public void setRowVersion(String rowVersion) {
-		this.rowVersion = rowVersion;
-	}
-	public String getHasErrors() {
-		return hasErrors;
-	}
-	public void setHasErrors(String hasErrors) {
-		this.hasErrors = hasErrors;
-	}
-	public String getErrors() {
-		return errors;
-	}
-	public void setErrors(String errors) {
-		this.errors = errors;
-	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
+	/// 
+	private String status;
+	private String locationtype;
+	@JsonProperty("switch")
+	private String switchProp;
+	private  String statusname;
+	private  String exchcode;
 }

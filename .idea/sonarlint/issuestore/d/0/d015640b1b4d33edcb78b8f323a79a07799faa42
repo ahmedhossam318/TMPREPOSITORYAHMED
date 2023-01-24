@@ -1,0 +1,53 @@
+
+f	java:S117""QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶×Úä
+k	java:S117("QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„íŒøøÿÿÿÿ
+f	java:S117."QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™Öö
+k	java:S1174"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŠŠîüÿÿÿÿ
+k	java:S117:"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ë®¯øÿÿÿÿ
+k	java:S117@"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›§“°şÿÿÿÿ
+f	java:S117F"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öòæÏ
+e	java:S117L"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ü¾ 
+e	java:S117R"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œ¦Òa
+k	java:S117X"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÎÀæ€ùÿÿÿÿ
+k	java:S117^"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£øü¶øÿÿÿÿ
+f	java:S117d"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íÛåÖ
+i	java:S116"TRename this field "EXCH_CODE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°ÓµÛ
+i	java:S116"URename this field "CABINET_NO" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›“íK
+p	java:S116"VRename this field "SPLITTER_ID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŠØŸæıÿÿÿÿ
+l	java:S116"RRename this field "GPON_ID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®¾¡‰üÿÿÿÿ
+o	java:S116"URename this field "GPON_SHELF" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤‹â¨ÿÿÿÿÿ
+h	java:S116"TRename this field "GPON_CARD" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ı²İl
+i	java:S116"TRename this field "GPON_PORT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²ÌÆ»
+i	java:S116"TRename this field "MMR_A_ODF" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(òı£Õ
+i	java:S116"URename this field "MMR_A_PORT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹¯¨e
+i	java:S116"TRename this field "MMR_P_ODF" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­²¾
+i	java:S116"URename this field "MMR_P_PORT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ıÅ—
+r	java:S116"XRename this field "SPLITTER_TYPE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚íÄíùÿÿÿÿ
+h	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™¡ğ—üÿÿÿÿ
+c	java:S100""NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶×Úä
+c	java:S100%"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æØô
+h	java:S100("NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„íŒøøÿÿÿÿ
+h	java:S100+"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©ëÏ®øÿÿÿÿ
+c	java:S100."NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™Öö
+c	java:S1001"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Îœ’³
+h	java:S1004"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŠŠîüÿÿÿÿ
+h	java:S1007"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ãÁÌşÿÿÿÿ
+h	java:S100:"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ë®¯øÿÿÿÿ
+c	java:S100="NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñªç¥
+h	java:S100@"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›§“°şÿÿÿÿ
+h	java:S100C"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰óß–ÿÿÿÿÿ
+c	java:S100F"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öòæÏ
+b	java:S100I"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÎúÖ;
+b	java:S100L"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ü¾ 
+b	java:S100O"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğ/
+b	java:S100R"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œ¦Òa
+c	java:S100U"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëşç€
+h	java:S100X"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÎÀæ€ùÿÿÿÿ
+h	java:S100["NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª•ğŞúÿÿÿÿ
+h	java:S100^"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£øü¶øÿÿÿÿ
+b	java:S100a"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷ÀÎk
+c	java:S100d"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íÛåÖ
+`
+java:S1128"JRemove this unused import 'com.fasterxml.jackson.annotation.JsonProperty'.(ËÃ§Ï
+C
+java:S1128"(Remove this unused import 'lombok.Data'.(÷í«ÿÿÿÿÿ

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import mts.ftth.vc4.payload.response.APIResponse;
-import mts.ftth.vc4.services.ODFService;
+import mts.ftth.vc4.services.apiInterface.ODFService;
 
 @RestController
 @RequestMapping("/api/odf")
@@ -43,6 +43,25 @@ private static final Logger logger = LogManager.getLogger(GponController.class);
 			return new ResponseEntity<APIResponse>(response, HttpStatus.REQUEST_TIMEOUT);
 		}
 		ResponseEntity<APIResponse> res = odfService.GetODFList(token);
+		return res;
+	}
+	
+	@GetMapping("/getODFListByExch")
+	public ResponseEntity<APIResponse> getODFListByExch(@RequestParam(value = "ExchCode") String exchCode){
+		String token ="";
+		APIResponse response=new APIResponse();
+		logger.info("##############################################");
+		logger.info("Client request to fetch getODFListByExch...");
+		logger.info("##############################################");
+		token = vc4Token.token;
+		System.out.println("tt :" +token);
+		System.out.println("exchCode::" +exchCode);
+		if(token.equals("Fail")) {
+			response.setStatus(HttpStatus.REQUEST_TIMEOUT);
+			response.setStatusCode(HttpStatus.REQUEST_TIMEOUT.value());
+			return new ResponseEntity<APIResponse>(response, HttpStatus.REQUEST_TIMEOUT);
+		}
+		ResponseEntity<APIResponse> res = odfService.GetODFListByExch(token,exchCode);
 		return res;
 	}
 	

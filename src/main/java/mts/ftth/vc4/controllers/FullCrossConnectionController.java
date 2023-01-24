@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import mts.ftth.vc4.payload.response.APIResponse;
-import mts.ftth.vc4.services.FullCrossConnectionService;
+import mts.ftth.vc4.services.apiInterface.FullCrossConnectionService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

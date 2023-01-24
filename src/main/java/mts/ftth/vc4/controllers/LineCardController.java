@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
+import mts.ftth.vc4.models.SYS_AUDIT;
 import mts.ftth.vc4.models.TBPortRequest;
-import mts.ftth.vc4.models.UpBox;
 import mts.ftth.vc4.models.UpLineCardRequest;
 import mts.ftth.vc4.payload.response.APIResponse;
-import mts.ftth.vc4.services.LineCardService;
+import mts.ftth.vc4.services.apiInterface.AuditService;
+import mts.ftth.vc4.services.apiInterface.LineCardService;
 
 @RestController
 @RequestMapping("/api/LineCard")
@@ -34,6 +34,9 @@ public class LineCardController {
 
 	@Autowired
 	VC4Token vc4Token;
+	
+	@Autowired
+	AuditService audService;
 	
 	@GetMapping("/getLineCardActiveData")
 	public ResponseEntity<APIResponse> getLineCardActiveData(@RequestParam(value = "CityCode") String cityCode,@RequestParam(value = "TelNo") String telNo){
@@ -123,6 +126,12 @@ public class LineCardController {
 			return new ResponseEntity<APIResponse>(response, HttpStatus.REQUEST_TIMEOUT);
 		}
 		ResponseEntity<APIResponse> res = linecardService.updateFccLineCard(token, req);
+		SYS_AUDIT s = new SYS_AUDIT();
+		s.setACTION("UPDATE_FCC_LC");
+		s.setACTION_BY(req.getUserName());
+		s.setELEMENT_TYPE("FCC_LC");
+		s.setELEMENT_VALUE(String.valueOf(req.getId()));
+		audService.audit(s);
 		return res;
 	}
 
