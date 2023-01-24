@@ -1,0 +1,28 @@
+
+o
+java:S2293."YReplace the type specification in this constructor call with the diamond operator ("<>").(”«¿¾
+t
+java:S2293]"YReplace the type specification in this constructor call with the diamond operator ("<>").(–¥Ò¿øÿÿÿÿ
+t
+java:S2293p"YReplace the type specification in this constructor call with the diamond operator ("<>").(–¥Ò¿øÿÿÿÿ
+t
+java:S2293x"YReplace the type specification in this constructor call with the diamond operator ("<>").(Â¨Šıúÿÿÿÿ
+t
+java:S2293|"YReplace the type specification in this constructor call with the diamond operator ("<>").(–¥Ò¿øÿÿÿÿ
+N
+java:S18549"8Remove this useless assignment to local variable "body".(Ù³Û
+D
+java:S18749".Remove this use of "create"; it is deprecated.(Ù³Û
+?
+java:S14819")Remove this unused "body" local variable.(Ù³Û
+S	java:S106D"9Replace this use of System.out or System.err by a logger.(¦Æşÿÿÿÿ
+Q
+java:S2696F"6Make the enclosing method "static" or remove this set.(Œ¨ÒÚüÿÿÿÿ
+P
+java:S2209F"5Change this instance-reference to a static reference.(Œ¨ÒÚüÿÿÿÿ
+K
+java:S2209G"5Change this instance-reference to a static reference.(¡ê¸
+S	java:S106U"9Replace this use of System.out or System.err by a logger.(‡ø‹˜ùÿÿÿÿ
+S	java:S106X"9Replace this use of System.out or System.err by a logger.(•ííúÿÿÿÿ
+M
+java:S1135s"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ

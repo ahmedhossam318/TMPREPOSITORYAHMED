@@ -1,0 +1,26 @@
+
+E
+java:S3740A"/Provide the parametrized type for this generic.(ğàĞ¨
+E
+java:S3740A"/Provide the parametrized type for this generic.(ğàĞ¨
+{
+java:S1192M"`Use already-defined constant 'PROTOCOL_PROVIDER_PACKAGES' instead of duplicating its value here.(¡È¿ëùÿÿÿÿ
+m
+java:S1192€"QDefine a constant instead of duplicating this literal "java.lang.String" 3 times.(ÁâÅ‰şÿÿÿÿ
+f	java:S117*"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±çèË
+
+java:S1450"fRemove the "authenticationProviders" field and declare it as a local variable in the relevant methods.(ŸÖ•øÿÿÿÿ
+l
+java:S1149A"VReplace the synchronized class "Hashtable" by an unsynchronized one such as "HashMap".(ğàĞ¨
+V	java:S125"<This block of commented-out lines of code should be removed.(¹¶§‹ùÿÿÿÿ
+V	java:S125%"<This block of commented-out lines of code should be removed.(§¹É•úÿÿÿÿ
+Q	java:S125+"<This block of commented-out lines of code should be removed.(ëØµ¤
+V	java:S1255"<This block of commented-out lines of code should be removed.(¸ØÊşÿÿÿÿ
+V	java:S125D"<This block of commented-out lines of code should be removed.(æíÒğûÿÿÿÿ
+T
+java:S2130G"9Use "Integer.parseInt" for this string-to-int conversion.(ˆæÌéşÿÿÿÿ
+V	java:S125v"<This block of commented-out lines of code should be removed.(şĞåäúÿÿÿÿ
+Q	java:S125{"<This block of commented-out lines of code should be removed.(¢áõñ
+R	java:S125‚"<This block of commented-out lines of code should be removed.(çŞóÁ
+W	java:S125…"<This block of commented-out lines of code should be removed.(è·¹Íúÿÿÿÿ
+R	java:S125ˆ"<This block of commented-out lines of code should be removed.(áø—ˆ

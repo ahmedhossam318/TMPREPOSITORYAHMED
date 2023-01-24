@@ -1,0 +1,37 @@
+
+`	java:S112P"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+>
+java:S1604"(Make this anonymous inner class a lambda(äÚöÓ
+C
+java:S1604F"(Make this anonymous inner class a lambda(÷’È³üÿÿÿÿ
+z
+java:S1488M"dImmediately return this expression instead of assigning it to the temporary variable "okHttpClient".(€ÜÏğ
+—
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ãë±ç
+œ
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(øŞäÍÿÿÿÿÿ
+V
+java:S4830"@Enable server certificate validation on this SSL/TLS connection.(ãë±ç
+[
+java:S4830"@Enable server certificate validation on this SSL/TLS connection.(øŞäÍÿÿÿÿÿ
+U
+java:S5527"?Enable server hostname verification on this SSL/TLS connection.(“Œ‡
+G
+java:S4423"",Change this code to use a stronger protocol.(êßö ûÿÿÿÿ
+C	java:S108&")Either remove or fill this block of code.(¬Àáªøÿÿÿÿ
+œ
+java:S11860"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ôûÿŸøÿÿÿÿ
+œ
+java:S11864"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ı¬Â½úÿÿÿÿ
+[
+java:S48300"@Enable server certificate validation on this SSL/TLS connection.(ôûÿŸøÿÿÿÿ
+[
+java:S48304"@Enable server certificate validation on this SSL/TLS connection.(ı¬Â½úÿÿÿÿ
+B
+java:S4423?",Change this code to use a stronger protocol.(ÿ¶¶Ó
+U
+java:S5527I"?Enable server hostname verification on this SSL/TLS connection.(§¼Éç
+^
+java:S1128"IRemove this unused import 'org.apache.http.conn.ClientConnectionManager'.(«ëİ
+_
+java:S1128"JRemove this unused import 'org.apache.http.impl.client.DefaultHttpClient'.(Ç’¨

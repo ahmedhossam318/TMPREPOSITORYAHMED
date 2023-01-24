@@ -1,0 +1,8 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ˆ§¨øÿÿÿÿ8Ü÷¥Ëİ0
+V	java:S125"<This block of commented-out lines of code should be removed.(ÕšÃâúÿÿÿÿ
+f
+java:S1128
+"DRemove this unused import 'org.springframework.http.ResponseEntity'.(¶¯ø¦úÿÿÿÿ8Û”†•Ø0
+h
+java:S1128"FRemove this unused import 'mts.ftth.vc4.payload.response.APIResponse'.(ºù©æúÿÿÿÿ8Ü”†•Ø0

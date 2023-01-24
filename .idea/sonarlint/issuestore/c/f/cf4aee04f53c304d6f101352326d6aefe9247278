@@ -1,0 +1,33 @@
+
+g	java:S116"RRename this field "QueueId" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª›ÊÆ
+l	java:S116"RRename this field "FccCode" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿™Ù—úÿÿÿÿ
+m	java:S116""SRename this field "GponHost" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëÕÒ×øÿÿÿÿ
+j	java:S116%"PRename this field "PopId" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Üª½ÿÿÿÿÿ
+g	java:S116("RRename this field "PopName" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒ®®İ
+h	java:S116+"TRename this field "CabinCode" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Úò•H
+e	java:S116."PRename this field "Shelf" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ô‹®Ö
+d	java:S1161"ORename this field "Card" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦…Ï
+m	java:S1164"SRename this field "GponPort" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñÃ¦ÿÿÿÿÿ
+k	java:S1167"WRename this field "MmrActiveOdf" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡û\
+r	java:S116:"XRename this field "MmrActivePort" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙƒÖÉıÿÿÿÿ
+m	java:S116="XRename this field "MmrPassiveOdf" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾Ÿÿ¤
+m	java:S116@"YRename this field "MmrPassivePort" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜¶ûY
+k	java:S116C"WRename this field "PassiveCabin" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–ªÚ4
+n	java:S116F"TRename this field "BoxNumber" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡«ğ¥ûÿÿÿÿ
+j	java:S116I"VRename this field "BoxCapacity" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™ĞÍK
+n	java:S116L"ZRename this field "CabinSplitterId" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘Ú‚"
+p	java:S116O"\Rename this field "CabinSplitterPort" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŒœŸ%
+z	java:S116R"`Rename this field "CabinSplitterCapacity" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Å’‹ùÿÿÿÿ
+m	java:S116U"SRename this field "Building" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®Ãÿ²ùÿÿÿÿ
+o	java:S116X"URename this field "CopperExch" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø¿ª„üÿÿÿÿ
+r	java:S116["XRename this field "CopperCabinet" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜¡„°øÿÿÿÿ
+n	java:S116^"TRename this field "CopperBox" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•„Ú”øÿÿÿÿ
+f	java:S116a"QRename this field "Status" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×˜ñ
+k	java:S116d"QRename this field "FileId" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Üºû¦üÿÿÿÿ
+o	java:S116g"URename this field "FailReason" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ŒÀŸşÿÿÿÿ
+o	java:S116k"URename this field "UploadDate" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®à·Ùıÿÿÿÿ
+h	java:S116n"SRename this field "UserName" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(È”¸„
+g	java:S116q"MRename this field "Ip" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÁãåÚıÿÿÿÿ
+o	java:S116u"URename this field "UpdateDate" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŒØ‰”ıÿÿÿÿ
+J
+java:S1128"(Remove this unused import 'lombok.Data'.(÷í«ÿÿÿÿÿ8Šåœ•Ø0

@@ -1,0 +1,10 @@
+
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(÷èÃ«ûÿÿÿÿ
+n	java:S116""TRename this field "ACTION_ID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬Úä¢ıÿÿÿÿ
+q	java:S116$"WRename this field "ELEMENT_TYPE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆ¶©ıÿÿÿÿ
+k	java:S116'"VRename this field "ACTION_DATE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒ˜û
+n	java:S116)"TRename this field "ACTION_BY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ï§ô’ùÿÿÿÿ
+k	java:S116+"QRename this field "ACTION" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(– ìïúÿÿÿÿ
+r	java:S116-"XRename this field "ELEMENT_VALUE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡¢ÀÆşÿÿÿÿ
+S
+java:S1128"8Remove this unused import 'javax.persistence.Transient'.(Õ„¹ùÿÿÿÿÿ

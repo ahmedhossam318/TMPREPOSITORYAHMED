@@ -1,0 +1,15 @@
+
+I
+java:S1444.".Make this "public static userName" field final(Œªâëûÿÿÿÿ
+I
+java:S14440".Make this "public static password" field final(İÿ¢şÿÿÿÿ
+?
+java:S14442")Make this "public static url" field final(éç¹
+Q	java:S125I"<This block of commented-out lines of code should be removed.(ºÖÔã
+V	java:S125O"<This block of commented-out lines of code should be removed.(˜Ã½Øùÿÿÿÿ
+V	java:S125h"<This block of commented-out lines of code should be removed.(‚µÙüÿÿÿÿ
+V	java:S125p"<This block of commented-out lines of code should be removed.(óü”¤øÿÿÿÿ
+n
+java:S1128"SRemove this unused import 'org.springframework.beans.factory.annotation.Autowired'.(¡¸Îùÿÿÿÿ
+[
+java:S1128"@Remove this unused import 'org.springframework.http.HttpMethod'.(Ê¨Ä¡øÿÿÿÿ

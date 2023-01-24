@@ -1,0 +1,7 @@
+
+m	java:S116"SRename this field "USERNAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™½µşÿÿÿÿ
+p	java:S116"VRename this field "ACTION_DATA" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†Ø€¦úÿÿÿÿ
+l	java:S116"WRename this field "FACTION_DATE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Æ¬´Í
+q	java:S116"WRename this field "SACTION_DATE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ò¯Ëøşÿÿÿÿ
+A
+java:S1128"+Remove this unused import 'java.util.Date'.(¸…¼ü

@@ -1,0 +1,6 @@
+
+r	java:S116"XRename this field "PERMISSION_ID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µ‚Šıÿÿÿÿ
+l	java:S116"RRename this field "USER_ID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–àĞíÿÿÿÿÿ
+n	java:S116"TRename this field "MODULE_ID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•’ï„úÿÿÿÿ
+n	java:S116"TRename this field "USER_NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Æ²¾õşÿÿÿÿ
+o	java:S116"ZRename this field "PERMISSION_NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ööÁá

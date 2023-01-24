@@ -1,0 +1,13 @@
+
+v
+java:S2293/"YReplace the type specification in this constructor call with the diamond operator ("<>").(õ™—8ôŸÛ×0
+v
+java:S2293:"YReplace the type specification in this constructor call with the diamond operator ("<>").(õ™—8õŸÛ×0
+‘
+java:S1192%"oDefine a constant instead of duplicating this literal "##############################################" 4 times.(’Ç£—ùÿÿÿÿ8õŸÛ×0
+b
+java:S3416"@Update this logger to use "FTTHCrossConnectionController.class".(åüÇüÿÿÿÿ8Ì¦Û×0
+U	java:S106)"9Replace this use of System.out or System.err by a logger.(­ˆØ8«Û×0
+X	java:S125*"<This block of commented-out lines of code should be removed.(ïÿÒÌ8«Û×0
+s
+java:S1128"QRemove this unused import 'org.springframework.web.bind.annotation.RequestParam'.(Â¬À·ùÿÿÿÿ8œ¬Û×0

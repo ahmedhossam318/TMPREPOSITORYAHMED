@@ -1,0 +1,12 @@
+
+X
+java:S49770"=Rename "T" which hides a type parameter from the outer scope.(°Ηϋιόÿÿÿÿ
+S
+java:S1128"8Remove this unused import 'mts.ftth.vc4.models.Cabinet'.(―΄Ούÿÿÿÿ
+[
+java:S1128
+"@Remove this unused import 'org.springframework.http.HttpStatus'.(ν¤ϊÿÿÿÿ
+o
+java:S1128"TRemove this unused import 'org.springframework.web.client.HttpClientErrorException'.(π»ςψÿÿÿÿ
+o
+java:S1128"TRemove this unused import 'org.springframework.web.client.HttpServerErrorException'.(ιεωÿÿÿÿ
